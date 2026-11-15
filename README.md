@@ -7,5 +7,6 @@
 ```bash
 uv sync
 uv run python scripts/check_sources.py --samples 3   # 新聞來源健康檢查
+uv run python -m pipeline.main --edition noon        # 產生一刊（目前一律是降級版）
 uv run pytest
 ```

@@ -37,7 +37,8 @@ class EditionSettings(_Strict):
 
 class ProcessingSettings(_Strict):
     max_items_per_edition: int = 200
-    title_similarity_threshold: int = 85
+    title_similarity_threshold: int = 85  # 英文等拼音文字
+    title_similarity_threshold_cjk: int = 60  # 中日韓文（各家改寫幅度大，分數普遍偏低）
     summarize_top_n: int = 80
     summarize_min_importance: int = 2
     headlines_min: int = 5

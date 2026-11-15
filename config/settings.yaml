@@ -19,7 +19,8 @@ edition:
 
 processing:
   max_items_per_edition: 200       # 送進 LLM 的最多事件數，超過的先用規則篩掉
-  title_similarity_threshold: 85   # 標題相似度（0～100）≥ 此值視為同一事件
+  title_similarity_threshold: 85   # 標題相似度（0～100）≥ 此值視為同一事件（英文）
+  title_similarity_threshold_cjk: 60  # 中日韓文標題的門檻（各家改寫幅度大，實測同一事件多在 60～80）
   summarize_top_n: 80              # 只替前 N 則寫摘要
   summarize_min_importance: 2      # 重要度低於此值不寫摘要
   headlines_min: 5
