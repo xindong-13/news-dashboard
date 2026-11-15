@@ -1,0 +1,64 @@
+# 全域設定。時間一律以台北時間理解。
+
+timezone: Asia/Taipei
+
+http:
+  # M6 建立 GitHub repo 後，把網址換成實際的 repo，讓對方知道是誰在抓
+  user_agent: "news-dashboard/0.1 (personal news digest; +https://github.com/)"
+  timeout_seconds: 20
+  per_domain_delay_seconds: 1.0
+  domain_delays:
+    lol.fandom.com: 2.0
+    news.google.com: 1.5
+  respect_robots_txt: true
+
+edition:
+  noon_cutoff: "16:30"       # 早於這個時間執行算午報，否則算晚報
+  default_lookback_hours: 12 # 找不到上一刊時往回抓幾小時
+  max_window_hours: 24       # 漏刊時，時間範圍最長幾小時
+
+processing:
+  max_items_per_edition: 200       # 送進 LLM 的最多事件數，超過的先用規則篩掉
+  title_similarity_threshold: 85   # 標題相似度（0～100）≥ 此值視為同一事件
+  summarize_top_n: 80              # 只替前 N 則寫摘要
+  summarize_min_importance: 2      # 重要度低於此值不寫摘要
+  headlines_min: 5
+  headlines_max: 8
+
+esports:
+  league_priority: [lck, lpl, international, other]
+  offseason:                 # 休賽季：轉會、陣容異動的重要度 +1
+    - start: "11-01"
+      end: "01-31"
+  offseason_boost_tags: [transfer, roster]
+
+llm:
+  # 依序嘗試；遇到 429 或錯誤時退避重試一次，再換下一個。沒設定 API key 的會自動跳過。
+  # 模型名稱以 M3 實作當下的官方文件為準。
+  providers:
+    - name: gemini
+      model: gemini-flash-latest
+      api_key_env: GEMINI_API_KEY
+    - name: groq
+      model: llama-3.3-70b-versatile
+      api_key_env: GROQ_API_KEY
+    - name: anthropic
+      model: claude-haiku-5-5
+      api_key_env: ANTHROPIC_API_KEY
+  batch_size: 30
+  request_timeout_seconds: 120
+  retry_backoff_seconds: 20
+
+markets:
+  items:
+    - { symbol: "^TWII", name: 台股加權指數, twse_fallback: TAIEX }
+    - { symbol: "2330.TW", name: 台積電, twse_fallback: "2330" }
+    - { symbol: "^DJI", name: 道瓊工業指數 }
+    - { symbol: "^GSPC", name: S&P 500 }
+    - { symbol: "^IXIC", name: 那斯達克 }
+    - { symbol: "^SOX", name: 費城半導體 }
+    - { symbol: "TWD=X", name: 美元兌台幣 }
+    - { symbol: "^TNX", name: 美國10年期公債殖利率 }
+    - { symbol: "GC=F", name: 黃金 }
+    - { symbol: "CL=F", name: 原油（WTI） }
+    - { symbol: "BTC-USD", name: 比特幣 }

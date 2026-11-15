@@ -1,0 +1,475 @@
+# 新聞來源設定
+#
+# 欄位說明：
+#   id          唯一代號（英數、底線）
+#   name        顯示在網站上的來源名稱
+#   url         RSS 網址或 API 網址
+#   type        rss | api
+#   parser      type=api 時必填：cnyes | twse_news | leaguepedia_news
+#   category    taiwan | world | finance | esports
+#   language    zh-TW | zh-CN | en | ko（zh-CN 會自動轉成繁體）
+#   weight      0～3，可信度／重要度權重，預設 1
+#   enabled     false 就不抓
+#   選填：subcategory、game（lol/valorant/cs2）、league（lck/lpl/international/other）、
+#         max_items（預設 40）、keywords、exclude_keywords、ignore_robots、note
+#
+# 新增來源後，跑 `uv run python scripts/check_sources.py --id 新的id` 確認抓得到。
+# 實測結果與換掉的來源見 DECISIONS.md。
+
+sources:
+  # ===========================================================================
+  # 台灣（政治／社會）
+  # 立場分布：中央社（公營）、自由時報、新頭殼（偏綠）、Yahoo 新聞（轉載聯合、中時、TVBS 等）、
+  #           ETtoday、Google 新聞（多家彙整）
+  # ===========================================================================
+  - id: cna_politics
+    name: 中央社
+    url: https://feeds.feedburner.com/rsscna/politics
+    type: rss
+    category: taiwan
+    subcategory: politics
+    language: zh-TW
+    weight: 1.3
+  - id: cna_social
+    name: 中央社
+    url: https://feeds.feedburner.com/rsscna/social
+    type: rss
+    category: taiwan
+    subcategory: society
+    language: zh-TW
+    weight: 1.2
+  - id: cna_mainland
+    name: 中央社
+    url: https://feeds.feedburner.com/rsscna/mainland
+    type: rss
+    category: taiwan
+    subcategory: cross_strait
+    language: zh-TW
+    weight: 1.1
+    max_items: 20
+  - id: ltn_politics
+    name: 自由時報
+    url: https://news.ltn.com.tw/rss/politics.xml
+    type: rss
+    category: taiwan
+    subcategory: politics
+    language: zh-TW
+  - id: ltn_society
+    name: 自由時報
+    url: https://news.ltn.com.tw/rss/society.xml
+    type: rss
+    category: taiwan
+    subcategory: society
+    language: zh-TW
+    weight: 0.9
+  - id: yahoo_politics
+    name: Yahoo 新聞
+    url: https://tw.news.yahoo.com/rss/politics
+    type: rss
+    category: taiwan
+    subcategory: politics
+    language: zh-TW
+    note: 轉載聯合、中時、TVBS 等多家，補足不同立場
+  - id: yahoo_society
+    name: Yahoo 新聞
+    url: https://tw.news.yahoo.com/rss/society
+    type: rss
+    category: taiwan
+    subcategory: society
+    language: zh-TW
+    weight: 0.8
+  - id: ettoday_news
+    name: ETtoday
+    url: https://feeds.feedburner.com/ettoday/news
+    type: rss
+    category: taiwan
+    language: zh-TW
+    weight: 0.9
+  - id: newtalk_politics
+    name: 新頭殼
+    url: https://newtalk.tw/rss/category/2
+    type: rss
+    category: taiwan
+    subcategory: politics
+    language: zh-TW
+    weight: 0.8
+  - id: gnews_tw_top
+    name: Google 新聞
+    url: https://news.google.com/rss?hl=zh-TW&gl=TW&ceid=TW:zh-Hant
+    type: rss
+    category: taiwan
+    language: zh-TW
+    weight: 0.9
+    ignore_robots: true
+  - id: gnews_tw_nation
+    name: Google 新聞
+    url: https://news.google.com/rss/headlines/section/topic/NATION?hl=zh-TW&gl=TW&ceid=TW:zh-Hant
+    type: rss
+    category: taiwan
+    language: zh-TW
+    weight: 0.9
+    ignore_robots: true
+  - id: pts
+    name: 公視新聞網
+    url: https://news.pts.org.tw/xml/newsfeed.xml
+    type: rss
+    category: taiwan
+    language: zh-TW
+    weight: 1.2
+    enabled: false
+    note: 2026-11-15 實測：連線被對方重設（WinError 10054），先停用
+  - id: udn_politics
+    name: 聯合新聞網
+    url: https://udn.com/rssfeed/news/2/6638?ch=news
+    type: rss
+    category: taiwan
+    subcategory: politics
+    language: zh-TW
+    enabled: false
+    note: 2026-11-15 實測：回 200 但每則標題、連結都是空的；聯合系改由 Yahoo 新聞與經濟日報補
+
+  # ===========================================================================
+  # 國際
+  # ===========================================================================
+  - id: bbc_world
+    name: BBC News
+    url: https://feeds.bbci.co.uk/news/world/rss.xml
+    type: rss
+    category: world
+    language: en
+    weight: 1.3
+  - id: bbc_zh
+    name: BBC 中文
+    url: https://feeds.bbci.co.uk/zhongwen/trad/rss.xml
+    type: rss
+    category: world
+    language: zh-TW
+    weight: 1.2
+  - id: dw_zh
+    name: 德國之聲
+    url: https://rss.dw.com/xml/rss-chi-all
+    type: rss
+    category: world
+    language: zh-CN
+    weight: 1.1
+  - id: rfi_zh
+    name: 法廣 RFI
+    url: https://www.rfi.fr/tw/rss
+    type: rss
+    category: world
+    language: zh-TW
+    weight: 1.1
+  - id: npr_world
+    name: NPR
+    url: https://feeds.npr.org/1004/rss.xml
+    type: rss
+    category: world
+    language: en
+  - id: guardian_world
+    name: The Guardian
+    url: https://www.theguardian.com/world/rss
+    type: rss
+    category: world
+    language: en
+  - id: cna_world
+    name: 中央社
+    url: https://feeds.feedburner.com/rsscna/intworld
+    type: rss
+    category: world
+    language: zh-TW
+    weight: 1.1
+  - id: gnews_world_zh
+    name: Google 新聞
+    url: https://news.google.com/rss/headlines/section/topic/WORLD?hl=zh-TW&gl=TW&ceid=TW:zh-Hant
+    type: rss
+    category: world
+    language: zh-TW
+    weight: 0.9
+    ignore_robots: true
+  - id: gnews_world_en
+    name: Google News
+    url: https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en
+    type: rss
+    category: world
+    language: en
+    weight: 0.9
+    ignore_robots: true
+
+  # ===========================================================================
+  # 財經
+  # ===========================================================================
+  - id: cnyes_headline
+    name: 鉅亨網
+    url: https://api.cnyes.com/media/api/v1/newslist/category/headline?limit=30
+    type: api
+    parser: cnyes
+    category: finance
+    language: zh-TW
+  - id: cnyes_tw_stock
+    name: 鉅亨網
+    url: https://api.cnyes.com/media/api/v1/newslist/category/tw_stock?limit=30
+    type: api
+    parser: cnyes
+    category: finance
+    subcategory: tw_stock
+    language: zh-TW
+  - id: cnyes_wd_stock
+    name: 鉅亨網
+    url: https://api.cnyes.com/media/api/v1/newslist/category/wd_stock?limit=30
+    type: api
+    parser: cnyes
+    category: finance
+    subcategory: us_stock
+    language: zh-TW
+  - id: cnyes_forex
+    name: 鉅亨網
+    url: https://api.cnyes.com/media/api/v1/newslist/category/forex?limit=15
+    type: api
+    parser: cnyes
+    category: finance
+    subcategory: forex
+    language: zh-TW
+    max_items: 15
+  - id: cna_finance
+    name: 中央社
+    url: https://feeds.feedburner.com/rsscna/finance
+    type: rss
+    category: finance
+    language: zh-TW
+    weight: 1.2
+  - id: money_udn_stock
+    name: 經濟日報
+    url: https://money.udn.com/rssfeed/news/1001/5590?ch=money
+    type: rss
+    category: finance
+    subcategory: tw_stock
+    language: zh-TW
+  - id: money_udn_industry
+    name: 經濟日報
+    url: https://money.udn.com/rssfeed/news/1001/5591?ch=money
+    type: rss
+    category: finance
+    subcategory: industry
+    language: zh-TW
+  - id: money_udn_main
+    name: 經濟日報
+    url: https://money.udn.com/rssfeed/news/1001/5588?ch=money
+    type: rss
+    category: finance
+    language: zh-TW
+  - id: cnbc_top
+    name: CNBC
+    url: https://www.cnbc.com/id/100003114/device/rss/rss.html
+    type: rss
+    category: finance
+    language: en
+    weight: 1.1
+  - id: cnbc_markets
+    name: CNBC
+    url: https://www.cnbc.com/id/20910258/device/rss/rss.html
+    type: rss
+    category: finance
+    subcategory: us_stock
+    language: en
+  - id: marketwatch_top
+    name: MarketWatch
+    url: https://feeds.content.dowjones.io/public/rss/mw_topstories
+    type: rss
+    category: finance
+    language: en
+  - id: gnews_business_tw
+    name: Google 新聞
+    url: https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=zh-TW&gl=TW&ceid=TW:zh-Hant
+    type: rss
+    category: finance
+    language: zh-TW
+    weight: 0.9
+    ignore_robots: true
+  - id: twse_news
+    name: 臺灣證券交易所
+    url: https://openapi.twse.com.tw/v1/news/newsList
+    type: api
+    parser: twse_news
+    category: finance
+    subcategory: tw_stock
+    language: zh-TW
+    weight: 0.8
+    max_items: 15
+  - id: cbc_press
+    name: 中央銀行
+    url: https://www.cbc.gov.tw/tw/rss-302-1.xml
+    type: rss
+    category: finance
+    subcategory: macro
+    language: zh-TW
+    weight: 1.2
+    max_items: 10
+    exclude_keywords: [開標結果, 標售, 發行結果]
+  - id: marketwatch_pulse
+    name: MarketWatch
+    url: https://feeds.content.dowjones.io/public/rss/mw_marketpulse
+    type: rss
+    category: finance
+    language: en
+    enabled: false
+    note: 2026-11-15 實測：最新一則停在 2025-07，已不更新
+
+  # ===========================================================================
+  # 電競
+  # LoL 以 LCK、LPL 為主（league 欄位只是提示，最後由 LLM 判斷）
+  # ===========================================================================
+  - id: leaguepedia_lck_lpl
+    name: Leaguepedia
+    url: "https://lol.fandom.com/api.php?action=cargoquery&format=json&tables=NewsItems&fields=Date_Sort,Sentence,Region,Source,Teams,Players&where=Region%20IN%20(%22Korea%22,%22China%22)&order_by=Date_Sort%20DESC,N_LineInDate%20DESC&limit=60"
+    type: api
+    parser: leaguepedia_news
+    category: esports
+    subcategory: lol
+    game: lol
+    language: en
+    weight: 1.5
+    exclude_keywords: [contract is updated, contracts are updated, contract is extended, contracts are extended]
+    note: 轉會／陣容異動的第一手紀錄；GCD 合約更新太多，先濾掉
+  - id: leaguepedia_other
+    name: Leaguepedia
+    url: "https://lol.fandom.com/api.php?action=cargoquery&format=json&tables=NewsItems&fields=Date_Sort,Sentence,Region,Source,Teams,Players&where=Region%20NOT%20IN%20(%22Korea%22,%22China%22)&order_by=Date_Sort%20DESC,N_LineInDate%20DESC&limit=40"
+    type: api
+    parser: leaguepedia_news
+    category: esports
+    subcategory: lol
+    game: lol
+    league: other
+    language: en
+    weight: 0.7
+    max_items: 20
+    exclude_keywords: [contract is updated, contracts are updated, contract is extended, contracts are extended]
+  - id: dexerto_lol
+    name: Dexerto
+    url: https://www.dexerto.com/league-of-legends/feed/
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    language: en
+  - id: inven_lol
+    name: 韓國 Inven
+    url: https://www.inven.co.kr/webzine/news/rss.php?site=lol
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    league: lck
+    language: ko
+    weight: 1.2
+  - id: gnews_lpl_cn
+    name: Google 新聞（簡中）
+    url: https://news.google.com/rss/search?q=LPL%20when:2d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    league: lpl
+    language: zh-CN
+    weight: 1.2
+    ignore_robots: true
+  - id: gnews_lck_ko
+    name: Google 뉴스
+    url: https://news.google.com/rss/search?q=LCK%20when:2d&hl=ko&gl=KR&ceid=KR:ko
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    league: lck
+    language: ko
+    weight: 1.2
+    ignore_robots: true
+  - id: gnews_lol_tw
+    name: Google 新聞
+    url: https://news.google.com/rss/search?q=(LCK%20OR%20LPL%20OR%20%E8%8B%B1%E9%9B%84%E8%81%AF%E7%9B%9F)%20when:2d&hl=zh-TW&gl=TW&ceid=TW:zh-Hant
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    language: zh-TW
+    ignore_robots: true
+  - id: gnews_lol_en
+    name: Google News
+    url: https://news.google.com/rss/search?q=(LCK%20OR%20LPL)%20when:2d&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    category: esports
+    subcategory: lol
+    game: lol
+    language: en
+    ignore_robots: true
+  - id: vlr_news
+    name: VLR.gg
+    url: https://www.vlr.gg/rss
+    type: rss
+    category: esports
+    subcategory: valorant
+    game: valorant
+    language: en
+    weight: 1.3
+    date_tz: Asia/Shanghai
+    note: 時間標「CST」但實為 UTC+8（若當成美國中部時間會跑到未來）
+  - id: dexerto_valorant
+    name: Dexerto
+    url: https://www.dexerto.com/valorant/feed/
+    type: rss
+    category: esports
+    subcategory: valorant
+    game: valorant
+    language: en
+  - id: hltv_news
+    name: HLTV
+    url: https://www.hltv.org/rss/news
+    type: rss
+    category: esports
+    subcategory: cs2
+    game: cs2
+    language: en
+    weight: 1.3
+  - id: dexerto_cs2
+    name: Dexerto
+    url: https://www.dexerto.com/counter-strike-2/feed/
+    type: rss
+    category: esports
+    subcategory: cs2
+    game: cs2
+    language: en
+  - id: dexerto_esports
+    name: Dexerto
+    url: https://www.dexerto.com/esports/feed/
+    type: rss
+    category: esports
+    language: en
+    weight: 0.8
+    keywords: [LoL, League of Legends, LCK, LPL, Worlds, MSI, Valorant, VCT, CS2, Counter-Strike, Major]
+  - id: esportsgg
+    name: esports.gg
+    url: https://esports.gg/feed/
+    type: rss
+    category: esports
+    language: en
+    weight: 0.7
+    keywords: [LoL, League of Legends, LCK, LPL, Worlds, MSI, Valorant, VCT, CS2, Counter-Strike, Major]
+
+  # --- 實測不可用，保留紀錄 ---
+  - id: sheep_esports
+    name: Sheep Esports
+    url: https://www.sheepesports.com/feed
+    type: rss
+    category: esports
+    game: lol
+    language: en
+    enabled: false
+    note: 2026-11-15 實測：403，網站沒有可用的 RSS
+  - id: dotesports_lol
+    name: Dot Esports
+    url: https://dotesports.com/league-of-legends/feed
+    type: rss
+    category: esports
+    game: lol
+    language: en
+    enabled: false
+    note: 2026-11-15 實測：Cloudflare 驗證頁（403），不繞過
