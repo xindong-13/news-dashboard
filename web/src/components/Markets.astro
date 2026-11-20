@@ -1,0 +1,53 @@
+---
+import type { MarketQuote } from "../types";
+import { fmtDateTime } from "../lib/data";
+
+interface Props {
+  quotes: MarketQuote[];
+}
+const { quotes } = Astro.props;
+
+const nf = (v: number, d: number) =>
+  v.toLocaleString("zh-TW", { minimumFractionDigits: d, maximumFractionDigits: d });
+
+function asOf(q: MarketQuote): string {
+  if (!q.as_of) return "";
+  if (q.date_only) {
+    const d = new Date(q.as_of);
+    const md = new Intl.DateTimeFormat("zh-TW", { timeZone: "America/New_York", month: "numeric", day: "numeric" }).format(d);
+    return `${md} 收盤`;
+  }
+  return fmtDateTime(q.as_of);
+}
+---
+
+{
+  quotes.length > 0 && (
+    <>
+      <div class="markets" aria-label="行情">
+        {quotes.map((q) => {
+          const dir = q.change == null ? "flat" : q.change > 0 ? "up" : q.change < 0 ? "down" : "flat";
+          const sign = q.change != null && q.change > 0 ? "+" : "";
+          const arrow = dir === "up" ? "▲" : dir === "down" ? "▼" : "";
+          return (
+            <div class="quote">
+              <div class="q-name" title={q.name}>
+                {q.name}
+              </div>
+              <div class="q-price">
+                {q.price == null ? "—" : nf(q.price, q.decimals)}
+                {q.price != null && q.unit}
+              </div>
+              <div class={`q-chg ${dir}`}>
+                {q.change == null ? "—" : `${arrow}${nf(Math.abs(q.change), q.decimals)}`}
+                {q.change_pct != null && <span class="q-pct">{`${sign}${q.change_pct.toFixed(2)}%`}</span>}
+              </div>
+              <div class="q-time">{q.price == null ? "暫無資料" : asOf(q)}</div>
+            </div>
+          );
+        })}
+      </div>
+      <p class="markets-note">資料時間為台北時間；美股為最近一次收盤或盤中價。原油來自 FRED，會晚幾天。</p>
+    </>
+  )
+}

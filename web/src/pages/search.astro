@@ -1,0 +1,23 @@
+---
+import Base from "../layouts/Base.astro";
+import { CATEGORIES, loadEditions } from "../lib/data";
+
+// 有哪些月份的索引（新的在前），搜尋時依序載入
+const months = [...new Set(loadEditions().map((e) => e.edition_id.slice(0, 7)))];
+const catLabels = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
+---
+
+<Base title="搜尋｜每日新聞" current="search">
+  <section class="masthead">
+    <h1>搜尋</h1>
+    <div class="kicker">搜尋所有刊的標題與摘要，可用空白分隔多個關鍵字</div>
+  </section>
+  <form id="search-form" role="search">
+    <input class="search-box" id="q" type="search" placeholder="例如：台積電、T1 轉會、關稅" autocomplete="off" enterkeyhint="search" />
+  </form>
+  <p class="kicker" id="status" style="font-size:14px;color:var(--text-3);margin:8px 0 0"></p>
+  <div class="cards" id="results"></div>
+
+  <div id="search-config" hidden data-months={JSON.stringify(months)} data-cats={JSON.stringify(catLabels)}></div>
+  <script is:inline src="search.js" defer></script>
+</Base>

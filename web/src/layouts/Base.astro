@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: "home" | "archive" | "search" | null;
+}
+const { title, description = "每天兩刊的台灣、國際、財經、電競新聞整理", current = null } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <script is:inline>
+      // 深色模式：預設跟隨系統，按按鈕可手動切換（記在 localStorage）。放在最前面避免閃一下白畫面。
+      (function () {
+        var saved = null;
+        try {
+          saved = localStorage.getItem("theme");
+        } catch (e) {}
+        var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="index.html">每日新聞</a>
+        <nav class="site-nav">
+          <a href="index.html" aria-current={current === "home" ? "page" : undefined}>最新</a>
+          <a href="archive.html" aria-current={current === "archive" ? "page" : undefined}>存檔</a>
+          <a href="search.html" aria-current={current === "search" ? "page" : undefined}>搜尋</a>
+        </nav>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="切換深色模式" title="切換深色模式">◐</button>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer wrap">
+      <p>標題與摘要由 AI 整理，內容以原文為準。點來源可看原文。</p>
+      <p>本站不轉載新聞全文。</p>
+    </footer>
+    <script is:inline>
+      // 相對時間（「3 小時前」）。建置時先放絕對時間，這裡依瀏覽者的現在時間改寫。
+      (function () {
+        var now = Date.now();
+        document.querySelectorAll("time[data-rel]").forEach(function (el) {
+          var t = Date.parse(el.getAttribute("datetime"));
+          if (isNaN(t)) return;
+          var min = Math.round((now - t) / 60000);
+          var text;
+          if (min < 1) text = "剛剛";
+          else if (min < 60) text = min + " 分鐘前";
+          else if (min < 60 * 24) text = Math.floor(min / 60) + " 小時前";
+          else if (min < 60 * 24 * 7) text = Math.floor(min / 1440) + " 天前";
+          else return;
+          el.title = el.textContent.trim();
+          el.textContent = text;
+        });
+      })();
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var root = document.documentElement;
+        var next = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem("theme", next);
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>

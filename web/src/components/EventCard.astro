@@ -1,0 +1,87 @@
+---
+import type { NewsEvent } from "../types";
+import {
+  CATEGORIES,
+  ESPORTS_TAG_LABELS,
+  LEAGUE_LABELS,
+  SUBCATEGORY_LABELS,
+  fmtDateTime,
+} from "../lib/data";
+
+interface Props {
+  event: NewsEvent;
+  showCategory?: boolean;
+  showWhy?: boolean;
+}
+const { event: e, showCategory = false, showWhy = false } = Astro.props;
+
+const impLabel = e.importance >= 5 ? "焦點" : e.importance === 4 ? "重要" : null;
+const catLabel = CATEGORIES.find((c) => c.id === e.category)?.label;
+const sub = e.subcategory && e.subcategory !== "other" ? SUBCATEGORY_LABELS[e.subcategory] : null;
+const isLol = e.category === "esports" && e.subcategory === "lol";
+const league = isLol && e.league ? LEAGUE_LABELS[e.league] : null;
+const tags = e.esports_tags.filter((t) => t !== "other").map((t) => ESPORTS_TAG_LABELS[t]);
+// 原文是外文（英、韓、簡中）時才顯示原標題；繁中來源改寫過的標題不用再列一次
+const showOrig =
+  e.original_title && e.ai_processed && e.original_title !== e.title_zh && e.sources[0]?.language !== "zh-TW";
+const first = e.sources[0];
+---
+
+<article
+  class="card"
+  data-imp={e.importance}
+  data-sub={e.subcategory ?? "other"}
+  data-league={isLol ? (e.league ?? "other") : ""}
+  data-tags={e.esports_tags.join(" ")}
+  id={e.id}
+>
+  <h3>{e.title_zh}</h3>
+  {showOrig && <p class="orig" lang="">{e.original_title}</p>}
+  {e.summary_zh && <p class="summary">{e.summary_zh}</p>}
+  {showWhy && e.why_it_matters && <p class="why">為什麼重要：{e.why_it_matters}</p>}
+  <div class="meta">
+    {impLabel && <span class="imp-label">{impLabel}</span>}
+    {showCategory && catLabel && <span class="cat-label">{catLabel}</span>}
+    {league && <span class="tag league">{league}</span>}
+    {sub && !league && <span class="tag">{sub}</span>}
+    {tags.map((t) => <span class="tag">{t}</span>)}
+    {!e.ai_processed && <span class="badge warn">未經 AI 整理</span>}
+    {e.published_at && (
+      <time datetime={e.published_at} data-rel>
+        {fmtDateTime(e.published_at)}
+      </time>
+    )}
+  </div>
+  {
+    e.sources.length === 1 && first ? (
+      <div class="sources">
+        來源：
+        <a href={first.url} target="_blank" rel="noopener noreferrer">
+          {first.name}
+        </a>
+      </div>
+    ) : (
+      <details class="sources">
+        <summary>
+          {e.sources.length} 個來源：
+          {[...new Set(e.sources.map((s) => s.name))].slice(0, 3).join("、")}
+          {new Set(e.sources.map((s) => s.name)).size > 3 ? "…" : ""}
+        </summary>
+        <ul>
+          {e.sources.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer">
+                {s.name}
+              </a>
+              {s.published_at && (
+                <time class="src-time" datetime={s.published_at} data-rel>
+                  {fmtDateTime(s.published_at)}
+                </time>
+              )}
+            </li>
+          ))}
+        </ul>
+      </details>
+    )
+  }
+</article>

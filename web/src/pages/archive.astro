@@ -1,0 +1,50 @@
+---
+import Base from "../layouts/Base.astro";
+import { editionHref, editionLabel, fmtDate, fmtTime, indexEntries, loadEditions } from "../lib/data";
+
+const entries = indexEntries();
+const eds = new Map(loadEditions().map((e) => [e.edition_id, e]));
+
+// 依日期分組（用 edition_id 的日期，午報、晚報同一天）
+const days = new Map<string, typeof entries>();
+for (const e of entries) {
+  const key = e.edition_id.slice(0, 10);
+  if (!days.has(key)) days.set(key, []);
+  days.get(key)!.push(e);
+}
+// 每刊顯示第一則今日重點當預覽
+function preview(id: string): string {
+  const ed = eds.get(id);
+  if (!ed) return "";
+  const first = ed.events.find((e) => e.id === ed.headlines[0]);
+  return first?.title_zh ?? "";
+}
+---
+
+<Base title="存檔｜每日新聞" current="archive">
+  <section class="masthead">
+    <h1>存檔</h1>
+    <div class="kicker">共 {entries.length} 刊</div>
+  </section>
+  {entries.length === 0 && <p class="empty">還沒有任何一刊。</p>}
+  {
+    [...days.entries()].map(([day, list]) => (
+      <section class="archive-day">
+        <h2>{fmtDate(`${day}T12:00:00+08:00`)}</h2>
+        <div class="archive-list">
+          {list.map((e) => (
+            <a class="archive-item" href={editionHref(e.edition_id)}>
+              <span class="ai-title">{editionLabel(e.edition_type)}</span>
+              <span class="ai-preview">
+                {preview(e.edition_id)}
+              </span>
+              <span class="ai-meta">
+                {fmtTime(e.published_at)}・{e.event_count} 則{e.degraded ? "・未經 AI" : ""}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import EditionView from "../components/EditionView.astro";
+import { editionLabel, fmtDate, loadEditions } from "../lib/data";
+
+const editions = loadEditions();
+const latest = editions[0];
+const title = latest
+  ? `${fmtDate(`${latest.edition_id.slice(0, 10)}T12:00:00+08:00`)}${editionLabel(latest.edition_type)}｜每日新聞`
+  : "每日新聞";
+---
+
+<Base title={title} current="home">
+  {
+    latest ? (
+      <EditionView edition={latest} prevId={editions[1]?.edition_id ?? null} nextId={null} isLatest />
+    ) : (
+      <p class="empty">還沒有任何一刊。</p>
+    )
+  }
+</Base>

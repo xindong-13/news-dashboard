@@ -1,0 +1,28 @@
+---
+// 每一刊一個頁面：2026-11-21-noon.html
+import Base from "../layouts/Base.astro";
+import EditionView from "../components/EditionView.astro";
+import type { Edition } from "../types";
+import { editionLabel, fmtDate, loadEditions } from "../lib/data";
+
+export function getStaticPaths() {
+  const eds = loadEditions();
+  return eds.map((e, i) => ({
+    params: { edition: e.edition_id },
+    props: { edition: e, prevId: eds[i + 1]?.edition_id ?? null, nextId: eds[i - 1]?.edition_id ?? null, isLatest: i === 0 },
+  }));
+}
+
+interface Props {
+  edition: Edition;
+  prevId: string | null;
+  nextId: string | null;
+  isLatest: boolean;
+}
+const { edition, prevId, nextId, isLatest } = Astro.props;
+const title = `${fmtDate(`${edition.edition_id.slice(0, 10)}T12:00:00+08:00`)}${editionLabel(edition.edition_type)}｜每日新聞`;
+---
+
+<Base title={title} current={isLatest ? "home" : "archive"}>
+  <EditionView edition={edition} prevId={prevId} nextId={nextId} isLatest={isLatest} />
+</Base>
