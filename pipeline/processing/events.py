@@ -50,10 +50,26 @@ def degraded_event(c: Cluster, event_id: str) -> Event:
     )
 
 
-def pick_headlines(events: list[Event], lo: int, hi: int) -> list[str]:
-    """今日重點：重要度最高的 lo～hi 則；重要度 ≥ 4 的全收（最多 hi），不足 lo 則往下補。"""
+def pick_headlines(
+    events: list[Event], lo: int, hi: int, per_category: int | None = None
+) -> list[str]:
+    """今日重點：重要度最高的 lo～hi 則；重要度 ≥ 4 的全收（最多 hi），不足 lo 則往下補。
+
+    per_category：每個分類最多幾則，避免休賽季的轉會新聞（重要度 +1）佔滿今日重點。
+    名額不夠時會放寬上限往下補，確保至少有 lo 則。
+    """
     ranked = sorted(events, key=lambda e: (e.importance, len(e.sources)), reverse=True)
-    top = [e for e in ranked if e.importance >= 4][:hi]
-    if len(top) < lo:
-        top = ranked[:lo]
-    return [e.id for e in top]
+    cap = per_category or hi
+    picked: list[Event] = []
+    count: dict[str, int] = {}
+    for e in ranked:
+        if len(picked) >= hi or (e.importance < 4 and len(picked) >= lo):
+            break
+        if count.get(e.category, 0) >= cap:
+            continue
+        picked.append(e)
+        count[e.category] = count.get(e.category, 0) + 1
+    if len(picked) < lo:  # 分類上限太緊時放寬
+        picked += [e for e in ranked if e not in picked][: lo - len(picked)]
+    picked.sort(key=lambda e: (e.importance, len(e.sources)), reverse=True)
+    return [e.id for e in picked]

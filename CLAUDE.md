@@ -19,17 +19,40 @@ uv run pytest                                        # 全部測試
 uv run pytest tests/test_fetch_parsing.py::test_roc_date   # 單一測試
 uv run ruff check . && uv run ruff format .          # lint + 格式化（E501 已關閉，行長交給 format）
 uv run python scripts/check_sources.py --samples 3   # 來源健康檢查；--all 含停用、--id <id> 指定來源、--markdown <path> 輸出報表
-uv run python -m pipeline.main --edition noon        # 產生一刊（--edition auto|noon|night；--no-llm、--dry-run、--now <ISO>）
+uv run python -m pipeline.main --edition noon        # 產生一刊（--edition auto|noon|night；--no-llm、--dry-run、--now <ISO>、--data-dir <path>）
+cd web && npm install && npm run build               # 建置網站（讀 ../data，或環境變數 DATA_DIR）→ web/dist
 ```
 
 在 Windows 的 Git Bash 執行會印中文的腳本時，前面加 `PYTHONIOENCODING=utf-8`。
 
 ## 架構
 
-資料流（`pipeline/main.py` 的 `build_edition`）：`plan_edition`（刊別與時間範圍）→ `fetch_all` → `filter_window`（範圍內、未刊出過）→ `localize`（簡轉繁）→ `cluster_items`（去重合併）→ `select_clusters`（規則篩到上限）→ LLM（M3）或 `degraded_event` → `write_edition`（刊別 JSON ＋ `data/index.json`）。
+資料流（`pipeline/main.py` 的 `build_edition`）：`plan_edition`（刊別與時間範圍）→ `fetch_all` → `filter_window`（範圍內、未刊出過）→ `localize`（簡轉繁）→ `cluster_items`（去重合併）→ `select_clusters`（規則篩到上限）→ `process_with_llm`（有 LLM 時）或 `degraded_event` → `write_edition`（刊別 JSON ＋ `data/index.json`）。
 
 - 刊別依**實際執行時間**判斷（台北 16:30 前＝午報），時間範圍起點＝上一個「不同」刊別的 `window.to`；同一刊重跑會覆蓋檔案。
 - 合併門檻中英文不同、同一家媒體不模糊合併等規則的理由見 `DECISIONS.md`「抓取與去重」。
+
+### LLM 層
+
+- `pipeline/llm/`：`base.py` 定義 `LLMProvider` 介面與錯誤類型（`RateLimited`／`InvalidOutput`／`FatalProviderError`），各 provider 把 HTTP 錯誤轉成這些類型；`router.py` 的 `LLMRouter.run()` 依錯誤類型決定等待、重試、換下一家或停用該家。新增 provider 時要照這個錯誤分類。
+- `pipeline/llm/schemas.py`：每個步驟的 pydantic 模型＋手寫的嚴格 JSON schema，**兩邊要一起改**。
+- `pipeline/processing/ai.py`：分類 → 三層去重（`duplicate_of`、標題相似、跨批 LLM 去重）→ 摘要 → 今日重點 → 導讀。任何一步失敗都只降級那一部分。
+- Prompt 在 `pipeline/prompts/*.md`，用 `{{key}}` 佔位（`load_prompt` 替換）。
+- **所有 LLM 輸出都要經過 `taiwan_terms.to_taiwan()`**。不要改用 OpenCC `s2twp`：它會把「支持」改成「支援」。
+- 測試用 `tests/fakes.py` 的 `FakeProvider`／`make_router`，不打真的 API。
+
+### 行情（`pipeline/markets.py`）
+
+- 鉅亨網報價 API 為主、FRED 為備援；**不用 Yahoo／yfinance（robots.txt 禁止）**。清單在 `settings.yaml` 的 `markets.items`。
+- `build_edition` 的 `markets_fetcher` 參數預設是 `None`（測試不打網路），`main()` 才傳真的抓取函式。
+
+### 網站（`web/`，Astro）
+
+- 建置時用 `src/lib/data.ts` 直接讀 `data/editions/*.json`，`src/types.ts` 要跟 `models.py` 同步。
+- 所有頁面在根目錄、互相用**相對路徑**連（`build.format: "file"`），不要改成絕對路徑或資料夾格式，否則 GitHub Pages 子路徑會壞。
+- 頁面上的 JS 都是 `is:inline` 的原生 JS；搜尋的 JS 在 `public/search.js`（Astro 編譯器處理某些 regex 會出錯）。
+
+### 共通規則
 
 - **`pipeline/models.py`** 是資料格式的唯一來源。`Edition` 序列化要用 `Edition.to_json()`，因為 `TimeWindow.from_` 要輸出成 `"from"` 欄位。前端的 TS 型別要跟這裡同步。
 - **設定模型一律 `extra="forbid"`**：`sources.yaml`、`settings.yaml` 有打錯的欄位會直接報錯。新增設定欄位時，要同時改 `config.py`（或 `models.py` 的 `SourceConfig`）和 yaml。
@@ -44,5 +67,6 @@ uv run python -m pipeline.main --edition noon        # 產生一刊（--edition 
 - `SourceConfig.date_tz` 用來處理時區縮寫不可信的來源，例如 VLR.gg 標「CST」實為 UTC+8。
 - `ignore_robots: true` 只開放給 Google News 的官方 RSS，這是使用者同意過的例外。其他來源一律遵守 robots.txt。被 Cloudflare 或 403 擋的網站直接停用，不要繞過。
 - Google News 的標題結尾會帶「 - 媒體名」，`split_google_news_title` 會把它切下來放進來源名稱。
-- LLM 依 `settings.yaml` 的 provider 順序 fallback（Gemini → Groq → Anthropic），沒設 API key 的會跳過。全部失敗時照樣出刊，標記為 `degraded`。模型名稱放在設定檔，不要寫死。Prompt 放 `pipeline/prompts/*.md`。
+- LLM 依 `settings.yaml` 的 provider 順序 fallback（Gemini → Groq → Anthropic），沒設 API key 的會跳過。全部失敗時照樣出刊，標記為 `degraded`。模型名稱放在設定檔，不要寫死。API key 本機放 `.env`（不要在對話中要求使用者貼 key）。
+- Groq 免費版每分鐘只有 8000 tokens，批次不能開太大；只靠 Groq 跑一刊會比 Gemini 慢很多。
 - git 作者身分設定在 repo 層級（GitHub noreply email），不要改成使用者的私人 email。檔案一律 LF 換行（`.gitattributes`）。

@@ -113,18 +113,22 @@ class Event(BaseModel):
     why_it_matters: str | None = None
     original_title: str | None = None
     published_at: AwareDatetime | None = None  # 事件中最早的來源時間
+    ai_processed: bool = False  # 這則有沒有經過 LLM 分類與翻譯
     sources: list[SourceRef]
 
 
 class MarketQuote(BaseModel):
-    symbol: str
+    symbol: str  # settings.yaml 的 markets.items[].id
     name: str
-    price: float | None = None
+    price: float | None = None  # None＝抓不到，前端顯示「—」
     change: float | None = None
     change_pct: float | None = None
     currency: str | None = None
+    unit: str | None = None  # 例如殖利率的「%」
+    decimals: int = 2
     as_of: AwareDatetime | None = None
-    source: str | None = None  # yfinance / twse
+    date_only: bool = False  # 來源只有日期（FRED），前端只顯示日期
+    source: str | None = None  # cnyes / fred
 
 
 class TimeWindow(BaseModel):
@@ -134,13 +138,22 @@ class TimeWindow(BaseModel):
     to: AwareDatetime
 
 
+class ProviderUsage(BaseModel):
+    provider: str
+    model: str
+    calls: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+
+
 class LLMUsage(BaseModel):
-    provider: str | None = None  # 實際完成主要工作的 provider；降級時為 None
+    provider: str | None = None  # 呼叫次數最多的 provider；完全沒用到 LLM 時為 None
     model: str | None = None
     input_tokens: int = 0
     output_tokens: int = 0
     calls: int = 0
-    degraded: bool = True
+    degraded: bool = True  # True＝整刊都沒有經過 AI 整理
+    breakdown: list[ProviderUsage] = []
     errors: list[str] = []
 
 

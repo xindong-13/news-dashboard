@@ -137,3 +137,53 @@ def test_items_already_published_are_skipped(tmp_path):
 def test_all_sources_failed_raises(tmp_path):
     with pytest.raises(NoItemsError):
         _build(tmp_path, [], [SourceError(source_id="a", error="x")])
+
+
+def _build_with_markets(tmp_path, markets_fetcher):
+    settings = load_settings()
+    plan = plan_edition(NOW, "auto", settings.edition, tmp_path / "editions")
+    return build_edition(
+        plan,
+        settings,
+        [],
+        tmp_path,
+        fetcher=_fake_fetcher(_items()),
+        use_llm=False,
+        markets_fetcher=markets_fetcher,
+    )
+
+
+def test_markets_are_included(tmp_path):
+    from pipeline.models import MarketQuote
+
+    ed = _build_with_markets(
+        tmp_path, lambda settings, now: [MarketQuote(symbol="taiex", name="加權", price=1.0)]
+    )
+    assert ed.markets[0].symbol == "taiex"
+
+
+def test_markets_failure_does_not_break_edition(tmp_path):
+    def boom(settings, now):
+        raise RuntimeError("行情掛了")
+
+    ed = _build_with_markets(tmp_path, boom)
+    assert ed.markets == []
+    assert ed.events  # 照常出刊
+
+
+def test_headlines_capped_per_category():
+    from pipeline.models import Event, SourceRef
+    from pipeline.processing.events import pick_headlines
+
+    src = [SourceRef(name="x", url="https://x", language="zh-TW")]
+
+    def ev(i, cat, imp):
+        return Event(id=f"e{i}", category=cat, importance=imp, title_zh=str(i), sources=src)
+
+    events = [ev(i, "esports", 5) for i in range(5)] + [ev(10, "world", 4), ev(11, "taiwan", 3)]
+    got = pick_headlines(events, 3, 8, per_category=2)
+    cats = [next(e.category for e in events if e.id == h) for h in got]
+    assert cats.count("esports") == 2
+    assert "world" in cats
+    # 名額不夠時放寬，仍至少 lo 則
+    assert len(pick_headlines(events[:5], 4, 8, per_category=2)) == 4

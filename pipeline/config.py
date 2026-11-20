@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 from pathlib import Path
+from typing import Any
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field
@@ -39,10 +40,12 @@ class ProcessingSettings(_Strict):
     max_items_per_edition: int = 200
     title_similarity_threshold: int = 85  # 英文等拼音文字
     title_similarity_threshold_cjk: int = 60  # 中日韓文（各家改寫幅度大，分數普遍偏低）
+    ai_title_similarity_threshold: int = 65  # LLM 改寫後的繁中標題比較一致，用來合併不同批的重複
     summarize_top_n: int = 80
     summarize_min_importance: int = 2
     headlines_min: int = 5
     headlines_max: int = 8
+    headlines_max_per_category: int | None = 2  # 每個分類最多幾則今日重點（None＝不限）
 
 
 class OffseasonPeriod(_Strict):
@@ -61,20 +64,29 @@ class ProviderSettings(_Strict):
     model: str
     enabled: bool = True
     api_key_env: str
-    max_output_tokens: int = 8192
+    min_interval_seconds: float = 0  # 兩次呼叫之間至少間隔幾秒（配合免費額度的每分鐘上限）
+    max_batch_items: int | None = None  # 這家一次最多送幾則（Groq 免費版每分鐘 token 少，要切小批）
+    max_output_tokens: int | None = None  # 這家的輸出上限
+    options: dict[str, Any] = {}  # provider 專屬參數，例如 thinking_level、reasoning_effort、effort
 
 
 class LLMSettings(_Strict):
     providers: list[ProviderSettings]
-    batch_size: int = 30
+    classify_batch_size: int = 25
+    summarize_batch_size: int = 15
     request_timeout_seconds: float = 120
     retry_backoff_seconds: float = 20
+    max_retry_wait_seconds: float = 90
 
 
 class MarketItem(_Strict):
-    symbol: str
+    id: str  # 自訂的代號，前端用來辨識（例如 taiex）
     name: str
-    twse_fallback: str | None = None  # TWSE OpenAPI 備援的代號（例如 TAIEX、2330）
+    cnyes: str | None = None  # 鉅亨網報價代號，例如 TWS:2330:STOCK
+    fred: str | None = None  # FRED 資料序列代號（鉅亨網沒有或抓不到時用），例如 DCOILWTICO
+    decimals: int = 2  # 顯示幾位小數
+    unit: str | None = None  # 顯示在數字後面，例如 %
+    currency: str | None = None
 
 
 class MarketSettings(_Strict):

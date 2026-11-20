@@ -429,6 +429,19 @@ sources:
     game: cs2
     language: en
     weight: 1.3
+    enabled: false
+    note: 2026-11-21 實測：RSS 回 403（M1 時可用），依規則停用不繞過；CS2 改由 Dexerto 等來源涵蓋
+  - id: gnews_cs2_en
+    name: Google News
+    url: https://news.google.com/rss/search?q=(%22Counter-Strike%202%22%20OR%20CS2)%20(HLTV%20OR%20Major%20OR%20roster%20OR%20transfer)%20when:2d&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    category: esports
+    subcategory: cs2
+    game: cs2
+    language: en
+    max_items: 25
+    ignore_robots: true
+    note: 2026-11-21 新增，補 HLTV 停用後的 CS2 新聞
   - id: dexerto_cs2
     name: Dexerto
     url: https://www.dexerto.com/feed/category/counter-strike-2/

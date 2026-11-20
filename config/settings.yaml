@@ -21,10 +21,12 @@ processing:
   max_items_per_edition: 200       # 送進 LLM 的最多事件數，超過的先用規則篩掉
   title_similarity_threshold: 85   # 標題相似度（0～100）≥ 此值視為同一事件（英文）
   title_similarity_threshold_cjk: 60  # 中日韓文標題的門檻（各家改寫幅度大，實測同一事件多在 60～80）
+  ai_title_similarity_threshold: 65   # AI 翻譯後的繁中標題再合併一次（實測同一事件 71、不同事件 57）
   summarize_top_n: 80              # 只替前 N 則寫摘要
   summarize_min_importance: 2      # 重要度低於此值不寫摘要
   headlines_min: 5
   headlines_max: 8
+  headlines_max_per_category: 2    # 每個分類最多幾則，避免轉會期電競新聞佔滿今日重點
 
 esports:
   league_priority: [lck, lpl, international, other]
@@ -35,31 +37,44 @@ esports:
 
 llm:
   # 依序嘗試；遇到 429 或錯誤時退避重試一次，再換下一個。沒設定 API key 的會自動跳過。
-  # 模型名稱以 M3 實作當下的官方文件為準。
+  # 模型名稱 2026-11-16 實測（見 DECISIONS.md）。免費額度與模型變動很快，壞了先改這裡。
+  # 同一家可以列兩次（不同模型），例如 Gemini 的備用模型。
   providers:
     - name: gemini
-      model: gemini-flash-latest
+      model: gemini-3.5-flash-lite   # 免費；實測 1～2 秒、台灣用語正確。3.8-flash 實測逾時
       api_key_env: GEMINI_API_KEY
+      min_interval_seconds: 5        # 免費版每分鐘次數有限
+      options: { thinking_level: minimal }
     - name: groq
-      model: llama-3.3-70b-versatile
+      model: openai/gpt-oss-120b     # 免費版每分鐘 8000 tokens、每天 1000 次
       api_key_env: GROQ_API_KEY
+      min_interval_seconds: 3
+      max_batch_items: 8             # 「輸入＋輸出上限」要小於每分鐘 8000 tokens，否則 413
+      max_output_tokens: 3000
+      options: { reasoning_effort: low }
     - name: anthropic
-      model: claude-haiku-5-5
+      model: claude-haiku-5-5        # 付費，有 ANTHROPIC_API_KEY 才會用
       api_key_env: ANTHROPIC_API_KEY
-  batch_size: 30
-  request_timeout_seconds: 120
+      options: { effort: low }
+  classify_batch_size: 25            # 一次送幾則去分類＋翻標題
+  summarize_batch_size: 12           # 一次送幾則去寫摘要
+  request_timeout_seconds: 90
   retry_backoff_seconds: 20
+  max_retry_wait_seconds: 65         # 429 時最多等多久再重試
 
 markets:
+  # 行情卡。主要來源：鉅亨網報價 API；fred 是備援（每日資料，會晚幾天）。
+  # 代號格式「市場:代號:類型」，可到 invest.cnyes.com 找，例如個股 TWS:2454:STOCK、美股 USS:NVDA:STOCK。
+  # Yahoo Finance（yfinance）的 robots.txt 全站禁止，不使用，見 DECISIONS.md。
   items:
-    - { symbol: "^TWII", name: 台股加權指數, twse_fallback: TAIEX }
-    - { symbol: "2330.TW", name: 台積電, twse_fallback: "2330" }
-    - { symbol: "^DJI", name: 道瓊工業指數 }
-    - { symbol: "^GSPC", name: S&P 500 }
-    - { symbol: "^IXIC", name: 那斯達克 }
-    - { symbol: "^SOX", name: 費城半導體 }
-    - { symbol: "TWD=X", name: 美元兌台幣 }
-    - { symbol: "^TNX", name: 美國10年期公債殖利率 }
-    - { symbol: "GC=F", name: 黃金 }
-    - { symbol: "CL=F", name: 原油（WTI） }
-    - { symbol: "BTC-USD", name: 比特幣 }
+    - { id: taiex, name: 台股加權指數, cnyes: "TWS:TSE01:INDEX" }
+    - { id: "2330", name: 台積電, cnyes: "TWS:2330:STOCK", currency: TWD }
+    - { id: dji, name: 道瓊工業指數, cnyes: "GI:DJI:INDEX", fred: DJIA }
+    - { id: spx, name: S&P 500, cnyes: "GI:INX:INDEX", fred: SP500 }
+    - { id: nasdaq, name: 那斯達克, cnyes: "GI:IXIC:INDEX", fred: NASDAQCOM }
+    - { id: sox, name: 費城半導體, cnyes: "GI:SOX:INDEX" }
+    - { id: usdtwd, name: 美元兌台幣, cnyes: "FX:USDTWD:FOREX", decimals: 3 }
+    - { id: us10y, name: 美國10年期公債殖利率, cnyes: "GF:US10YY:FUTURES", fred: DGS10, decimals: 3, unit: "%" }
+    - { id: gold, name: 黃金（現貨）, cnyes: "GI:XAUUSDOZ:INDEX", currency: USD }
+    - { id: wti, name: 原油（WTI）, fred: DCOILWTICO, currency: USD }  # 鉅亨網查不到原油代號
+    - { id: btc, name: 比特幣, cnyes: "CC:BTC:FOREX", decimals: 0, currency: USD }

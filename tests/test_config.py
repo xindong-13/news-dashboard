@@ -9,7 +9,7 @@ def test_settings_load():
     s = load_settings()
     assert s.timezone == "Asia/Taipei"
     assert [p.name for p in s.llm.providers] == ["gemini", "groq", "anthropic"]
-    assert any(m.symbol == "^TWII" for m in s.markets.items)
+    assert any(m.id == "taiex" for m in s.markets.items)
 
 
 def test_sources_load_and_cover_all_categories():

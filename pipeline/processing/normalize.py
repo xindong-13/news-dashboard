@@ -3,12 +3,10 @@
 from __future__ import annotations
 
 import re
-from functools import lru_cache
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-import opencc
-
 from pipeline.models import RawItem
+from pipeline.taiwan_terms import to_taiwan
 
 # 追蹤用參數，去重時忽略
 _TRACKING_PARAMS = re.compile(
@@ -49,20 +47,10 @@ def title_key(title: str) -> str:
     return _NON_WORD_RE.sub("", t).lower()
 
 
-@lru_cache(maxsize=1)
-def _s2twp() -> opencc.OpenCC:
-    return opencc.OpenCC("s2twp")
-
-
-def to_taiwan_chinese(text: str) -> str:
-    """簡體轉繁體並換成台灣用語（视频→影片、网络→網路）。"""
-    return _s2twp().convert(text) if text else text
-
-
 def localize(item: RawItem) -> RawItem:
     """簡中來源的標題與摘要先轉成台灣繁中；不需要 LLM。"""
     if item.language != "zh-CN":
         return item
     return item.model_copy(
-        update={"title": to_taiwan_chinese(item.title), "summary": to_taiwan_chinese(item.summary)}
+        update={"title": to_taiwan(item.title), "summary": to_taiwan(item.summary)}
     )

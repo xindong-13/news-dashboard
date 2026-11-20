@@ -104,7 +104,8 @@ def write_edition(edition: Edition, data_dir: Path) -> Path:
     editions_dir = data_dir / "editions"
     editions_dir.mkdir(parents=True, exist_ok=True)
     path = editions_dir / f"{edition.edition_id}.json"
-    path.write_text(edition.to_json() + "\n", encoding="utf-8")
+    # newline="\n"：Windows 上也寫 LF，和 Actions（Linux）產生的一致
+    path.write_text(edition.to_json() + "\n", encoding="utf-8", newline="\n")
     update_index(data_dir / "index.json", edition)
     return path
 
@@ -128,5 +129,6 @@ def update_index(index_path: Path, edition: Edition) -> EditionIndex:
     index_path.write_text(
         json.dumps(index.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     return index

@@ -19,10 +19,15 @@ from collections.abc import Callable
 from datetime import datetime
 from pathlib import Path
 
-from pipeline.config import DATA_DIR, Settings, load_settings, load_sources
+from dotenv import load_dotenv
+
+from pipeline.config import DATA_DIR, ROOT, Settings, load_settings, load_sources
 from pipeline.fetchers import FetchResult, fetch_all
 from pipeline.http import PoliteClient
-from pipeline.models import Edition, LLMUsage, SourceConfig, TimeWindow
+from pipeline.llm.router import LLMRouter
+from pipeline.markets import fetch_markets
+from pipeline.models import Edition, LLMUsage, MarketQuote, SourceConfig, TimeWindow
+from pipeline.processing.ai import process_with_llm
 from pipeline.processing.cluster import cluster_items
 from pipeline.processing.edition import (
     EditionChoice,
@@ -39,6 +44,7 @@ from pipeline.textutil import TAIPEI, now_taipei
 log = logging.getLogger("pipeline")
 
 Fetcher = Callable[[list[SourceConfig], Settings], FetchResult]
+MarketsFetcher = Callable[[Settings, datetime], list[MarketQuote]]
 
 
 class NoItemsError(RuntimeError):
@@ -50,6 +56,11 @@ def default_fetcher(sources: list[SourceConfig], settings: Settings) -> FetchRes
         return fetch_all(sources, client)
 
 
+def default_markets_fetcher(settings: Settings, now: datetime) -> list[MarketQuote]:
+    with PoliteClient(settings.http) as client:
+        return fetch_markets(settings.markets, client, now)
+
+
 def build_edition(
     plan: EditionPlan,
     settings: Settings,
@@ -58,6 +69,8 @@ def build_edition(
     *,
     fetcher: Fetcher = default_fetcher,
     use_llm: bool = True,
+    router: LLMRouter | None = None,
+    markets_fetcher: MarketsFetcher | None = None,
 ) -> Edition:
     log.info(
         "刊別 %s，範圍 %s → %s（起點依據：%s）",
@@ -86,18 +99,50 @@ def build_edition(
     log.info("合併成 %d 個事件（其中 %d 個有多個來源）", len(clusters), merged)
     clusters = select_clusters(clusters, proc.max_items_per_edition, plan.now)
 
-    # M3 會在這裡接上 LLM；目前一律輸出降級版
-    usage = LLMUsage(degraded=True)
-    if use_llm:
-        usage.errors.append("LLM 尚未實作（M3）")
+    if use_llm and router is None:
+        router = LLMRouter.from_settings(settings.llm)
+    if use_llm and router is not None and router.providers:
+        ai = process_with_llm(clusters, router, settings, plan.now, plan.edition_type)
+        events, headlines, briefing = ai.events, ai.headlines, ai.briefing
+        usage = router.usage()
+    else:
+        reason = "使用 --no-llm" if not use_llm else "沒有可用的 LLM provider（未設定任何 API key）"
+        log.warning("本刊不經 AI 整理：%s", reason)
+        events = [degraded_event(c, f"evt_{i:03d}") for i, c in enumerate(clusters, start=1)]
+        headlines = pick_headlines(
+            events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category
+        )
+        briefing = []
+        usage = LLMUsage(degraded=True, errors=[reason])
 
-    events = [degraded_event(c, f"evt_{i:03d}") for i, c in enumerate(clusters, start=1)]
+    if usage.degraded:
+        log.warning("本刊未經 AI 整理（降級版）")
+    else:
+        log.info(
+            "LLM：%d 次呼叫，輸入 %d／輸出 %d tokens（主要 %s %s）",
+            usage.calls,
+            usage.input_tokens,
+            usage.output_tokens,
+            usage.provider,
+            usage.model,
+        )
+    markets: list[MarketQuote] = []
+    if markets_fetcher is not None:
+        try:
+            markets = markets_fetcher(settings, plan.now)
+        except Exception as e:  # noqa: BLE001 — 行情失敗不影響出刊
+            log.warning("行情抓取失敗：%s", e)
+        ok = sum(1 for m in markets if m.price is not None)
+        log.info("行情：%d／%d 項有資料", ok, len(settings.markets.items))
+
     return Edition(
         edition_id=plan.edition_id,
         edition_type=plan.edition_type,
         published_at=plan.now,
         window=TimeWindow(from_=plan.window_from, to=plan.now),
-        headlines=pick_headlines(events, proc.headlines_min, proc.headlines_max),
+        briefing=briefing,
+        headlines=headlines,
+        markets=markets,
         events=events,
         llm_usage=usage,
         source_errors=fetched.errors,
@@ -135,6 +180,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.now and args.now.tzinfo is None:
         ap.error("--now 要包含時區，例如 2026-11-15T11:40:00+08:00")
 
+    load_dotenv(ROOT / ".env", override=False)  # 本機用 .env；Actions 用 Secrets（環境變數優先）
     settings = load_settings()
     now = (args.now or now_taipei()).astimezone(TAIPEI)
     choice: EditionChoice = args.edition
@@ -142,7 +188,12 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         edition = build_edition(
-            plan, settings, load_sources(), args.data_dir, use_llm=not args.no_llm
+            plan,
+            settings,
+            load_sources(),
+            args.data_dir,
+            use_llm=not args.no_llm,
+            markets_fetcher=default_markets_fetcher,
         )
     except NoItemsError as e:
         log.error("%s，不出刊", e)
