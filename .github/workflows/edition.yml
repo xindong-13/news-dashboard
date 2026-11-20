@@ -1,0 +1,80 @@
+# 每天兩刊：抓新聞 → AI 整理 → commit data/ → 部署網站。
+# 任何一步失敗，Actions 會亮紅燈（GitHub 會寄信通知 repo 擁有者）。
+name: 出刊
+
+on:
+  schedule:
+    # GitHub 的排程是 UTC，而且常延遲 5～30 分鐘，所以提早 10 分鐘排。
+    # 刊別依「實際執行時間」判斷（台北 16:30 前＝午報），延遲不會出錯刊。
+    - cron: "50 3 * * *"   # 台北 11:50 → 午報
+    - cron: "50 12 * * *"  # 台北 20:50 → 晚報
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: 刊別（auto＝依現在時間判斷）
+        type: choice
+        options: [auto, noon, night]
+        default: auto
+      no_llm:
+        description: 不呼叫 AI（測試用，輸出降級版）
+        type: boolean
+        default: false
+
+concurrency:
+  group: edition
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  edition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      sha: ${{ steps.commit.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: 安裝依賴
+        run: uv sync --locked
+
+      - name: 產生一刊
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          args="--edition ${{ inputs.edition || 'auto' }}"
+          if [ "${{ inputs.no_llm }}" = "true" ]; then args="$args --no-llm"; fi
+          uv run python -m pipeline.main $args
+
+      - name: commit 資料
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "沒有新資料"
+          else
+            git commit -m "出刊：$(ls -t data/editions | head -1 | sed 's/\.json$//')"
+            git pull --rebase
+            git push
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: edition
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ref: ${{ needs.edition.outputs.sha }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
