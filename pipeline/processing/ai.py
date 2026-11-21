@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from collections import defaultdict
 from collections.abc import Iterator
 from dataclasses import dataclass, field
@@ -219,6 +220,62 @@ def merge_similar_titles(work: dict[str, _Work], threshold: int) -> int:
     return merged
 
 
+# 專有名詞重疊：中文標題裡的英文隊名、選手名、公司名
+NAME_RE = re.compile(r"[A-Za-z][A-Za-z0-9]+")
+NAME_STOPWORDS = frozenset(
+    "lck lpl lec lcs lol vct msi cs2 ai the and of to in for on vs with etf ceo us usa gdp cpi fed".split()
+)
+NAME_MIN_SHARED = 3
+NAME_MIN_OVERLAP = 0.75
+
+
+def name_tokens(title: str) -> set[str]:
+    return {w.lower() for w in NAME_RE.findall(title)} - NAME_STOPWORDS
+
+
+def merge_shared_names(work: dict[str, _Work]) -> int:
+    """同類別、標題裡的英文專有名詞幾乎相同的兩則，視為同一件事合併。
+
+    電競轉會新聞常是「隊名＋兩三位選手名」，各語言翻成中文後措辭差很多，
+    標題相似度抓不到、LLM 去重也會漏（2026-11-21 的 Dplus KIA 簽 Doran、Kanavi）。
+    條件：至少共用 3 個名詞，且占較短那則名詞數的 75% 以上；同一家媒體不合併。
+    """
+    alive = [tid for tid, w in work.items() if w.cls and not w.merged_into]
+    order = {tid: i for i, tid in enumerate(work)}
+    names = {tid: name_tokens(work[tid].cls.title_zh) for tid in alive}
+    pairs = []
+    for i, a in enumerate(alive):
+        for b in alive[i + 1 :]:
+            if work[a].cls.category != work[b].cls.category:
+                continue
+            shared = len(names[a] & names[b])
+            if shared < NAME_MIN_SHARED:
+                continue
+            overlap = shared / min(len(names[a]), len(names[b]))
+            if overlap >= NAME_MIN_OVERLAP:
+                pairs.append((overlap, shared, a, b))
+
+    merged = 0
+    for _, _, a, b in sorted(pairs, reverse=True):
+        wa, wb = work[a], work[b]
+        if wa.merged_into or wb.merged_into:
+            continue
+        if {publisher(i) for i in wa.items} & {publisher(i) for i in wb.items}:
+            continue
+        if len(wa.items) + len(wb.items) > MAX_CLUSTER_SIZE * 2:
+            continue
+        ka = (wa.cls.importance, len(wa.items), -order[a])
+        kb = (wb.cls.importance, len(wb.items), -order[b])
+        dst, src = (a, b) if ka >= kb else (b, a)
+        if work[src].cls.importance > work[dst].cls.importance:
+            work[dst].cls = work[dst].cls.model_copy(
+                update={"importance": work[src].cls.importance}
+            )
+        _absorb(work, src, dst)
+        merged += 1
+    return merged
+
+
 DEDUPE_MIN_IMPORTANCE = 3
 DEDUPE_MAX_TITLES = 150
 
@@ -402,13 +459,15 @@ def process_with_llm(
     merged = merge_duplicates(work)
     similar = merge_similar_titles(work, settings.processing.ai_title_similarity_threshold)
     cross = dedupe_with_llm(work, router)
+    names = merge_shared_names(work)
     log.info(
-        "LLM 分類 %d／%d 則；合併重複：同批 %d、標題相似 %d、跨批 %d",
+        "LLM 分類 %d／%d 則；合併重複：同批 %d、標題相似 %d、跨批 %d、專有名詞 %d",
         n_ai,
         len(work),
         merged,
         similar,
         cross,
+        names,
     )
 
     # 組成事件：有分類的用 AI 版，沒有的用降級版；依重要度排序後重新編號

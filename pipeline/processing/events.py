@@ -56,20 +56,22 @@ def pick_headlines(
     """今日重點：重要度最高的 lo～hi 則；重要度 ≥ 4 的全收（最多 hi），不足 lo 則往下補。
 
     per_category：每個分類最多幾則，避免休賽季的轉會新聞（重要度 +1）佔滿今日重點。
-    名額不夠時會放寬上限往下補，確保至少有 lo 則。
+    名額不夠時每次把上限放寬 1 則再往下補，讓多出來的名額盡量平均分給各分類。
     """
     ranked = sorted(events, key=lambda e: (e.importance, len(e.sources)), reverse=True)
     cap = per_category or hi
     picked: list[Event] = []
     count: dict[str, int] = {}
-    for e in ranked:
-        if len(picked) >= hi or (e.importance < 4 and len(picked) >= lo):
+    while True:
+        for e in ranked:
+            if len(picked) >= hi or (e.importance < 4 and len(picked) >= lo):
+                break
+            if e in picked or count.get(e.category, 0) >= cap:
+                continue
+            picked.append(e)
+            count[e.category] = count.get(e.category, 0) + 1
+        if len(picked) >= lo or len(picked) == len(ranked) or cap >= hi:
             break
-        if count.get(e.category, 0) >= cap:
-            continue
-        picked.append(e)
-        count[e.category] = count.get(e.category, 0) + 1
-    if len(picked) < lo:  # 分類上限太緊時放寬
-        picked += [e for e in ranked if e not in picked][: lo - len(picked)]
+        cap += 1  # 分類上限太緊時放寬
     picked.sort(key=lambda e: (e.importance, len(e.sources)), reverse=True)
     return [e.id for e in picked]

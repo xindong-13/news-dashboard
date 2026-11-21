@@ -187,3 +187,24 @@ def test_headlines_capped_per_category():
     assert "world" in cats
     # 名額不夠時放寬，仍至少 lo 則
     assert len(pick_headlines(events[:5], 4, 8, per_category=2)) == 4
+
+
+def test_headlines_cap_relaxes_one_step_at_a_time():
+    from pipeline.models import Event, SourceRef
+    from pipeline.processing.events import pick_headlines
+
+    src = [SourceRef(name="x", url="https://x", language="zh-TW")]
+
+    def ev(i, cat, imp):
+        return Event(id=f"{cat}{i}", category=cat, importance=imp, title_zh=str(i), sources=src)
+
+    cats4 = ["taiwan", "world", "finance", "esports"]
+    events = [ev(i, "esports", 5) for i in range(6)] + [
+        ev(i, c, 3) for c in cats4[:3] for i in range(4)
+    ]
+    got = pick_headlines(events, 10, 10, per_category=2)
+    assert len(got) == 10
+    counts = {c: sum(h.startswith(c) for h in got) for c in cats4}
+    # 4 類 × 2 = 8，剩下 2 則放寬到每類 3 則，不會全給電競
+    assert max(counts.values()) == 3
+    assert counts["esports"] == 3

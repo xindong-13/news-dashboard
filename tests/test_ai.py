@@ -289,3 +289,43 @@ def test_one_empty_summary_does_not_drop_the_batch():
     by_title = {e.title_zh: e for e in res.events}
     assert by_title["新聞甲"].summary_zh == "新聞甲的摘要。"
     assert by_title["新聞乙"].summary_zh == ""
+
+
+def test_merge_by_shared_names_across_languages():
+    """英文、韓文的同一則轉會新聞翻成中文後措辭差很多，靠標題裡的隊名＋選手名合併。"""
+    clusters = _clusters(
+        (
+            "Dplus Kia Sign Doran and Kanavi for LCK 2027 Season",
+            "https://hotspawn/1",
+            "Hotspawn",
+            {"category": "esports", "language": "en"},
+        ),
+        (
+            "[오피셜] 디플러스 기아, '도란-카나비' 영입",
+            "https://inven/1",
+            "Inven",
+            {"category": "esports", "language": "ko"},
+        ),
+        (
+            "Dplus KIA reportedly close to signing Delight",
+            "https://sheep/1",
+            "Sheep Esports",
+            {"category": "esports", "language": "en"},
+        ),
+    )
+    titles = {
+        "c1": "Dplus KIA官宣簽下Doran與Kanavi備戰2027年LCK賽季",
+        "c2": "Dplus KIA 官宣網羅 Doran 與 Kanavi 打造強悍上野陣容",
+        "c3": "傳聞：Delight 將加盟 Dplus KIA",  # 同隊不同事件，只共用 2 個名詞，不合併
+    }
+
+    def classify_fn(x):
+        imp = {"c1": 5, "c2": 4, "c3": 3}[x["id"]]
+        return cls(x, subcategory="lol", importance=imp, title_zh=titles[x["id"]])
+
+    router, _ = make_router(FakeProvider("gemini", scripted_llm(classify_fn)))
+    res = process_with_llm(clusters, router, load_settings(), NOW, "noon")
+    assert len(res.events) == 2
+    main = next(e for e in res.events if "Doran" in e.title_zh)
+    assert main.importance == 5
+    assert {s.name for s in main.sources} == {"Hotspawn", "Inven"}

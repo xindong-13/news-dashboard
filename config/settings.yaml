@@ -4,7 +4,7 @@ timezone: Asia/Taipei
 
 http:
   # M6 建立 GitHub repo 後，把網址換成實際的 repo，讓對方知道是誰在抓
-  user_agent: "news-dashboard/0.1 (personal news digest; +https://github.com/)"
+  user_agent: "news-dashboard/0.1 (personal news digest; +https://github.com/xindong-13/news-dashboard)"
   timeout_seconds: 20
   per_domain_delay_seconds: 1.0
   domain_delays:
@@ -24,9 +24,9 @@ processing:
   ai_title_similarity_threshold: 65   # AI 翻譯後的繁中標題再合併一次（實測同一事件 71、不同事件 57）
   summarize_top_n: 80              # 只替前 N 則寫摘要
   summarize_min_importance: 2      # 重要度低於此值不寫摘要
-  headlines_min: 5
-  headlines_max: 8
-  headlines_max_per_category: 2    # 每個分類最多幾則，避免轉會期電競新聞佔滿今日重點
+  headlines_min: 10
+  headlines_max: 10
+  headlines_max_per_category: 2    # 每個分類最多幾則，避免轉會期電競新聞佔滿今日重點；湊不滿 headlines_min 時逐次放寬 1 則
 
 esports:
   league_priority: [lck, lpl, international, other]
