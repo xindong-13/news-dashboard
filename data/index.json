@@ -1,3 +1,11 @@
 {
-  "editions": []
+  "editions": [
+    {
+      "edition_id": "2026-11-22-noon",
+      "edition_type": "noon",
+      "published_at": "2026-11-22T04:34:14.908248+08:00",
+      "event_count": 188,
+      "degraded": false
+    }
+  ]
 }
