@@ -1,19 +1,10 @@
 ---
+// 一刊的內容：刊頭 → 導讀 → 分類跳轉列 → 台灣／國際／財經／電競，各約 5 則。
+// 一刊只有 20 則左右（DECISIONS.md），所以整頁往下滑就看完，不用分頁籤和篩選。
 import type { Edition, NewsEvent } from "../types";
 import EventCard from "./EventCard.astro";
 import Markets from "./Markets.astro";
-import {
-  CATEGORIES,
-  ESPORTS_TAG_LABELS,
-  LEAGUE_LABELS,
-  SUBCATEGORY_LABELS,
-  editionHref,
-  editionLabel,
-  fmtDate,
-  fmtTime,
-  sortEsports,
-  sortEvents,
-} from "../lib/data";
+import { CATEGORIES, editionHref, editionLabel, fmtDate, fmtTime, sortEsports, sortEvents } from "../lib/data";
 
 interface Props {
   edition: Edition;
@@ -23,69 +14,46 @@ interface Props {
 }
 const { edition: ed, prevId, nextId, isLatest } = Astro.props;
 
-const byId = new Map(ed.events.map((e) => [e.id, e]));
-const headlines = ed.headlines.map((id) => byId.get(id)).filter((e): e is NewsEvent => !!e);
-const headlineIds = new Set(headlines.map((e) => e.id));
-
+const focusIds = new Set(ed.headlines);
 const dateIso = `${ed.edition_id.slice(0, 10)}T12:00:00+08:00`;
-const title = `${fmtDate(dateIso)}${editionLabel(ed.edition_type)}`;
 const usage = ed.llm_usage;
 const partial = !usage.degraded && ed.events.some((e) => !e.ai_processed);
+// 閱讀時間：摘要約每分鐘 400 字，至少 1 分鐘
+const chars = ed.events.reduce((n, e) => n + e.title_zh.length + (e.summary_zh?.length ?? 0), 0);
+const minutes = Math.max(1, Math.round(chars / 400));
 
-// 各分類的事件與篩選選項
-const panels = CATEGORIES.map((c) => {
+const sections = CATEGORIES.map((c) => {
   const list = ed.events.filter((e) => e.category === c.id);
-  const events = c.id === "esports" ? sortEsports(list) : sortEvents(list);
-  const present = (vals: (string | null | undefined)[]) => [...new Set(vals.filter(Boolean) as string[])];
-
-  type Group = { key: string; label: string; options: { value: string; label: string }[] };
-  const groups: Group[] = [];
-  if (c.id === "esports") {
-    const order = ["lol", "valorant", "cs2", "other"];
-    const games = present(events.map((e) => e.subcategory)).sort((a, b) => order.indexOf(a) - order.indexOf(b));
-    if (games.length > 1)
-      groups.push({ key: "sub", label: "遊戲", options: games.map((g) => ({ value: g, label: SUBCATEGORY_LABELS[g] ?? g })) });
-    const lorder = ["lck", "lpl", "international", "other"];
-    const leagues = present(events.filter((e) => e.subcategory === "lol").map((e) => e.league ?? "other")).sort(
-      (a, b) => lorder.indexOf(a) - lorder.indexOf(b),
-    );
-    if (leagues.length > 0)
-      groups.push({
-        key: "league",
-        label: "賽區",
-        options: leagues.map((l) => ({ value: l, label: LEAGUE_LABELS[l as keyof typeof LEAGUE_LABELS] })),
-      });
-    const torder = ["transfer", "roster", "retirement", "tournament", "result", "controversy"];
-    const tags = present(events.flatMap((e) => e.esports_tags)).filter((t) => t !== "other").sort(
-      (a, b) => torder.indexOf(a) - torder.indexOf(b),
-    );
-    if (tags.length > 0)
-      groups.push({ key: "tags", label: "標籤", options: tags.map((t) => ({ value: t, label: ESPORTS_TAG_LABELS[t] ?? t })) });
-  } else {
-    const subs = present(events.map((e) => e.subcategory)).filter((s) => s !== "other");
-    if (subs.length > 1)
-      groups.push({ key: "sub", label: "", options: subs.map((s) => ({ value: s, label: SUBCATEGORY_LABELS[s] ?? s })) });
-  }
-  return { ...c, events, groups };
-});
+  const events: NewsEvent[] = c.id === "esports" ? sortEsports(list) : sortEvents(list);
+  return { ...c, events };
+}).filter((s) => s.events.length > 0 || s.id === "finance");
 ---
 
 <section class="masthead" data-edition={ed.edition_id}>
-  <div class="kicker">
-    <span>{fmtTime(ed.published_at)} 出刊</span>
-    <span>收錄 {fmtTime(ed.window.from)} 起的新聞</span>
+  <div class="mast-top">
+    <span class="mast-date">{fmtDate(dateIso)}</span>
+    <span class="mast-nav">
+      {prevId && <a href={editionHref(prevId)}>‹ 上一刊</a>}
+      {nextId && <a href={editionHref(nextId)}>下一刊 ›</a>}
+    </span>
+  </div>
+  <h1>
+    <span class={`mast-type ${ed.edition_type}`}>{editionLabel(ed.edition_type)}</span>
+    <span class="mast-meta">{ed.events.length} 則・約 {minutes} 分鐘</span>
+  </h1>
+  <div class="mast-sub">
+    {fmtTime(ed.published_at)} 出刊・收錄 {fmtTime(ed.window.from)} 之後的新聞
     {usage.degraded && <span class="badge warn">未經 AI 整理</span>}
   </div>
-  <h1>{title}</h1>
+
   <div class="read-bar" hidden>
-    <span class="read-progress"></span>
-    <button class="text-btn" type="button" data-read-all>全部標為已讀</button>
-    <label class="read-hide"><input type="checkbox" data-hide-read /> 隱藏已讀</label>
+    <div class="read-meter" aria-hidden="true"><span></span></div>
+    <div class="read-row">
+      <span class="read-progress"></span>
+      <button class="text-btn" type="button" data-read-all>全部標為已讀</button>
+      <label class="read-hide"><input type="checkbox" data-hide-read /> 隱藏已讀</label>
+    </div>
   </div>
-  <nav class="edition-nav" aria-label="切換刊別">
-    {prevId ? <a href={editionHref(prevId)}>‹ 上一刊</a> : <span></span>}
-    {nextId ? <a href={editionHref(nextId)}>下一刊 ›</a> : <span></span>}
-  </nav>
 </section>
 
 {
@@ -95,7 +63,6 @@ const panels = CATEGORIES.map((c) => {
     </p>
   )
 }
-
 {
   usage.degraded && (
     <p class="notice">
@@ -109,78 +76,58 @@ const panels = CATEGORIES.map((c) => {
   ed.briefing.length > 0 && (
     <section class="briefing">
       <h2>導讀</h2>
-      {ed.briefing.map((p) => (
-        <p>{p}</p>
-      ))}
-    </section>
-  )
-}
-
-{
-  headlines.length > 0 && (
-    <section class="headlines">
-      <h2 class="section-title">今日重點</h2>
-      <div class="cards">
-        {headlines.map((e) => (
-          <EventCard event={e} showCategory showWhy />
+      <ul>
+        {ed.briefing.map((p) => (
+          <li>{p}</li>
         ))}
-      </div>
+      </ul>
     </section>
   )
 }
 
-<div class="tabs" role="tablist" aria-label="分類">
+<nav class="jump" aria-label="跳到分類">
   {
-    panels.map((p, i) => (
-      <button class="tab" role="tab" type="button" data-tab={p.id} aria-selected={i === 0 ? "true" : "false"} aria-controls={`panel-${p.id}`}>
-        {p.label}
-        <span class="count">{p.events.length}</span>
-      </button>
+    sections.map((s) => (
+      <a href={`#${s.id}`} class={`jump-link cat-${s.id}`}>
+        {s.label}
+        <span class="count">{s.events.length}</span>
+      </a>
     ))
   }
-</div>
+</nav>
 
 {
-  panels.map((p) => (
-    <section class="panel" id={`panel-${p.id}`} role="tabpanel" data-panel={p.id}>
-      <h2 class="section-title">
-        {p.label}
-        <small>{p.events.length} 則</small>
+  sections.map((s) => (
+    <section class={`cat-section cat-${s.id}`} id={s.id}>
+      <h2 class="cat-title">
+        <span class="cat-dot" aria-hidden="true" />
+        {s.label}
+        <small>{s.events.length} 則</small>
       </h2>
-      {p.id === "finance" && <Markets quotes={ed.markets} />}
-      {p.groups.length > 0 && (
-        <div class="filters">
-          {p.groups.map((g) => (
-            <div class="chips" data-group={g.key} role="group" aria-label={g.label || "子分類"}>
-              {g.label && <span class="chips-label">{g.label}</span>}
-              <button class="chip" type="button" data-value="" aria-pressed="true">
-                全部
-              </button>
-              {g.options.map((o) => (
-                <button class="chip" type="button" data-value={o.value} aria-pressed="false">
-                  {o.label}
-                </button>
-              ))}
-            </div>
+      {s.id === "finance" && <Markets quotes={ed.markets} />}
+      {s.events.length > 0 ? (
+        <div class="cards">
+          {s.events.map((e) => (
+            <EventCard event={e} focus={focusIds.has(e.id)} />
           ))}
         </div>
+      ) : (
+        <p class="empty">這一刊沒有這個分類的新聞</p>
       )}
-      <div class="cards">
-        {p.events.map((e) => (
-          <EventCard event={e} showWhy={!headlineIds.has(e.id) && e.importance >= 4} />
-        ))}
-      </div>
-      <p class="empty" hidden={p.events.length > 0}>
-        {p.events.length === 0 ? "這一刊沒有這個分類的新聞" : "沒有符合篩選條件的新聞"}
-      </p>
     </section>
   ))
 }
 
-<details class="notice" style="margin-top:24px">
+<nav class="edition-nav" aria-label="切換刊別">
+  {prevId ? <a class="nav-btn" href={editionHref(prevId)}>‹ 上一刊</a> : <span></span>}
+  <a class="nav-btn ghost" href="archive.html">所有存檔</a>
+  {nextId ? <a class="nav-btn" href={editionHref(nextId)}>下一刊 ›</a> : <span></span>}
+</nav>
+
+<details class="production">
   <summary>這一刊的製作資訊</summary>
-  <p style="margin:6px 0 0">
-    {ed.events.length} 則事件，來自 {new Set(ed.events.flatMap((e) => e.sources.map((s) => s.name))).size} 個媒體。
+  <p>
+    {ed.events.length} 則新聞，來自 {new Set(ed.events.flatMap((e) => e.sources.map((s) => s.name))).size} 個媒體。
     {
       usage.degraded
         ? "未使用 AI。"
@@ -189,83 +136,3 @@ const panels = CATEGORIES.map((c) => {
     {ed.source_errors.length > 0 && `${ed.source_errors.length} 個來源抓取失敗：${ed.source_errors.map((s) => s.source_id).join("、")}。`}
   </p>
 </details>
-
-<script is:inline>
-  (function () {
-    // ---- 分頁籤（網址 #taiwan、#world、#finance、#esports）----
-    var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
-    var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
-    function show(name, scroll) {
-      var found = tabs.some(function (t) {
-        return t.dataset.tab === name;
-      });
-      if (!found) name = tabs[0].dataset.tab;
-      tabs.forEach(function (t) {
-        t.setAttribute("aria-selected", t.dataset.tab === name ? "true" : "false");
-      });
-      panels.forEach(function (p) {
-        p.hidden = p.dataset.panel !== name;
-      });
-      if (scroll) {
-        var bar = document.querySelector(".tabs");
-        if (bar.getBoundingClientRect().top < 0) bar.scrollIntoView();
-      }
-    }
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () {
-        show(t.dataset.tab, true);
-        try {
-          history.replaceState(null, "", "#" + t.dataset.tab);
-        } catch (e) {}
-      });
-    });
-    show(location.hash.slice(1), false);
-    window.addEventListener("hashchange", function () {
-      show(location.hash.slice(1), false);
-    });
-
-    // ---- 篩選 ----
-    panels.forEach(function (panel) {
-      var groups = Array.prototype.slice.call(panel.querySelectorAll(".chips"));
-      if (!groups.length) return;
-      var cards = Array.prototype.slice.call(panel.querySelectorAll(".card"));
-      var empty = panel.querySelector(".empty");
-      var leagueGroup = panel.querySelector('.chips[data-group="league"]');
-      function selected(key) {
-        var g = panel.querySelector('.chips[data-group="' + key + '"] [aria-pressed="true"]');
-        return g ? g.dataset.value : "";
-      }
-      function apply() {
-        var sub = selected("sub"),
-          league = selected("league"),
-          tag = selected("tags");
-        // 賽區只對 LoL 有意義：選了其他遊戲就藏起來
-        if (leagueGroup) {
-          var hideLeague = sub !== "" && sub !== "lol";
-          leagueGroup.hidden = hideLeague;
-          if (hideLeague) league = "";
-        }
-        var shown = 0;
-        cards.forEach(function (c) {
-          var ok =
-            (!sub || c.dataset.sub === sub) &&
-            (!league || c.dataset.league === league) &&
-            (!tag || (" " + c.dataset.tags + " ").indexOf(" " + tag + " ") >= 0);
-          c.hidden = !ok;
-          if (ok) shown++;
-        });
-        if (empty) empty.hidden = shown > 0;
-      }
-      groups.forEach(function (g) {
-        g.addEventListener("click", function (ev) {
-          var btn = ev.target.closest(".chip");
-          if (!btn) return;
-          g.querySelectorAll(".chip").forEach(function (c) {
-            c.setAttribute("aria-pressed", c === btn ? "true" : "false");
-          });
-          apply();
-        });
-      });
-    });
-  })();
-</script>

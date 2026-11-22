@@ -43,6 +43,8 @@ class ProcessingSettings(_Strict):
     ai_title_similarity_threshold: int = 65  # LLM 改寫後的繁中標題比較一致，用來合併不同批的重複
     summarize_top_n: int = 80
     summarize_min_importance: int = 2
+    edition_size: int = 20  # 每刊最後只留幾則（使用者一天看兩刊、約 40 則）
+    edition_max_per_category: int | None = 5  # 每個分類先各幾則（某類不夠時逐次放寬）
     headlines_min: int = 5
     headlines_max: int = 8
     headlines_max_per_category: int | None = 2  # 每個分類最多幾則今日重點（None＝不限）

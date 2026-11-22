@@ -243,3 +243,36 @@ def test_expect_skips_when_schedule_is_too_late(tmp_path):
     )
     assert rc == 0
     assert not (tmp_path / "editions").exists() or not any((tmp_path / "editions").iterdir())
+
+
+def test_select_for_edition_keeps_size_and_order():
+    """每刊只留 20 則：各分類有上限、保留原本的排序。"""
+    from pipeline.models import Event, SourceRef
+    from pipeline.processing.events import select_for_edition
+
+    src = [SourceRef(name="x", url="https://x", language="zh-TW")]
+    cats = ["taiwan", "world", "finance", "esports"]
+    events = [
+        Event(
+            id=f"{c}{i}",
+            category=c,
+            importance=5 if c == "esports" else 3,
+            title_zh="t",
+            sources=src,
+        )
+        for c in cats
+        for i in range(30)
+    ]
+    got = select_for_edition(events, 20, 5)
+    assert len(got) == 20
+    counts = {c: sum(e.category == c for e in got) for c in cats}
+    assert set(counts.values()) == {5}  # 電競重要度最高也不能佔滿
+    # 某一類不夠時，名額讓給其他類
+    few = [e for e in events if e.category != "finance"] + [
+        e for e in events if e.category == "finance"
+    ][:2]
+    got = select_for_edition(few, 20, 5)
+    assert len(got) == 20
+    assert sum(e.category == "finance" for e in got) == 2
+    ids = [e.id for e in few]
+    assert [e.id for e in got] == sorted((e.id for e in got), key=ids.index)

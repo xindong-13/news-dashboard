@@ -72,6 +72,7 @@
   var progress = mast.querySelector(".read-progress");
   var hideBox = mast.querySelector("[data-hide-read]");
   var readAllBtn = mast.querySelector("[data-read-all]");
+  var meter = mast.querySelector(".read-meter span");
 
   function key(eid) {
     return edition + ":" + eid;
@@ -97,8 +98,9 @@
   function updateProgress() {
     var n = ids.filter(isRead).length;
     var left = ids.length - n;
-    progress.textContent = left === 0 ? "這一刊全部讀完了 ✓" : "未讀 " + left + "／" + ids.length + " 則";
+    progress.textContent = left === 0 ? "這一刊全部讀完了 ✓" : "已讀 " + n + "／" + ids.length;
     readAllBtn.hidden = left === 0;
+    if (meter) meter.style.width = Math.round((n / ids.length) * 100) + "%";
   }
   function setRead(eid, read) {
     if (read) store[key(eid)] = today();

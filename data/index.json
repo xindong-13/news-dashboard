@@ -4,14 +4,14 @@
       "edition_id": "2026-11-22-night",
       "edition_type": "night",
       "published_at": "2026-11-22T20:01:57.264703+08:00",
-      "event_count": 177,
+      "event_count": 20,
       "degraded": false
     },
     {
       "edition_id": "2026-11-22-noon",
       "edition_type": "noon",
       "published_at": "2026-11-22T04:34:14.908248+08:00",
-      "event_count": 188,
+      "event_count": 20,
       "degraded": false
     }
   ]

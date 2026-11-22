@@ -50,6 +50,12 @@ def degraded_event(c: Cluster, event_id: str) -> Event:
     )
 
 
+def select_for_edition(events: list[Event], size: int, per_category: int | None) -> list[Event]:
+    """每刊只留 size 則：重要度高的優先，各分類有上限（避免某一類佔滿），保持原本順序。"""
+    keep = set(pick_headlines(events, size, size, per_category))
+    return [e for e in events if e.id in keep]
+
+
 def pick_headlines(
     events: list[Event], lo: int, hi: int, per_category: int | None = None
 ) -> list[str]:

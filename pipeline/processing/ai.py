@@ -34,7 +34,12 @@ from pipeline.llm.schemas import (
 )
 from pipeline.models import SUBCATEGORIES, EditionType, Event
 from pipeline.processing.cluster import MAX_CLUSTER_SIZE, MIN_KEY_LEN_CJK, Cluster, publisher
-from pipeline.processing.events import degraded_event, pick_headlines, sources_of
+from pipeline.processing.events import (
+    degraded_event,
+    pick_headlines,
+    select_for_edition,
+    sources_of,
+)
 from pipeline.processing.normalize import title_key
 from pipeline.taiwan_terms import to_taiwan
 from pipeline.textutil import TAIPEI, truncate
@@ -479,6 +484,16 @@ def process_with_llm(
         ev = _event_from(tid, w) if w.cls else degraded_event(Cluster(items=w.items), tid)
         drafts.append((tid, ev))
     drafts.sort(key=lambda d: (-d[1].importance, order[d[0]]))
+    # 分類、去重都做完後才篩到每刊的則數，只替留下來的寫摘要
+    proc = settings.processing
+    kept = {
+        e.id
+        for e in select_for_edition(
+            [ev for _, ev in drafts], proc.edition_size, proc.edition_max_per_category
+        )
+    }
+    log.info("每刊只留 %d 則（共 %d 則）", len(kept), len(drafts))
+    drafts = [d for d in drafts if d[1].id in kept]
 
     events: list[Event] = []
     final_work: dict[str, _Work] = {}
@@ -488,7 +503,6 @@ def process_with_llm(
         final_work[new_id] = work[tid]
 
     summarize(events, final_work, router, settings, today)
-    proc = settings.processing
     headlines = pick_headlines(
         events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category
     )

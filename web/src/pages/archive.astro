@@ -12,7 +12,7 @@ for (const e of entries) {
   if (!days.has(key)) days.set(key, []);
   days.get(key)!.push(e);
 }
-// 每刊顯示第一則今日重點當預覽
+// 每刊顯示第一則焦點當預覽
 function preview(id: string): string {
   const ed = eds.get(id);
   if (!ed) return "";

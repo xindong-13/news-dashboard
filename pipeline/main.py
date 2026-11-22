@@ -36,7 +36,7 @@ from pipeline.processing.edition import (
     recent_source_urls,
     write_edition,
 )
-from pipeline.processing.events import degraded_event, pick_headlines
+from pipeline.processing.events import degraded_event, pick_headlines, select_for_edition
 from pipeline.processing.normalize import localize
 from pipeline.processing.select import filter_window, select_clusters
 from pipeline.textutil import TAIPEI, now_taipei
@@ -109,6 +109,7 @@ def build_edition(
         reason = "使用 --no-llm" if not use_llm else "沒有可用的 LLM provider（未設定任何 API key）"
         log.warning("本刊不經 AI 整理：%s", reason)
         events = [degraded_event(c, f"evt_{i:03d}") for i, c in enumerate(clusters, start=1)]
+        events = select_for_edition(events, proc.edition_size, proc.edition_max_per_category)
         headlines = pick_headlines(
             events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category
         )

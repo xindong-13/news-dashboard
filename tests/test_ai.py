@@ -94,7 +94,13 @@ def test_classify_translate_summarize_and_brief():
         return cls(x, subcategory="不存在的分類", importance=1, league="lck")
 
     router, _ = make_router(FakeProvider("gemini", scripted_llm(classify_fn)))
-    res = process_with_llm(clusters, router, load_settings(), NOW, "noon")
+    settings = load_settings()
+    settings = settings.model_copy(
+        update={
+            "processing": settings.processing.model_copy(update={"summarize_min_importance": 2})
+        }
+    )
+    res = process_with_llm(clusters, router, settings, NOW, "noon")
 
     by_title = {e.title_zh: e for e in res.events}
     fed = by_title["聯準會暗示升息"]  # LLM 給中國用語，後處理改成台灣用語
