@@ -167,6 +167,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-llm", action="store_true", help="不呼叫 LLM，直接輸出降級版")
     ap.add_argument("--dry-run", action="store_true", help="不寫檔")
     ap.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    ap.add_argument(
+        "--skip-existing",
+        action="store_true",
+        help="這一刊已經有檔案就直接結束（排程補跑用，避免覆蓋已出刊的內容）",
+    )
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
 
@@ -185,6 +190,10 @@ def main(argv: list[str] | None = None) -> int:
     now = (args.now or now_taipei()).astimezone(TAIPEI)
     choice: EditionChoice = args.edition
     plan = plan_edition(now, choice, settings.edition, args.data_dir / "editions")
+    if args.skip_existing and (args.data_dir / "editions" / f"{plan.edition_id}.json").exists():
+        log.info("%s 已經出刊過，略過（--skip-existing）", plan.edition_id)
+        print(f"{plan.edition_id} 已存在，略過")
+        return 0
 
     try:
         edition = build_edition(

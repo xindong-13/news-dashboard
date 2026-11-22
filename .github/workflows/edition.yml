@@ -6,8 +6,14 @@ on:
   schedule:
     # GitHub 的排程是 UTC，而且常延遲 5～30 分鐘，所以提早 10 分鐘排。
     # 刊別依「實際執行時間」判斷（台北 16:30 前＝午報），延遲不會出錯刊。
+    # GitHub 偶爾會整個漏跑某一次排程，所以每刊再排兩次補跑：
+    # 排程觸發時會加 --skip-existing，這一刊已經出過就直接結束，不會重抓或覆蓋。
     - cron: "50 3 * * *"   # 台北 11:50 → 午報
+    - cron: "20 4 * * *"   # 台北 12:20 → 午報補跑
+    - cron: "20 5 * * *"   # 台北 13:20 → 午報補跑
     - cron: "50 12 * * *"  # 台北 20:50 → 晚報
+    - cron: "20 13 * * *"  # 台北 21:20 → 晚報補跑
+    - cron: "20 14 * * *"  # 台北 22:20 → 晚報補跑
   workflow_dispatch:
     inputs:
       edition:
@@ -33,6 +39,7 @@ jobs:
     timeout-minutes: 45
     outputs:
       sha: ${{ steps.commit.outputs.sha }}
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -52,6 +59,7 @@ jobs:
         run: |
           args="--edition ${{ inputs.edition || 'auto' }}"
           if [ "${{ inputs.no_llm }}" = "true" ]; then args="$args --no-llm"; fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then args="$args --skip-existing"; fi
           uv run python -m pipeline.main $args
 
       - name: commit 資料
@@ -62,15 +70,18 @@ jobs:
           git add data/
           if git diff --cached --quiet; then
             echo "沒有新資料"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "出刊：$(ls -t data/editions | head -1 | sed 's/\.json$//')"
             git pull --rebase
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: edition
+    if: needs.edition.outputs.changed == 'true'
     uses: ./.github/workflows/deploy.yml
     with:
       ref: ${{ needs.edition.outputs.sha }}

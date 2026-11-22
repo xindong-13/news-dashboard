@@ -70,13 +70,18 @@ const panels = CATEGORIES.map((c) => {
 });
 ---
 
-<section class="masthead">
+<section class="masthead" data-edition={ed.edition_id}>
   <div class="kicker">
     <span>{fmtTime(ed.published_at)} 出刊</span>
     <span>收錄 {fmtTime(ed.window.from)} 起的新聞</span>
     {usage.degraded && <span class="badge warn">未經 AI 整理</span>}
   </div>
   <h1>{title}</h1>
+  <div class="read-bar" hidden>
+    <span class="read-progress"></span>
+    <button class="text-btn" type="button" data-read-all>全部標為已讀</button>
+    <label class="read-hide"><input type="checkbox" data-hide-read /> 隱藏已讀</label>
+  </div>
   <nav class="edition-nav" aria-label="切換刊別">
     {prevId ? <a href={editionHref(prevId)}>‹ 上一刊</a> : <span></span>}
     {nextId ? <a href={editionHref(nextId)}>下一刊 ›</a> : <span></span>}

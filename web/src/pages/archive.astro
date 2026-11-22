@@ -33,7 +33,7 @@ function preview(id: string): string {
         <h2>{fmtDate(`${day}T12:00:00+08:00`)}</h2>
         <div class="archive-list">
           {list.map((e) => (
-            <a class="archive-item" href={editionHref(e.edition_id)}>
+            <a class="archive-item" href={editionHref(e.edition_id)} data-edition={e.edition_id} data-total={e.event_count}>
               <span class="ai-title">{editionLabel(e.edition_type)}</span>
               <span class="ai-preview">
                 {preview(e.edition_id)}
@@ -41,6 +41,7 @@ function preview(id: string): string {
               <span class="ai-meta">
                 {fmtTime(e.published_at)}・{e.event_count} 則{e.degraded ? "・未經 AI" : ""}
               </span>
+              <span class="ai-read" hidden></span>
             </a>
           ))}
         </div>

@@ -33,7 +33,7 @@ const first = e.sources[0];
   data-sub={e.subcategory ?? "other"}
   data-league={isLol ? (e.league ?? "other") : ""}
   data-tags={e.esports_tags.join(" ")}
-  id={e.id}
+  data-eid={e.id}
 >
   <h3>{e.title_zh}</h3>
   {showOrig && <p class="orig" lang="">{e.original_title}</p>}
@@ -51,6 +51,9 @@ const first = e.sources[0];
         {fmtDateTime(e.published_at)}
       </time>
     )}
+    <button class="read-btn" type="button" aria-pressed="false" title="標為已讀">
+      <span class="read-off">標為已讀</span><span class="read-on">✓ 已讀</span>
+    </button>
   </div>
   {
     e.sources.length === 1 && first ? (

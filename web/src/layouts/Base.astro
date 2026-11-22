@@ -17,6 +17,13 @@ const { title, description = "每天兩刊的台灣、國際、財經、電競�
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1f6feb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="每日新聞" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>{title}</title>
     <script is:inline>
       // 深色模式：預設跟隨系統，按按鈕可手動切換（記在 localStorage）。放在最前面避免閃一下白畫面。
@@ -49,7 +56,9 @@ const { title, description = "每天兩刊的台灣、國際、財經、電競�
     <footer class="site-footer wrap">
       <p>標題與摘要由 AI 整理，內容以原文為準。點來源可看原文。</p>
       <p>本站不轉載新聞全文。</p>
+      <p><button class="text-btn install-btn" id="install-btn" type="button" hidden>把這個網站安裝到手機主畫面</button></p>
     </footer>
+    <script is:inline src="read.js"></script>
     <script is:inline>
       // 相對時間（「3 小時前」）。建置時先放絕對時間，這裡依瀏覽者的現在時間改寫。
       (function () {
@@ -76,6 +85,34 @@ const { title, description = "每天兩刊的台灣、國際、財經、電競�
           localStorage.setItem("theme", next);
         } catch (e) {}
       });
+
+      // 加到主畫面（PWA）：註冊 service worker；Android Chrome 會觸發 beforeinstallprompt，顯示安裝按鈕。
+      // iPhone 的 Safari 沒有這個事件，要用「分享 → 加入主畫面」。
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js").catch(function () {});
+        });
+      }
+      (function () {
+        var btn = document.getElementById("install-btn");
+        var deferred = null;
+        window.addEventListener("beforeinstallprompt", function (ev) {
+          ev.preventDefault();
+          deferred = ev;
+          btn.hidden = false;
+        });
+        btn.addEventListener("click", function () {
+          if (!deferred) return;
+          deferred.prompt();
+          deferred.userChoice.finally(function () {
+            deferred = null;
+            btn.hidden = true;
+          });
+        });
+        window.addEventListener("appinstalled", function () {
+          btn.hidden = true;
+        });
+      })();
     </script>
   </body>
 </html>

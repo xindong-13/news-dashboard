@@ -208,3 +208,27 @@ def test_headlines_cap_relaxes_one_step_at_a_time():
     # 4 類 × 2 = 8，剩下 2 則放寬到每類 3 則，不會全給電競
     assert max(counts.values()) == 3
     assert counts["esports"] == 3
+
+
+def test_skip_existing_does_not_touch_published_edition(tmp_path):
+    """排程補跑：這一刊已經有檔案時直接結束，不重抓、不覆蓋。"""
+    from pipeline.main import main
+
+    editions = tmp_path / "editions"
+    editions.mkdir()
+    path = editions / "2026-11-15-noon.json"
+    path.write_text("原本的內容", encoding="utf-8")
+
+    rc = main(
+        [
+            "--edition",
+            "noon",
+            "--now",
+            "2026-11-15T12:20:00+08:00",
+            "--data-dir",
+            str(tmp_path),
+            "--skip-existing",
+        ]
+    )
+    assert rc == 0
+    assert path.read_text(encoding="utf-8") == "原本的內容"
