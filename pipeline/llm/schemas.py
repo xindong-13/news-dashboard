@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 
 from pipeline.models import SUBCATEGORIES, Category, EsportsTag, League
 
-CATEGORIES = ["taiwan", "world", "finance", "esports"]
+CATEGORIES = ["taiwan", "world", "finance", "esports", "threads"]
 ALL_SUBCATEGORIES = sorted({s for subs in SUBCATEGORIES.values() for s in subs})
 ESPORTS_TAGS = ["transfer", "retirement", "tournament", "result", "controversy", "roster", "other"]
 LEAGUES = ["lck", "lpl", "international", "other"]

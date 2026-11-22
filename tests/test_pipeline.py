@@ -276,3 +276,57 @@ def test_select_for_edition_keeps_size_and_order():
     assert sum(e.category == "finance" for e in got) == 2
     ids = [e.id for e in few]
     assert [e.id for e in got] == sorted((e.id for e in got), key=ids.index)
+
+
+def test_select_for_edition_keeps_valorant_and_cs2():
+    """電競 5 則裡 Valorant、CS2 至少各 1 則，即使 LoL 的重要度都比較高。"""
+    from pipeline.models import Event, SourceRef
+    from pipeline.processing.events import select_for_edition
+
+    src = [SourceRef(name="x", url="https://x", language="en")]
+
+    def ev(i, sub, imp):
+        return Event(
+            id=f"{sub}{i}",
+            category="esports",
+            subcategory=sub,
+            importance=imp,
+            title_zh="t",
+            sources=src,
+        )
+
+    events = [ev(i, "lol", 5) for i in range(8)] + [ev(0, "valorant", 2), ev(1, "valorant", 3)]
+    events += [ev(0, "cs2", 2)]
+    mins = {"esports": {"valorant": 1, "cs2": 1}}
+    got = select_for_edition(events, 5, 5, mins)
+    subs = [e.subcategory for e in got]
+    assert len(got) == 5
+    assert subs.count("lol") == 3
+    assert [e.id for e in got if e.subcategory == "valorant"] == ["valorant1"]  # 換進最好的一則
+    assert subs.count("cs2") == 1
+    # 沒有 CS2 新聞時，名額留給 LoL
+    got = select_for_edition([e for e in events if e.subcategory != "cs2"], 5, 5, mins)
+    assert [e.subcategory for e in got].count("lol") == 4
+
+
+def test_threads_not_in_headlines():
+    """Threads 熱議照樣出現在刊裡，但不當焦點。"""
+    from pipeline.models import Event, SourceRef
+    from pipeline.processing.events import pick_headlines, select_for_edition
+
+    src = [SourceRef(name="x", url="https://x", language="zh-TW")]
+    events = [
+        Event(
+            id=f"{c}{i}",
+            category=c,
+            importance=5 if c == "threads" else 3,
+            title_zh="t",
+            sources=src,
+        )
+        for c in ["taiwan", "threads"]
+        for i in range(6)
+    ]
+    kept = select_for_edition(events, 10, 5)
+    assert sum(e.category == "threads" for e in kept) == 5
+    got = pick_headlines(kept, 3, 5, 2, exclude=["threads"])
+    assert got and all(h.startswith("taiwan") for h in got)

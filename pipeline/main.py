@@ -109,9 +109,18 @@ def build_edition(
         reason = "使用 --no-llm" if not use_llm else "沒有可用的 LLM provider（未設定任何 API key）"
         log.warning("本刊不經 AI 整理：%s", reason)
         events = [degraded_event(c, f"evt_{i:03d}") for i, c in enumerate(clusters, start=1)]
-        events = select_for_edition(events, proc.edition_size, proc.edition_max_per_category)
+        events = select_for_edition(
+            events,
+            proc.edition_size,
+            proc.edition_max_per_category,
+            proc.edition_min_per_subcategory,
+        )
         headlines = pick_headlines(
-            events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category
+            events,
+            proc.headlines_min,
+            proc.headlines_max,
+            proc.headlines_max_per_category,
+            proc.headlines_exclude_categories,
         )
         briefing = []
         usage = LLMUsage(degraded=True, errors=[reason])
@@ -155,7 +164,7 @@ def _summary(ed: Edition) -> str:
     multi = sum(1 for e in ed.events if len(e.sources) > 1)
     return (
         f"{ed.edition_id}：{len(ed.events)} 則事件"
-        f"（台灣 {cats['taiwan']}、國際 {cats['world']}、財經 {cats['finance']}、電競 {cats['esports']}；"
+        f"（台灣 {cats['taiwan']}、國際 {cats['world']}、財經 {cats['finance']}、電競 {cats['esports']}、Threads {cats['threads']}；"
         f"多來源 {multi}）、今日重點 {len(ed.headlines)} 則、來源錯誤 {len(ed.source_errors)} 個、"
         f"{'降級版' if ed.llm_usage.degraded else 'AI 整理版'}"
     )

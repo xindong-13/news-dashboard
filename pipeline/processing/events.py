@@ -50,21 +50,66 @@ def degraded_event(c: Cluster, event_id: str) -> Event:
     )
 
 
-def select_for_edition(events: list[Event], size: int, per_category: int | None) -> list[Event]:
-    """每刊只留 size 則：重要度高的優先，各分類有上限（避免某一類佔滿），保持原本順序。"""
+def _rank(e: Event) -> tuple[int, int]:
+    return (e.importance, len(e.sources))
+
+
+def select_for_edition(
+    events: list[Event],
+    size: int,
+    per_category: int | None,
+    min_per_subcategory: dict[str, dict[str, int]] | None = None,
+) -> list[Event]:
+    """每刊只留 size 則：重要度高的優先，各分類有上限（避免某一類佔滿），保持原本順序。
+
+    min_per_subcategory：例如 {"esports": {"valorant": 1, "cs2": 1}}。某個子分類有新聞、
+    但沒選進來時，拿它最好的一則換掉同分類裡排最後、且換掉也不會低於下限的那則，
+    所以分類的則數不變（電競仍是 5 則，只是不會全被 LoL 佔滿）。
+    """
     keep = set(pick_headlines(events, size, size, per_category))
+    for cat, mins in (min_per_subcategory or {}).items():
+        for sub, need in mins.items():
+            for _ in range(need):
+                chosen = [e for e in events if e.id in keep and e.category == cat]
+                if sum(1 for e in chosen if e.subcategory == sub) >= need:
+                    break
+                cand = [
+                    e
+                    for e in events
+                    if e.id not in keep and e.category == cat and e.subcategory == sub
+                ]
+                if not cand:
+                    break
+                counts: dict[str | None, int] = {}
+                for e in chosen:
+                    counts[e.subcategory] = counts.get(e.subcategory, 0) + 1
+                removable = [
+                    e
+                    for e in chosen
+                    if e.subcategory != sub and counts[e.subcategory] > mins.get(e.subcategory, 0)
+                ]
+                if removable:
+                    keep.discard(min(removable, key=_rank).id)
+                elif len(keep) >= size:
+                    break
+                keep.add(max(cand, key=_rank).id)
     return [e for e in events if e.id in keep]
 
 
 def pick_headlines(
-    events: list[Event], lo: int, hi: int, per_category: int | None = None
+    events: list[Event],
+    lo: int,
+    hi: int,
+    per_category: int | None = None,
+    exclude: list[str] | tuple[str, ...] = (),
 ) -> list[str]:
     """今日重點：重要度最高的 lo～hi 則；重要度 ≥ 4 的全收（最多 hi），不足 lo 則往下補。
 
     per_category：每個分類最多幾則，避免休賽季的轉會新聞（重要度 +1）佔滿今日重點。
     名額不夠時每次把上限放寬 1 則再往下補，讓多出來的名額盡量平均分給各分類。
+    exclude：不當焦點的分類（Threads 熱議只是網路話題，不是新聞重點）。
     """
-    ranked = sorted(events, key=lambda e: (e.importance, len(e.sources)), reverse=True)
+    ranked = sorted((e for e in events if e.category not in exclude), key=_rank, reverse=True)
     cap = per_category or hi
     picked: list[Event] = []
     count: dict[str, int] = {}
@@ -79,5 +124,5 @@ def pick_headlines(
         if len(picked) >= lo or len(picked) == len(ranked) or cap >= hi:
             break
         cap += 1  # 分類上限太緊時放寬
-    picked.sort(key=lambda e: (e.importance, len(e.sources)), reverse=True)
+    picked.sort(key=_rank, reverse=True)
     return [e.id for e in picked]

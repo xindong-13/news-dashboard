@@ -1,7 +1,7 @@
 {
   "name": "每日新聞",
   "short_name": "每日新聞",
-  "description": "每天兩刊的台灣、國際、財經、電競新聞整理",
+  "description": "每天兩刊的台灣、國際、財經、電競新聞與 Threads 熱議整理",
   "lang": "zh-Hant-TW",
   "start_url": "./index.html",
   "scope": "./",

@@ -14,7 +14,7 @@ from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 # 列舉值
 # ---------------------------------------------------------------------------
 
-Category = Literal["taiwan", "world", "finance", "esports"]
+Category = Literal["taiwan", "world", "finance", "esports", "threads"]
 EditionType = Literal["noon", "night"]
 Language = Literal["zh-TW", "zh-CN", "en", "ko"]
 SourceType = Literal["rss", "api"]  # reddit 已評估後放棄，見 DECISIONS.md
@@ -29,6 +29,7 @@ SUBCATEGORIES: dict[str, list[str]] = {
     "world": ["politics", "conflict", "disaster", "tech", "other"],
     "finance": ["tw_stock", "us_stock", "macro", "forex", "industry", "crypto", "other"],
     "esports": ["lol", "valorant", "cs2", "other"],
+    "threads": ["other"],  # Threads 上爆紅的貼文（2026-11-22 使用者要求），不再細分
 }
 
 

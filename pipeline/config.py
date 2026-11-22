@@ -9,7 +9,7 @@ from typing import Any
 import yaml
 from pydantic import BaseModel, ConfigDict, Field
 
-from pipeline.models import EsportsTag, League, SourceConfig
+from pipeline.models import Category, EsportsTag, League, SourceConfig
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = ROOT / "config"
@@ -48,6 +48,11 @@ class ProcessingSettings(_Strict):
     headlines_min: int = 5
     headlines_max: int = 8
     headlines_max_per_category: int | None = 2  # 每個分類最多幾則今日重點（None＝不限）
+    headlines_exclude_categories: list[
+        Category
+    ] = []  # 這些分類不當焦點、不進導讀（例如 Threads 熱議）
+    # 分類裡某些子分類至少要有幾則（有新聞的話），例如電競 {valorant: 1, cs2: 1}，不讓 LoL 佔滿
+    edition_min_per_subcategory: dict[Category, dict[str, int]] = {}
 
 
 class OffseasonPeriod(_Strict):

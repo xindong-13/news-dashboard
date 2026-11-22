@@ -17,6 +17,7 @@
   --c-world: #2563eb;
   --c-finance: #d97706;
   --c-esports: #7c3aed;
+  --c-threads: #db2777;
   --focus: #e5484d;
   --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
   --radius: 14px;
@@ -40,6 +41,7 @@
   --c-world: #6ea8ff;
   --c-finance: #fbbf24;
   --c-esports: #a78bfa;
+  --c-threads: #f472b6;
   --focus: #ff6b6b;
   --shadow: none;
   color-scheme: dark;
@@ -431,6 +433,14 @@ a:hover {
 }
 .cat-esports {
   --c: var(--c-esports);
+}
+.cat-threads {
+  --c: var(--c-threads);
+}
+.cat-note {
+  margin: -4px 0 10px;
+  font-size: 0.8rem;
+  color: var(--text-2);
 }
 
 /* ---- 分類區塊 ------------------------------------------------------------ */

@@ -1,6 +1,6 @@
 ---
-// 一刊的內容：刊頭 → 導讀 → 分類跳轉列 → 台灣／國際／財經／電競，各約 5 則。
-// 一刊只有 20 則左右（DECISIONS.md），所以整頁往下滑就看完，不用分頁籤和篩選。
+// 一刊的內容：刊頭 → 導讀 → 分類跳轉列 → 台灣／國際／財經／電競／Threads 熱議，各約 5 則。
+// 一刊只有 25 則左右（DECISIONS.md），所以整頁往下滑就看完，不用分頁籤和篩選。
 import type { Edition, NewsEvent } from "../types";
 import EventCard from "./EventCard.astro";
 import Markets from "./Markets.astro";
@@ -105,6 +105,7 @@ const sections = CATEGORIES.map((c) => {
         <small>{s.events.length} 則</small>
       </h2>
       {s.id === "finance" && <Markets quotes={ed.markets} />}
+      {s.id === "threads" && <p class="cat-note">依熱度排序，整理自報導 Threads 爆紅貼文的新聞</p>}
       {s.events.length > 0 ? (
         <div class="cards">
           {s.events.map((e) => (

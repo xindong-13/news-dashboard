@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 
 FUTURE_TOLERANCE = timedelta(hours=1)
 MIN_TITLE_CHARS = 4  # 去掉標點後少於這個字數的標題視為無意義
-CATEGORIES: tuple[Category, ...] = ("taiwan", "world", "finance", "esports")
+CATEGORIES: tuple[Category, ...] = ("taiwan", "world", "finance", "esports", "threads")
 
 
 def filter_window(items: list[RawItem], plan: EditionPlan, seen_urls: set[str]) -> list[RawItem]:
@@ -64,7 +64,7 @@ def cluster_score(c: Cluster, now: datetime) -> float:
 
 
 def select_clusters(clusters: list[Cluster], limit: int, now: datetime) -> list[Cluster]:
-    """先保證每個類別至少 limit/4 的名額（避免電競被大量政治新聞擠掉），再依分數補滿。"""
+    """先保證每個類別至少 limit/類別數 的名額（避免電競被大量政治新聞擠掉），再依分數補滿。"""
     scored = sorted(clusters, key=lambda c: cluster_score(c, now), reverse=True)
     if len(scored) <= limit:
         return scored

@@ -202,3 +202,12 @@
 - 刊別：台北時間 16:30 前執行算午報，之後算晚報；時間範圍從上一個不同刊別的截止時間開始，最長 24 小時。
 - 休賽季（預設 11/1～1/31）轉會、陣容異動的重要度 +1（M3 起由 prompt 處理，傳聞不加）。
 - LLM 以免費的 Gemini、Groq 為主，Claude Haiku 只當最後備援。
+
+## Threads 熱議、電競不只 LoL（2026-11-22）
+
+- **新增第五個分類 `threads`（網站上叫「Threads 熱議」），每刊 5 則**：使用者想每天看 Threads 上流量衝很快的文章，好的壞的都要。每刊從 20 則變 25 則（`edition_size: 25`）。
+- **不直接抓 Threads**：threads.com 的 robots.txt 開頭就寫明「未經書面許可禁止自動收集資料」，官方 API 只能搜關鍵字（要審核），也沒有「熱門」端點。改用台灣媒體報導 Threads 爆紅貼文的新聞，來源是 Google 新聞搜尋「Threads／脆友／脆文」（`gnews_threads_tw`，屬於使用者同意過的 Google 新聞例外）。ETtoday 轉載的寵物、萌娃影片（標題有「影片授權：Threads／…」）和香港星島先濾掉。
+- **「流量飆升」用熱度來估**：拿不到真正的瀏覽數，所以 threads 類的重要度改成「熱度」，由 LLM 依報導家數、標題裡的讚數／瀏覽數判斷（`classify.md`）。新聞重點是 Threads 上的貼文或網友反應時，即使內容是政治或財經，也歸 `threads`。
+- **Threads 熱議不當焦點、不進導讀**（`headlines_exclude_categories`）：它是網路話題，不是當天的新聞重點，LINE 推播也就不會出現。
+- **電競 5 則裡 Valorant、CS2 至少各 1 則**（`edition_min_per_subcategory`）：原本電競幾乎都是 LoL。做法是 LoL 照常選完後，用 Valorant／CS2 最好的一則換掉 LoL 排最後的一則，所以電競仍是 5 則；這一刊沒有 Valorant 或 CS2 新聞時，名額還是給 LoL。
+- **新增 `gnews_valorant_en`**：VLR.gg 常常一整天沒有新文章，Dexerto 的 Valorant feed 已經 12 天沒更新，不補來源的話 Valorant 名額常常是空的。

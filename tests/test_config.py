@@ -15,7 +15,7 @@ def test_settings_load():
 def test_sources_load_and_cover_all_categories():
     sources = load_sources()
     assert sources, "至少要有一個啟用中的來源"
-    assert {s.category for s in sources} == {"taiwan", "world", "finance", "esports"}
+    assert {s.category for s in sources} == {"taiwan", "world", "finance", "esports", "threads"}
     assert all(s.enabled for s in sources)
     # api 類型一定要指定 parser
     assert all(s.parser for s in sources if s.type == "api")

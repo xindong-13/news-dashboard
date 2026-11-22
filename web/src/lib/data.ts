@@ -39,6 +39,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "world", label: "國際" },
   { id: "finance", label: "財經" },
   { id: "esports", label: "電競" },
+  { id: "threads", label: "Threads 熱議" },
 ];
 
 export const SUBCATEGORY_LABELS: Record<string, string> = {

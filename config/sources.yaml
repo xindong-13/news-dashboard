@@ -420,6 +420,18 @@ sources:
     subcategory: valorant
     game: valorant
     language: en
+  - id: gnews_valorant_en
+    name: Google News
+    url: https://news.google.com/rss/search?q=(Valorant%20OR%20VCT)%20(esports%20OR%20roster%20OR%20signs%20OR%20Champions%20OR%20Masters%20OR%20VCT)%20when:2d&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    category: esports
+    subcategory: valorant
+    game: valorant
+    language: en
+    max_items: 25
+    ignore_robots: true
+    exclude_keywords: [Live Score, Viewership, Prize Pool]
+    note: 2026-11-22 新增：電競 5 則要保留 Valorant 名額，但 VLR.gg 更新慢、Dexerto 的 Valorant feed 已停更
   - id: hltv_news
     name: HLTV
     url: https://www.hltv.org/rss/news
@@ -466,6 +478,24 @@ sources:
     language: en
     weight: 0.7
     keywords: [LoL, League of Legends, LCK, LPL, Worlds, MSI, Valorant, VCT, CS2, Counter-Strike, Major]
+
+  # ===========================================================================
+  # Threads 熱議（2026-11-22 使用者要求：每刊 5 則 Threads 上爆紅的文章）
+  # Threads 的 robots.txt 明文禁止自動抓取，官方 API 也沒有「熱門」端點，所以不直接抓 Threads，
+  # 改用台灣媒體「報導 Threads 爆紅貼文」的新聞（Google 新聞 RSS，使用者同意過的例外）。
+  # 熱度由 LLM 依報導家數、標題裡的讚數／瀏覽數判斷，見 classify.md。
+  # ===========================================================================
+  - id: gnews_threads_tw
+    name: Google 新聞
+    url: "https://news.google.com/rss/search?q=(Threads%20OR%20%E8%84%86%E5%8F%8B%20OR%20%E8%84%86%E6%96%87)%20-%E6%98%9F%E5%B3%B6%20when:1d&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
+    type: rss
+    category: threads
+    language: zh-TW
+    weight: 1.1
+    max_items: 60
+    ignore_robots: true
+    exclude_keywords: [影片授權, 有片｜, 團購, 開箱]
+    note: 搜尋「Threads／脆友／脆文」；ETtoday 的寵物萌娃影片轉載（「影片授權：Threads／…」）和香港星島先濾掉
 
   # --- 實測不可用，保留紀錄 ---
   - id: sheep_esports

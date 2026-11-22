@@ -22,13 +22,16 @@ processing:
   title_similarity_threshold: 85   # 標題相似度（0～100）≥ 此值視為同一事件（英文）
   title_similarity_threshold_cjk: 60  # 中日韓文標題的門檻（各家改寫幅度大，實測同一事件多在 60～80）
   ai_title_similarity_threshold: 65   # AI 翻譯後的繁中標題再合併一次（實測同一事件 71、不同事件 57）
-  edition_size: 20                 # 每刊只留幾則（2026-11-22 使用者要求：一刊約 20 則，一天約 40 則）
+  edition_size: 25                 # 每刊只留幾則（2026-11-22 使用者要求：一刊約 20 則；之後加 Threads 熱議 5 則 → 25）
   edition_max_per_category: 5      # 每個分類先各 5 則（平均分配）；某一類不夠時，名額逐次放寬給其他類
-  summarize_top_n: 20              # 留下來的全部寫摘要
+  edition_min_per_subcategory:     # 電競 5 則裡 Valorant、CS2 至少各 1 則（有新聞的話），不讓 LoL 佔滿
+    esports: { valorant: 1, cs2: 1 }
+  summarize_top_n: 25              # 留下來的全部寫摘要
   summarize_min_importance: 1
   headlines_min: 5                 # 焦點：20 則裡最重要的幾則，導讀以這幾則為主
   headlines_max: 5
   headlines_max_per_category: 2
+  headlines_exclude_categories: [threads]  # Threads 熱議是網路話題，不當焦點、不進導讀
 
 esports:
   league_priority: [lck, lpl, international, other]

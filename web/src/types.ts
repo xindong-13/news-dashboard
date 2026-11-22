@@ -1,6 +1,6 @@
 // 對應 pipeline/models.py。改那邊的時候要同步改這裡。
 
-export type Category = "taiwan" | "world" | "finance" | "esports";
+export type Category = "taiwan" | "world" | "finance" | "esports" | "threads";
 export type EditionType = "noon" | "night";
 export type Language = "zh-TW" | "zh-CN" | "en" | "ko";
 export type EsportsTag =

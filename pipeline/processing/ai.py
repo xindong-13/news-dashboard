@@ -474,12 +474,16 @@ def write_briefing(
     router: LLMRouter,
     edition_type: EditionType,
     today: date,
+    exclude: list[str] | tuple[str, ...] = (),
 ) -> list[str]:
     if not router.available:
         return []
     by_id = {e.id: e for e in events}
     picked = [by_id[h] for h in headlines]
-    picked += [e for e in events if e.ai_processed and e.id not in headlines][: 12 - len(picked)]
+    rest = [
+        e for e in events if e.ai_processed and e.id not in headlines and e.category not in exclude
+    ]
+    picked += rest[: 12 - len(picked)]
     payload = [
         {"title_zh": e.title_zh, "category": e.category, "summary_zh": e.summary_zh} for e in picked
     ]
@@ -541,7 +545,10 @@ def process_with_llm(
     kept = {
         e.id
         for e in select_for_edition(
-            [ev for _, ev in drafts], proc.edition_size, proc.edition_max_per_category
+            [ev for _, ev in drafts],
+            proc.edition_size,
+            proc.edition_max_per_category,
+            proc.edition_min_per_subcategory,
         )
     }
     log.info("每刊只留 %d 則（共 %d 則）", len(kept), len(drafts))
@@ -555,8 +562,11 @@ def process_with_llm(
         final_work[new_id] = work[tid]
 
     summarize(events, final_work, router, settings, today)
+    exclude = proc.headlines_exclude_categories
     headlines = pick_headlines(
-        events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category
+        events, proc.headlines_min, proc.headlines_max, proc.headlines_max_per_category, exclude
     )
-    briefing = write_briefing(events, headlines, router, edition_type, today) if n_ai else []
+    briefing = (
+        write_briefing(events, headlines, router, edition_type, today, exclude) if n_ai else []
+    )
     return AIResult(events=events, headlines=headlines, briefing=briefing)

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 專案概要
 
-個人用的每日新聞儀表板（台灣／國際／財經／電競），一天出兩刊（午報 12:00、晚報 21:00，台北時間）。Python 資料管線在 GitHub Actions 上抓 RSS／API → 去重合併 → LLM 分類與繁中摘要 → 輸出 `data/editions/YYYY-MM-DD-{noon|night}.json`，再由靜態前端（`web/`，Astro）讀 JSON 渲染並部署到 GitHub Pages。沒有後端與資料庫。
+個人用的每日新聞儀表板（台灣／國際／財經／電競，加上 Threads 熱議），一天出兩刊（午報 12:00、晚報 21:00，台北時間）。Python 資料管線在 GitHub Actions 上抓 RSS／API → 去重合併 → LLM 分類與繁中摘要 → 輸出 `data/editions/YYYY-MM-DD-{noon|night}.json`，再由靜態前端（`web/`，Astro）讀 JSON 渲染並部署到 GitHub Pages。沒有後端與資料庫。
 
 - **`SPEC.md` 是完整規格**，開發依第 10 節的里程碑 M1～M7 進行。進度看 `git log`。
 - **`DECISIONS.md` 記錄所有偏離或補充規格的決定**（來源實測結果、換掉的來源、與使用者確認過的方向）。做出新決定時要寫進去。
