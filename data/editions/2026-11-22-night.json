@@ -259,6 +259,12 @@
           "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB0TU1OTzl0andHTzNkN0VIeDJLZWxUWXktVFlnN0tXZDNIMzkyZEhGZ3E5SHdhakZmRUVBbDZIcVd6N3RBTTBTWTA2VUUyckhXczltQnB1NXA2RUZSTHlWc1pNbkkxb0FWbUhwdUI0ZHJlOGdyYVAw?oc=5",
           "published_at": "2026-11-21T23:41:00Z",
           "language": "zh-TW"
+        },
+        {
+          "name": "진일보 | 전남일보（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9KUHFSb1d1NmU5SGhDbTZweGV2bFhrUkhUYjJ6N3pqM0RUOXk5SE5OeVo1aHVJdWxndmx5U05aRjluTGwzWFVfNDhnZVhaWDY1ZnlSTjFJNkhpOEd6Nlpqand0aHFOamc1TFN3M2tsNA?oc=5",
+          "published_at": "2026-11-22T04:31:44Z",
+          "language": "ko"
         }
       ]
     },
@@ -556,32 +562,6 @@
           "url": "https://money.udn.com/money/story/5612/9894126",
           "published_at": "2026-11-22T02:00:33Z",
           "language": "zh-TW"
-        }
-      ]
-    },
-    {
-      "id": "evt_014",
-      "category": "esports",
-      "subcategory": "lol",
-      "importance": 4,
-      "esports_tags": [
-        "transfer",
-        "roster"
-      ],
-      "league": "lck",
-      "region_tags": [],
-      "title_zh": "DK網羅Doran與Kanavi，T1調整教練團，LCK轉會期熱鬧滾滾",
-      "summary_zh": "LCK轉會期動態頻繁，DK網羅Doran與Kanavi，T1則進行了教練團的調整。",
-      "why_it_matters": "反映出韓國英雄聯盟職業聯賽（LCK）各戰隊在轉會期間的陣容重組，將影響新賽季的競爭格局。",
-      "original_title": "‘도란·카나비’ DK, 코치진 교체 T1…뜨거운 LCK 스토브리그",
-      "published_at": "2026-11-22T04:31:44Z",
-      "ai_processed": true,
-      "sources": [
-        {
-          "name": "진일보 | 전남일보（Google 뉴스）",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9KUHFSb1d1NmU5SGhDbTZweGV2bFhrUkhUYjJ6N3pqM0RUOXk5SE5OeVo1aHVJdWxndmx5U05aRjluTGwzWFVfNDhnZVhaWDY1ZnlSTjFJNkhpOEd6Nlpqand0aHFOamc1TFN3M2tsNA?oc=5",
-          "published_at": "2026-11-22T04:31:44Z",
-          "language": "ko"
         }
       ]
     },

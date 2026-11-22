@@ -234,8 +234,60 @@ NAME_MIN_SHARED = 3
 NAME_MIN_OVERLAP = 0.75
 
 
+# 同一隊的全名與簡稱（比對前先把全名換成簡稱）。2026-11-22「Dplus KIA 簽下 Doran 與 Kanavi」
+# 和「DK 網羅 Doran 與 Kanavi」是同一件事，但共用的名詞只有兩個，沒有合併。
+# 只放常見的 LoL／Valorant／CS2 隊伍；漏了再補。
+TEAM_ALIASES: dict[str, str] = {
+    "dplus kia": "dk",
+    "dplus": "dk",
+    "damwon kia": "dk",
+    "damwon": "dk",
+    "hanwha life esports": "hle",
+    "hanwha life": "hle",
+    "hanwha": "hle",
+    "gen.g": "geng",
+    "gen g": "geng",
+    "kt rolster": "kt",
+    "nongshim redforce": "ns",
+    "nongshim": "ns",
+    "bnk fearx": "fox",
+    "fearx": "fox",
+    "oksavingsbank brion": "bro",
+    "ok brion": "bro",
+    "brion": "bro",
+    "kwangdong freecs": "kdf",
+    "dn freecs": "kdf",
+    "freecs": "kdf",
+    "bilibili gaming": "blg",
+    "bilibili": "blg",
+    "top esports": "tes",
+    "jd gaming": "jdg",
+    "weibo gaming": "wbg",
+    "anyone's legend": "al",
+    "invictus gaming": "ig",
+    "edward gaming": "edg",
+    "royal never give up": "rng",
+    "lng esports": "lng",
+    "ninjas in pyjamas": "nip",
+    "g2 esports": "g2",
+    "team liquid": "tl",
+    "fnatic": "fnc",
+    "cloud9": "c9",
+    "team vitality": "vitality",
+    "natus vincere": "navi",
+    "paper rex": "prx",
+}
+_ALIAS_RE = re.compile(
+    r"(?<![a-z0-9])("
+    + "|".join(re.escape(k) for k in sorted(TEAM_ALIASES, key=len, reverse=True))
+    + r")(?![a-z0-9])"
+)
+NAME_STOPWORDS = NAME_STOPWORDS | {"gaming", "esports", "team"}
+
+
 def name_tokens(title: str) -> set[str]:
-    return {w.lower() for w in NAME_RE.findall(title)} - NAME_STOPWORDS
+    text = _ALIAS_RE.sub(lambda m: f" {TEAM_ALIASES[m.group(1)]} ", title.lower())
+    return set(NAME_RE.findall(text)) - NAME_STOPWORDS
 
 
 def merge_shared_names(work: dict[str, _Work]) -> int:

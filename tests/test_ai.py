@@ -335,3 +335,43 @@ def test_merge_by_shared_names_across_languages():
     main = next(e for e in res.events if "Doran" in e.title_zh)
     assert main.importance == 5
     assert {s.name for s in main.sources} == {"Hotspawn", "Inven"}
+
+
+def test_name_tokens_team_aliases():
+    """隊伍全名與簡稱視為同一個名詞（Dplus KIA＝DK、Bilibili Gaming＝BLG）。"""
+    from pipeline.processing.ai import name_tokens
+
+    assert name_tokens("Dplus KIA 簽下 Doran 與 Kanavi") == {"dk", "doran", "kanavi"}
+    assert name_tokens("DK網羅Doran與Kanavi，T1調整教練團") == {"dk", "doran", "kanavi", "t1"}
+    assert name_tokens("Bilibili Gaming 以 3 比 1 擊敗 Gen.G") == {"blg", "geng"}
+    # 不要誤換掉別的字裡的片段
+    assert name_tokens("Brionna 與 Kiara") == {"brionna", "kiara"}
+
+
+def test_merge_by_team_alias():
+    clusters = _clusters(
+        (
+            "Dplus KIA signs Doran and Kanavi",
+            "https://ludens/1",
+            "Ludens Media",
+            {"category": "esports", "language": "en"},
+        ),
+        (
+            "도란·카나비 DK, 코치진 교체 T1",
+            "https://jinil/1",
+            "진일보",
+            {"category": "esports", "language": "ko"},
+        ),
+    )
+    titles = {
+        "c1": "Dplus KIA 簽下 Doran 與 Kanavi，2027 賽季僅剩輔助未定",
+        "c2": "DK網羅Doran與Kanavi，T1調整教練團，LCK轉會期熱鬧滾滾",
+    }
+
+    def classify_fn(x):
+        return cls(x, subcategory="lol", importance=4, title_zh=titles[x["id"]])
+
+    router, _ = make_router(FakeProvider("gemini", scripted_llm(classify_fn)))
+    res = process_with_llm(clusters, router, load_settings(), NOW, "noon")
+    assert len(res.events) == 1
+    assert {s.name for s in res.events[0].sources} == {"Ludens Media", "진일보"}
