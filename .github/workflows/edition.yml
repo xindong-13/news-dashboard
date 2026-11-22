@@ -96,3 +96,27 @@ jobs:
       contents: read
       pages: write
       id-token: write
+
+  # 網站部署完才推播（訊息裡的連結才點得開）。沒設定 LINE 的 Secrets 就自動略過。
+  notify:
+    needs: [edition, deploy]
+    if: needs.edition.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.edition.outputs.sha }}
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: 推播到 LINE
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          PYTHONIOENCODING: utf-8
+        run: uv run --locked python -m pipeline.notify

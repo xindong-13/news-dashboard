@@ -1,0 +1,24 @@
+# 手動觸發：把最新一刊再推播一次到 LINE（設定好 Secrets 後測試用）。
+name: 推播測試
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: 推播到 LINE
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          PYTHONIOENCODING: utf-8
+        run: uv run --locked python -m pipeline.notify

@@ -80,3 +80,9 @@ markets:
     - { id: gold, name: 黃金（現貨）, cnyes: "GI:XAUUSDOZ:INDEX", currency: USD }
     - { id: wti, name: 原油（WTI）, fred: DCOILWTICO, currency: USD }  # 鉅亨網查不到原油代號
     - { id: btc, name: 比特幣, cnyes: "CC:BTC:FOREX", decimals: 0, currency: USD }
+
+notify:
+  # 出刊後用 LINE 傳導讀＋焦點標題＋網站連結給自己（README「出刊推播到 LINE」）。
+  # 需要 GitHub Secrets：LINE_CHANNEL_ACCESS_TOKEN、LINE_USER_ID；沒設定就不傳。
+  site_url: "https://xindong-13.github.io/news-dashboard/"
+  max_headlines: 5

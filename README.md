@@ -18,7 +18,8 @@ GitHub Actions 抓 RSS／API → 去重合併 → AI 分類與繁中摘要 → �
 | `data/editions/` | 每一刊的 JSON（`2026-11-21-noon.json`），由 Actions 自動 commit |
 | `web/` | 網站（Astro），建置時讀 `data/` |
 | `scripts/check_sources.py` | 來源健康檢查 |
-| `.github/workflows/` | 出刊排程、部署、測試 |
+| `pipeline/notify.py` | 出刊後推播到 LINE |
+| `.github/workflows/` | 出刊排程、部署、推播、測試 |
 
 ---
 
@@ -100,6 +101,26 @@ uv run ruff check . && uv run ruff format .
 **不想公開？** 免費帳號的 Pages 只能用公開 repo。替代方案：repo 設私人、把 `deploy.yml` 換成部署到 Cloudflare Pages 或 Netlify（免費、可設密碼保護）。
 
 ---
+
+## 3-1. 出刊推播到 LINE（選用）
+
+每次出刊、網站部署完後，用 LINE 傳「導讀＋網站連結」給自己。用的是 LINE 官方帳號的 Messaging API，免費方案每月 200 則，一天兩刊約 62 則，夠用。（LINE Notify 已在 2025 年停止服務，不能用了。）
+
+1. 到 [LINE Official Account Manager](https://manager.line.biz/) 用自己的 LINE 登入，建立一個官方帳號（名稱隨意，例如「每日新聞」），方案選免費的。
+2. 在官方帳號的「設定 → Messaging API」按「啟用 Messaging API」，提供者（Provider）名稱隨便取。
+3. 到 [LINE Developers Console](https://developers.line.biz/console/)，點進剛剛的 channel：
+   - **Messaging API** 分頁：用手機掃 QR code，把官方帳號加為好友。
+   - 同一頁最下面的 **Channel access token (long-lived)** 按「Issue」產生 token。
+   - **Basic settings** 分頁最下面的 **Your user ID**（U 開頭）。
+4. 存進 GitHub Secrets（在專案資料夾開終端機執行，會要你貼上內容，不會顯示在畫面上）：
+   ```
+   gh secret set LINE_CHANNEL_ACCESS_TOKEN
+   gh secret set LINE_USER_ID
+   ```
+5. 到 GitHub Actions 手動執行「推播測試」，LINE 應該會收到最新一刊。
+6. （建議）在 Official Account Manager 的「回應設定」關掉自動回應訊息，免得你傳訊息給它時收到罐頭回覆。
+
+沒設定這兩個 Secrets 時，推播會自動略過。token 失效或本月則數用完時，Actions 的推播步驟會亮紅燈。
 
 ## 4. 新增新聞來源
 

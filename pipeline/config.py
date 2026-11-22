@@ -95,6 +95,15 @@ class MarketSettings(_Strict):
     items: list[MarketItem]
 
 
+class NotifySettings(_Strict):
+    """出刊後推播（pipeline/notify.py）。沒設定 token 的管道會自動略過。"""
+
+    site_url: str  # 網站網址，訊息裡的連結用，結尾要有 /
+    line_token_env: str = "LINE_CHANNEL_ACCESS_TOKEN"
+    line_to_env: str = "LINE_USER_ID"
+    max_headlines: int = 5  # 訊息裡列幾則焦點標題
+
+
 class Settings(_Strict):
     timezone: str = "Asia/Taipei"
     http: HttpSettings
@@ -103,6 +112,7 @@ class Settings(_Strict):
     esports: EsportsSettings = EsportsSettings()
     llm: LLMSettings
     markets: MarketSettings
+    notify: NotifySettings | None = None
 
 
 class SourcesFile(_Strict):

@@ -174,6 +174,14 @@
 - **專有名詞去重加上隊伍別名**（`ai.py` 的 `TEAM_ALIASES`）：「Dplus KIA 簽下 Doran 與 Kanavi」和「DK 網羅 Doran 與 Kanavi」共用的名詞只有兩個，沒有合併。比對前先把隊伍全名換成簡稱（Dplus KIA→DK、Bilibili Gaming→BLG…），「gaming／esports／team」不算名詞。2026-11-22 晚報裡這兩則已手動合併（剩 19 則）。
 - 已經出刊的 2026-11-22 午報、晚報用同樣的規則篩到 20 則（重寫 JSON，原本被篩掉的新聞不保留）。
 
+## 出刊推播：LINE（2026-11-22）
+
+- 使用者選 LINE。LINE Notify 已停止服務，改用 LINE 官方帳號的 Messaging API push（免費方案每月 200 則）。IG／FB 的訊息 API 只能在對方先傳訊息後 24 小時內回覆，不適合每天主動推播；Gmail 可行但容易被埋。
+- 訊息內容只放導讀（沒有導讀時改列焦點標題）＋該刊網址，不放整刊內容。
+- 在網站部署完之後才推播（`edition.yml` 的 `notify` job），連結才點得開；只有真的出了新的一刊（`changed == true`）才推。
+- 呼叫 LINE API 不走 `PoliteClient`（那是抓網頁用的，處理 robots.txt 與限速），跟 LLM provider 一樣直接用 httpx。
+- 找最新一刊不能用檔名排序：「night」的字母序在「noon」前面，改用「日期＋是否晚報」排。
+
 ## 來源調整（2026-11-21）
 
 - **HLTV RSS 停用**：改回 403（M1 時可用），依規則不繞過。
