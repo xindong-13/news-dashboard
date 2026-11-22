@@ -59,7 +59,14 @@ jobs:
         run: |
           args="--edition ${{ inputs.edition || 'auto' }}"
           if [ "${{ inputs.no_llm }}" = "true" ]; then args="$args --no-llm"; fi
-          if [ "${{ github.event_name }}" = "schedule" ]; then args="$args --skip-existing"; fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # 依觸發的排程判斷預定刊別（UTC 3～5 點＝午報，其餘＝晚報）；排程延遲到下一刊的時間就略過
+            case "${{ github.event.schedule }}" in
+              *" 3 "*|*" 4 "*|*" 5 "*) expect=noon ;;
+              *) expect=night ;;
+            esac
+            args="$args --skip-existing --expect $expect"
+          fi
           uv run python -m pipeline.main $args
 
       - name: commit 資料

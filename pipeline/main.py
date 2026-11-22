@@ -168,6 +168,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--dry-run", action="store_true", help="不寫檔")
     ap.add_argument("--data-dir", type=Path, default=DATA_DIR)
     ap.add_argument(
+        "--expect",
+        choices=["noon", "night"],
+        help="排程用：依現在時間判斷的刊別不是這一刊就略過（GitHub 排程延遲太久時，不要搶走下一刊）",
+    )
+    ap.add_argument(
         "--skip-existing",
         action="store_true",
         help="這一刊已經有檔案就直接結束（排程補跑用，避免覆蓋已出刊的內容）",
@@ -190,6 +195,12 @@ def main(argv: list[str] | None = None) -> int:
     now = (args.now or now_taipei()).astimezone(TAIPEI)
     choice: EditionChoice = args.edition
     plan = plan_edition(now, choice, settings.edition, args.data_dir / "editions")
+    if args.expect and plan.edition_type != args.expect:
+        log.warning(
+            "排程是%s，但現在已經是%s的時間（排程延遲太久），略過", args.expect, plan.edition_type
+        )
+        print(f"排程延遲太久（預定 {args.expect}，現在 {plan.edition_type}），略過")
+        return 0
     if args.skip_existing and (args.data_dir / "editions" / f"{plan.edition_id}.json").exists():
         log.info("%s 已經出刊過，略過（--skip-existing）", plan.edition_id)
         print(f"{plan.edition_id} 已存在，略過")
