@@ -32,6 +32,9 @@ class HttpSettings(_Strict):
 
 class EditionSettings(_Strict):
     noon_cutoff: str = "16:30"  # 台北時間；早於此時刻執行算午報，否則算晚報
+    noon_open: str = "11:45"  # 自動觸發最早幾點可以出午報（到 noon_cutoff 為止）
+    night_open: str = "20:45"  # 自動觸發最早幾點可以出晚報（到午夜為止）
+    late_night_until: str = "05:00"  # 凌晨這個時間以前手動出刊，算前一天的晚報
     default_lookback_hours: int = 12
     max_window_hours: int = 24
 

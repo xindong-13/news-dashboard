@@ -14,7 +14,7 @@ from pipeline.models import Edition, EditionIndex, EditionIndexEntry, EditionTyp
 from pipeline.textutil import TAIPEI
 
 EditionChoice = Literal["auto", "noon", "night"]
-_ID_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(noon|night)$")
+EDITION_ID_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(noon|night)$")
 
 
 @dataclass(frozen=True)
@@ -26,10 +26,36 @@ class EditionPlan:
     previous_id: str | None  # 範圍起點是根據哪一刊；None 表示找不到，往回抓預設小時數
 
 
-def detect_edition_type(now: datetime, noon_cutoff: str) -> EditionType:
-    """依「實際執行時間」判斷刊別：台北時間 cutoff 之前算午報，之後算晚報。"""
-    hh, mm = (int(x) for x in noon_cutoff.split(":"))
-    return "noon" if now.astimezone(TAIPEI).time() < time(hh, mm) else "night"
+def _clock(hhmm: str) -> time:
+    hh, mm = (int(x) for x in hhmm.split(":"))
+    return time(hh, mm)
+
+
+def is_late_night(now: datetime, settings: EditionSettings) -> bool:
+    """台北時間午夜到凌晨：這時出刊算前一天的晚報。"""
+    return now.astimezone(TAIPEI).time() < _clock(settings.late_night_until)
+
+
+def detect_edition_type(now: datetime, settings: EditionSettings) -> EditionType:
+    """依「實際執行時間」判斷刊別：凌晨算（前一天的）晚報，cutoff 之前算午報，之後算晚報。"""
+    if is_late_night(now, settings):
+        return "night"
+    return "noon" if now.astimezone(TAIPEI).time() < _clock(settings.noon_cutoff) else "night"
+
+
+def due_edition_id(now: datetime, settings: EditionSettings) -> str | None:
+    """自動觸發用：現在「該出」的是哪一刊；不在任何一刊的時段內就是 None。
+
+    午報 noon_open～noon_cutoff、晚報 night_open～午夜。觸發延遲到別的時段時，
+    不會提早出下一刊，跨過午夜也不會出成隔天的刊。
+    """
+    now = now.astimezone(TAIPEI)
+    clock = now.time()
+    if _clock(settings.noon_open) <= clock < _clock(settings.noon_cutoff):
+        return edition_id_for(now, "noon")
+    if clock >= _clock(settings.night_open):
+        return edition_id_for(now, "night")
+    return None
 
 
 def edition_id_for(now: datetime, edition_type: EditionType) -> str:
@@ -37,7 +63,7 @@ def edition_id_for(now: datetime, edition_type: EditionType) -> str:
 
 
 def list_edition_files(editions_dir: Path) -> list[Path]:
-    return sorted(p for p in editions_dir.glob("*.json") if _ID_RE.match(p.stem))
+    return sorted(p for p in editions_dir.glob("*.json") if EDITION_ID_RE.match(p.stem))
 
 
 def load_edition(path: Path) -> Edition:
@@ -65,10 +91,10 @@ def plan_edition(
     now: datetime, choice: EditionChoice, settings: EditionSettings, editions_dir: Path
 ) -> EditionPlan:
     now = now.astimezone(TAIPEI)
-    etype: EditionType = (
-        detect_edition_type(now, settings.noon_cutoff) if choice == "auto" else choice
-    )
-    eid = edition_id_for(now, etype)
+    etype: EditionType = detect_edition_type(now, settings) if choice == "auto" else choice
+    # 凌晨出的晚報算前一天的，不然會佔掉今晚那一刊
+    late = etype == "night" and is_late_night(now, settings)
+    eid = edition_id_for(now - timedelta(days=1) if late else now, etype)
 
     prev = _previous_edition(editions_dir, eid, now)
     earliest = now - timedelta(hours=settings.max_window_hours)

@@ -1,19 +1,20 @@
 # 每天兩刊：抓新聞 → AI 整理 → commit data/ → 部署網站。
 # 任何一步失敗，Actions 會亮紅燈（GitHub 會寄信通知 repo 擁有者）。
 name: 出刊
+run-name: 出刊（${{ inputs.target || (github.event_name == 'schedule' && 'GitHub 排程備援') || '手動' }}）
 
 on:
+  # 準時出刊靠外部觸發：Cloudflare Worker（worker/trigger.mjs）在台北 11:50、20:50 呼叫
+  # workflow_dispatch，並用 target 指定哪一刊。
+  # GitHub 的排程實測會晚 6～10 小時，只當備援：跑起來時「現在該出、但還沒出」的那一刊才出（--due），
+  # 已經出過或不在該刊的時段內就直接結束，不會重抓、覆蓋，也不會出成別的日期。
   schedule:
-    # GitHub 的排程是 UTC，而且常延遲 5～30 分鐘，所以提早 10 分鐘排。
-    # 刊別依「實際執行時間」判斷（台北 16:30 前＝午報），延遲不會出錯刊。
-    # GitHub 偶爾會整個漏跑某一次排程，所以每刊再排兩次補跑：
-    # 排程觸發時會加 --skip-existing，這一刊已經出過就直接結束，不會重抓或覆蓋。
-    - cron: "50 3 * * *"   # 台北 11:50 → 午報
-    - cron: "20 4 * * *"   # 台北 12:20 → 午報補跑
-    - cron: "20 5 * * *"   # 台北 13:20 → 午報補跑
-    - cron: "50 12 * * *"  # 台北 20:50 → 晚報
-    - cron: "20 13 * * *"  # 台北 21:20 → 晚報補跑
-    - cron: "20 14 * * *"  # 台北 22:20 → 晚報補跑
+    - cron: "50 3 * * *"   # 台北 11:50
+    - cron: "20 4 * * *"   # 台北 12:20
+    - cron: "20 5 * * *"   # 台北 13:20
+    - cron: "50 12 * * *"  # 台北 20:50
+    - cron: "20 13 * * *"  # 台北 21:20
+    - cron: "20 14 * * *"  # 台北 22:20
   workflow_dispatch:
     inputs:
       edition:
@@ -25,6 +26,10 @@ on:
         description: 不呼叫 AI（測試用，輸出降級版）
         type: boolean
         default: false
+      target:
+        description: 給自動觸發用，手動執行請留空（填了就不會覆蓋已出的刊）
+        type: string
+        default: ""
 
 concurrency:
   group: edition
@@ -41,7 +46,11 @@ jobs:
       sha: ${{ steps.commit.outputs.sha }}
       changed: ${{ steps.commit.outputs.changed }}
     steps:
+      # 要抓分支最新版，不能用預設的 github.sha：同一刊被觸發兩次時，後一次會排隊，
+      # github.sha 是排隊前的版本，看不到前一次剛 commit 的刊，會重出一次。
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: astral-sh/setup-uv@v6
         with:
@@ -56,18 +65,20 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONIOENCODING: utf-8
+          EVENT: ${{ github.event_name }}
+          EDITION: ${{ inputs.edition }}
+          NO_LLM: ${{ inputs.no_llm }}
+          TARGET: ${{ inputs.target }}
         run: |
-          args="--edition ${{ inputs.edition || 'auto' }}"
-          if [ "${{ inputs.no_llm }}" = "true" ]; then args="$args --no-llm"; fi
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            # 依觸發的排程判斷預定刊別（UTC 3～5 點＝午報，其餘＝晚報）；排程延遲到下一刊的時間就略過
-            case "${{ github.event.schedule }}" in
-              *" 3 "*|*" 4 "*|*" 5 "*) expect=noon ;;
-              *) expect=night ;;
-            esac
-            args="$args --skip-existing --expect $expect"
+          if [ "$EVENT" = "schedule" ]; then
+            args=(--due)
+          elif [ -n "$TARGET" ]; then
+            args=(--target "$TARGET")
+          else
+            args=(--edition "${EDITION:-auto}")
           fi
-          uv run python -m pipeline.main $args
+          if [ "$NO_LLM" = "true" ]; then args+=(--no-llm); fi
+          uv run python -m pipeline.main "${args[@]}"
 
       - name: commit 資料
         id: commit

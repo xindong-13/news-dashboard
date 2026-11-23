@@ -14,6 +14,9 @@ http:
 
 edition:
   noon_cutoff: "16:30"       # 早於這個時間執行算午報，否則算晚報
+  noon_open: "11:45"         # 自動觸發最早幾點可以出午報（到 noon_cutoff 為止）
+  night_open: "20:45"        # 自動觸發最早幾點可以出晚報（到午夜為止）
+  late_night_until: "05:00"  # 凌晨這個時間以前手動出刊，算前一天的晚報
   default_lookback_hours: 12 # 找不到上一刊時往回抓幾小時
   max_window_hours: 24       # 漏刊時，時間範圍最長幾小時
 

@@ -29,6 +29,8 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: web/package-lock.json
+      - name: 測試觸發出刊的 Worker
+        run: node --test "worker/*.test.mjs"
       - name: 型別檢查與建置
         working-directory: web
         run: |

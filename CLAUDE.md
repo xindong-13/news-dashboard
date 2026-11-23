@@ -20,6 +20,8 @@ uv run pytest tests/test_fetch_parsing.py::test_roc_date   # 單一測試
 uv run ruff check . && uv run ruff format .          # lint + 格式化（E501 已關閉，行長交給 format）
 uv run python scripts/check_sources.py --samples 3   # 來源健康檢查；--all 含停用、--id <id> 指定來源、--markdown <path> 輸出報表
 uv run python -m pipeline.main --edition noon        # 產生一刊（--edition auto|noon|night；--no-llm、--dry-run、--now <ISO>、--data-dir <path>）
+uv run python -m pipeline.main --target 2026-11-24-noon   # 自動觸發用：出過或不在時段內就略過（--due＝出現在該出的那一刊）
+node --test "worker/*.test.mjs"                      # Cloudflare Worker 的測試（不連網路、不用安裝套件）
 cd web && npm install && npm run build               # 建置網站（讀 ../data，或環境變數 DATA_DIR）→ web/dist
 ```
 
@@ -29,7 +31,8 @@ cd web && npm install && npm run build               # 建置網站（讀 ../dat
 
 資料流（`pipeline/main.py` 的 `build_edition`）：`plan_edition`（刊別與時間範圍）→ `fetch_all` → `filter_window`（範圍內、未刊出過）→ `localize`（簡轉繁）→ `cluster_items`（去重合併）→ `select_clusters`（規則篩到上限）→ `process_with_llm`（有 LLM 時）或 `degraded_event` → `write_edition`（刊別 JSON ＋ `data/index.json`）。
 
-- 刊別依**實際執行時間**判斷（台北 16:30 前＝午報），時間範圍起點＝上一個「不同」刊別的 `window.to`；同一刊重跑會覆蓋檔案。
+- 手動執行的刊別依**實際執行時間**判斷（00:00～05:00＝前一天晚報，16:30 前＝午報），時間範圍起點＝上一個「不同」刊別的 `window.to`；同一刊手動重跑會覆蓋檔案。
+- 自動觸發（`--target`、`--due`）一律不覆蓋，且只在該刊時段內出（`due_edition_id`：午報 11:45～16:30、晚報 20:45～24:00）。不要改成依觸發來源推測刊別，觸發可能延遲好幾小時。
 - 合併門檻中英文不同、同一家媒體不模糊合併等規則的理由見 `DECISIONS.md`「抓取與去重」。
 
 ### LLM 層
@@ -45,6 +48,12 @@ cd web && npm install && npm run build               # 建置網站（讀 ../dat
 
 - 鉅亨網報價 API 為主、FRED 為備援；**不用 Yahoo／yfinance（robots.txt 禁止）**。清單在 `settings.yaml` 的 `markets.items`。
 - `build_edition` 的 `markets_fetcher` 參數預設是 `None`（測試不打網路），`main()` 才傳真的抓取函式。
+
+### 觸發與漏刊通知（`worker/trigger.mjs`）
+
+- Cloudflare Worker 準時呼叫 `edition.yml` 的 `workflow_dispatch`（帶 `target`），12:30／21:30 檢查網站、漏刊時傳 LINE，並回報 Healthchecks.io。GitHub 排程會晚 6～10 小時，只當備援。
+- 這個檔案由使用者手動貼到 Cloudflare 後台，**改了要提醒使用者重貼**。維持單一檔案、不用套件、只 export default。
+- `edition.yml` 的 checkout 要用 `ref: github.ref_name`，`inputs` 一律經由 `env` 傳進 shell（`tests/test_trigger.py` 有檢查）。
 
 ### 網站（`web/`，Astro）
 

@@ -3,6 +3,8 @@
     uv run python -m pipeline.main --edition auto      # 依執行時間判斷午報／晚報
     uv run python -m pipeline.main --edition noon      # 指定刊別
     uv run python -m pipeline.main --no-llm            # 強制降級版（不呼叫 LLM）
+    uv run python -m pipeline.main --target 2026-11-24-noon   # 自動觸發：只出指定的這一刊，出過或不在時段內就略過
+    uv run python -m pipeline.main --due               # 自動觸發：出「現在該出、但還沒出」的那一刊，沒有就略過
     uv run python -m pipeline.main --dry-run           # 不寫檔，只印摘要
     uv run python -m pipeline.main --now 2026-11-15T11:40:00+08:00   # 假裝在某個時間執行（測試用）
 
@@ -30,8 +32,10 @@ from pipeline.models import Edition, LLMUsage, MarketQuote, SourceConfig, TimeWi
 from pipeline.processing.ai import process_with_llm
 from pipeline.processing.cluster import cluster_items
 from pipeline.processing.edition import (
+    EDITION_ID_RE,
     EditionChoice,
     EditionPlan,
+    due_edition_id,
     plan_edition,
     recent_source_urls,
     write_edition,
@@ -159,6 +163,24 @@ def build_edition(
     )
 
 
+def skip_reason(
+    now: datetime, settings: Settings, data_dir: Path, target: str | None
+) -> str | None:
+    """自動觸發該不該略過；要出刊時回傳 None。target 是 None 表示「現在該出的那一刊」。"""
+    due = due_edition_id(now, settings.edition)
+    if due is None or (target is not None and target != due):
+        return f"現在（{now:%m-%d %H:%M}）不是 {target or '任何一刊'} 的出刊時段"
+    if (data_dir / "editions" / f"{due}.json").exists():
+        return f"{due} 已經出刊過"
+    return None
+
+
+def _edition_id(value: str) -> str:
+    if not EDITION_ID_RE.fullmatch(value):
+        raise argparse.ArgumentTypeError(f"刊別 ID 要像 2026-11-24-noon，收到 {value!r}")
+    return value
+
+
 def _summary(ed: Edition) -> str:
     cats = Counter(e.category for e in ed.events)
     multi = sum(1 for e in ed.events if len(e.sources) > 1)
@@ -177,15 +199,16 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-llm", action="store_true", help="不呼叫 LLM，直接輸出降級版")
     ap.add_argument("--dry-run", action="store_true", help="不寫檔")
     ap.add_argument("--data-dir", type=Path, default=DATA_DIR)
-    ap.add_argument(
-        "--expect",
-        choices=["noon", "night"],
-        help="排程用：依現在時間判斷的刊別不是這一刊就略過（GitHub 排程延遲太久時，不要搶走下一刊）",
+    auto = ap.add_mutually_exclusive_group()
+    auto.add_argument(
+        "--target",
+        type=_edition_id,
+        help="外部觸發用：只出指定的這一刊（例 2026-11-24-noon），出過或不在該刊時段內就略過",
     )
-    ap.add_argument(
-        "--skip-existing",
+    auto.add_argument(
+        "--due",
         action="store_true",
-        help="這一刊已經有檔案就直接結束（排程補跑用，避免覆蓋已出刊的內容）",
+        help="GitHub 排程備援用：出「現在該出、但還沒出」的那一刊，沒有就略過",
     )
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
@@ -204,17 +227,12 @@ def main(argv: list[str] | None = None) -> int:
     settings = load_settings()
     now = (args.now or now_taipei()).astimezone(TAIPEI)
     choice: EditionChoice = args.edition
+    if args.due or args.target:
+        choice = "auto"  # 自動觸發的刊別由時段決定，不能另外指定
+        if reason := skip_reason(now, settings, args.data_dir, args.target):
+            print(f"{reason}，略過")
+            return 0
     plan = plan_edition(now, choice, settings.edition, args.data_dir / "editions")
-    if args.expect and plan.edition_type != args.expect:
-        log.warning(
-            "排程是%s，但現在已經是%s的時間（排程延遲太久），略過", args.expect, plan.edition_type
-        )
-        print(f"排程延遲太久（預定 {args.expect}，現在 {plan.edition_type}），略過")
-        return 0
-    if args.skip_existing and (args.data_dir / "editions" / f"{plan.edition_id}.json").exists():
-        log.info("%s 已經出刊過，略過（--skip-existing）", plan.edition_id)
-        print(f"{plan.edition_id} 已存在，略過")
-        return 0
 
     try:
         edition = build_edition(
