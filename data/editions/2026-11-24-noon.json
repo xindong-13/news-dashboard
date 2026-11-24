@@ -1,0 +1,1033 @@
+{
+  "edition_id": "2026-11-24-noon",
+  "edition_type": "noon",
+  "published_at": "2026-11-24T11:50:28.972928+08:00",
+  "window": {
+    "from": "2026-11-23T11:50:28.972928+08:00",
+    "to": "2026-11-24T11:50:28.972928+08:00"
+  },
+  "briefing": [
+    "黃仁勳恢復輝達總裁與執行長職務，帶動台股今天跳空勁揚，盤中大漲超過3300點重登4萬點大關。",
+    "美國總統川普表示由其促成協議使黃仁勳復職，但也引發學者憂心開政府幹預私人企業先例。",
+    "潛艦國造原型艦海鯤號今天上午完成第26次海測出海測試，專家預測最快將在12月底或明年1月交艦。",
+    "BLG贏得了英雄聯盟世界大賽冠軍。",
+    "Dplus KIA宣布迎來選手Delight補齊陣容，Career則選擇離隊。"
+  ],
+  "headlines": [
+    "evt_001",
+    "evt_009",
+    "evt_003",
+    "evt_006",
+    "evt_008"
+  ],
+  "markets": [
+    {
+      "symbol": "taiex",
+      "name": "台股加權指數",
+      "price": 40134.21,
+      "change": 3322.32,
+      "change_pct": 9.03,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T03:52:45Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "2330",
+      "name": "台積電",
+      "price": 2230.0,
+      "change": 200.0,
+      "change_pct": 9.85,
+      "currency": "TWD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T03:52:27Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "dji",
+      "name": "道瓊工業指數",
+      "price": 49595.31,
+      "change": 1447.98,
+      "change_pct": 3.01,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-23T21:11:02Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "spx",
+      "name": "S&P 500",
+      "price": 7237.17,
+      "change": 326.78,
+      "change_pct": 4.73,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-23T21:05:21Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "nasdaq",
+      "name": "那斯達克",
+      "price": 24089.558,
+      "change": 1471.83,
+      "change_pct": 6.51,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-23T21:06:01Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "sox",
+      "name": "費城半導體",
+      "price": 9588.05,
+      "change": 1179.46,
+      "change_pct": 14.03,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-23T21:06:03Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "usdtwd",
+      "name": "美元兌台幣",
+      "price": 32.985,
+      "change": 0.09,
+      "change_pct": 0.274,
+      "currency": null,
+      "unit": null,
+      "decimals": 3,
+      "as_of": "2026-11-24T03:52:01Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "us10y",
+      "name": "美國10年期公債殖利率",
+      "price": 4.912,
+      "change": -0.011769,
+      "change_pct": -0.239,
+      "currency": null,
+      "unit": "%",
+      "decimals": 3,
+      "as_of": "2026-11-24T03:49:42Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "gold",
+      "name": "黃金（現貨）",
+      "price": 3634.36,
+      "change": 2.68,
+      "change_pct": 0.07,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T03:52:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "wti",
+      "name": "原油（WTI）",
+      "price": 89.53,
+      "change": 0.29,
+      "change_pct": 0.325,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-17T21:00:00Z",
+      "date_only": true,
+      "source": "fred"
+    },
+    {
+      "symbol": "btc",
+      "name": "比特幣",
+      "price": 60287.79,
+      "change": -1003.16,
+      "change_pct": -1.637,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 0,
+      "as_of": "2026-11-24T03:52:24Z",
+      "date_only": false,
+      "source": "cnyes"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "黃仁勳重掌輝達 台股暴漲逾3300點重登4萬大關",
+      "summary_zh": "輝達宣布創辦人黃仁勳恢復總裁與執行長職務，帶動美股與台指期夜盤大漲。台股今天跳空勁揚，盤中大漲超過3300點，創下史上最大盤中漲點，重登4萬點大關。",
+      "why_it_matters": "黃仁勳回歸激勵科技股全面強彈，帶動台股創下史上最大盤中漲點並重登4萬點。",
+      "original_title": "黃仁勳重掌輝達 台股報復性反彈逾3300點重登4萬大關",
+      "published_at": "2026-11-24T01:11:02Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611240034.aspx",
+          "published_at": "2026-11-24T01:11:02Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5607/9897812",
+          "published_at": "2026-11-24T01:21:20Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611240054.aspx",
+          "published_at": "2026-11-24T02:28:46Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9897985",
+          "published_at": "2026-11-24T02:37:05Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_002",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳重返輝達股價飆漲 川普帳面獲利高達4.9億元",
+      "summary_zh": "隨著黃仁勳重返輝達帶動股價飆漲，美國總統川普持有的輝達股票市值隨之大增，帳面獲利最高達到1500萬美元。",
+      "why_it_matters": "美國總統川普因輝達股價飆漲獲得高額帳面獲利，凸顯政商互動對市場的直接影響。",
+      "original_title": "黃仁勳重返輝達股價狂飆 川普帳面獲利最高達4.9億元",
+      "published_at": "2026-11-24T02:21:42Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611240052.aspx",
+          "published_at": "2026-11-24T02:21:42Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9897969",
+          "published_at": "2026-11-24T02:30:58Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_003",
+      "category": "world",
+      "subcategory": "tech",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "川普稱由其促成協議 輝達重新任命黃仁勳回任執行長",
+      "summary_zh": "美國總統川普表示由其促成協議，使輝達重新任命黃仁勳回任執行長。黃仁勳的回歸幫助該公司股票市值增加1兆美元。",
+      "why_it_matters": "美國總統直接介入私人企業人事決策並促成回任，引發外界對政府幹預企業的關注。",
+      "original_title": "Nvidia reinstates CEO Jensen Huang after affair with alleged spy as Trump says 'I made the deal'",
+      "published_at": "2026-11-24T01:11:54Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cq5y1k8ez407o?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-24T01:11:54Z",
+          "language": "en"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/videos/ckedq2edqegzo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-24T01:21:41Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_004",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳重磅回歸 輝達創單日市值暴增歷史紀錄",
+      "summary_zh": "輝達董事會宣布離任的執行長黃仁勳復職，帶動股價鎖死在3成以上漲幅。黃仁勳創下單一公司單日交易創造1兆美元市值的歷史新紀錄，並為那斯達克提高2兆美元市場規模。",
+      "why_it_matters": "黃仁勳復職帶動輝達市值單日暴增，創下美股歷史紀錄並大幅提升那斯達克市場規模。",
+      "original_title": "AI教父黃仁勳重磅回歸 輝達創紀錄單日拉抬市場2兆美元",
+      "published_at": "2026-11-23T22:37:13Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611240013.aspx",
+          "published_at": "2026-11-23T22:37:13Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_005",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳重返輝達股價飆31% 美股收盤大漲",
+      "summary_zh": "輝達董事會恢復創辦人黃仁勳的執行長職務，帶動美國股市收盤大漲。其中輝達股價飆升31.48%至165.05美元，費城半導體指數也強升14.03%。",
+      "why_it_matters": "黃仁勳重掌輝達激勵美股與半導體類股全面收高，推升整體科技市場行情。",
+      "original_title": "黃仁勳返輝達股價飆31% 美股收盤大漲、費半勁揚14%",
+      "published_at": "2026-11-23T22:10:10Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611240012.aspx",
+          "published_at": "2026-11-23T22:10:10Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_006",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "川普施壓助黃仁勳重返輝達 凸顯跛鴨總統影響力",
+      "summary_zh": "在美國總統川普施壓與斡旋下，輝達董事會同意讓黃仁勳復職。這凸顯川普即便失去國會控制權，在總統任期尾聲仍能持續發揮影響力。",
+      "why_it_matters": "川普成功介入企業高層人事，顯示其在任期尾聲仍具備強大的政治與政策影響力。",
+      "original_title": "川普助黃仁勳返輝達 凸顯「跛鴨」仍有影響力、介入美企決策非首例",
+      "published_at": "2026-11-24T02:53:57Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611240059.aspx",
+          "published_at": "2026-11-24T02:53:57Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_007",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "黃仁勳回任輝達執行長激勵亞洲科技股，台股概念股強彈",
+      "summary_zh": "隨著輝達董事會重新任命執行長黃仁勳，投資人紛紛重回科技市場。這項人事案激勵亞洲相關科技股跳漲，其中台灣相關股票接近漲停水準。",
+      "why_it_matters": "黃仁勳回歸帶動亞洲科技股與台灣供應鏈概念股出現強勁反彈。",
+      "original_title": "Asian Nvidia-related stocks jump after Huang's return, with Taiwan's near price limits",
+      "published_at": "2026-11-24T02:20:36Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-asia-chip-stocks.html",
+          "published_at": "2026-11-24T02:20:36Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_008",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 5,
+      "esports_tags": [
+        "tournament",
+        "result"
+      ],
+      "league": "lpl",
+      "region_tags": [],
+      "title_zh": "BLG 贏得英雄聯盟世界大賽冠軍",
+      "summary_zh": "BLG 贏得了英雄聯盟世界大賽冠軍。",
+      "why_it_matters": "BLG 奪下英雄聯盟世界大賽冠軍，確立了其在該賽季全球戰隊中的頂尖地位。",
+      "original_title": "BLG wins Leage of Legends World Championship",
+      "published_at": "2026-11-23T23:03:35Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "The Tartan（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPVEVQQS15V1pvTHJIdkRSZi15STMxbEVaOS01UHlZT1RxNk1CTXVxWVFoZzBVN0Q5anozVGF4aDN5Y1FnSWlSR1J2X0JaZlJUdVZzSDdjM25OTHcyWHNYS0poVVN4WTJnVnBoblpONng4MHJUQzVYUW5pc1MxbndQX0ttR050UQ?oc=5",
+          "published_at": "2026-11-23T23:03:35Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_009",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "川普介入輝達人事引發擔憂，學者憂心開政府幹預私人企業先例",
+      "summary_zh": "輝達董事會一致投票恢復黃仁勳的職位，帶動股價收漲31.48%。美國總統川普表示由其出面說服董事會，但此舉也引發學者與國會兩黨質疑，憂心創下政府幹預私人企業的先例。",
+      "why_it_matters": "政府直接介入企業高層人事決策引發國安調查與國會質疑，恐為美國企業治理創下爭議先例。",
+      "original_title": "黃仁勳回鍋案例前所未見！川普直接介入輝達董事會 業界憂創政府干預企業先例",
+      "published_at": "2026-11-23T23:42:17Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/23/trump-nvidia-jensen-huang.html",
+          "published_at": "2026-11-23T23:42:17Z",
+          "language": "en"
+        },
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6670402",
+          "published_at": "2026-11-24T03:10:06Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6670664",
+          "published_at": "2026-11-24T03:40:07Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_010",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Delight 加入 Dplus KIA，Career 離隊",
+      "summary_zh": "Dplus KIA 宣布迎來選手 Delight 補齊陣容，Career 則選擇離隊。Dplus KIA 表示期待 Delight 與 Smash 選手能產生強烈化學反應。",
+      "why_it_matters": "Dplus KIA 完成陣容最後拼圖，將影響 LCK 新賽季的戰力佈局與選手動向。",
+      "original_title": "Delight joins. Career leaves.",
+      "published_at": "2026-11-23T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://x.com/DplusKia/status/2124829090662523220",
+          "published_at": "2026-11-23T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "Sheep Esports（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPd29zcDhwMW1yc3hLczc1LWNqUTVvOUlzNURfdkVYMHdmdXlrb3hzc2NFb1JzcjNFanFIRVd3ZEY3NHlZb1FKNmY0TTdIb3pOR3BqV3FrWWhzeTBab2FPYmxROXdkUFEwQ0xTQ3lUUFBvY0wyV0JaOF9VSmE5SVdJTUJVb04ybE9YZUVPaFo0SllBTUhyUGc?oc=5",
+          "published_at": "2026-11-23T11:49:53Z",
+          "language": "ko"
+        },
+        {
+          "name": "Sheep Esports（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQNlRqZmNiYlZQTHdrTUxuUHIwZ1FKQW1NMmVlMklJOXJySlRuUmZxLXNWa280TkNwVklUYWVQZlpzc2w1MUhpS3FZOUtoMlVOdHc4aHF1Ui1TWDFjM3AtT19BeUVQVm5UT216UF9sbWNVNWpNWlVIZG82aDRRZE9icVZYOWNHN2hXODR2RzN0TEZyekVQbVE?oc=5",
+          "published_at": "2026-11-23T11:49:53Z",
+          "language": "en"
+        },
+        {
+          "name": "데일리e스포츠（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9BQXlXT1dQLUpwTERPakJyZWZfb2NPUWpzY01Fdlc2T1NQcDFvQWtnZmJoY0x5bmlIUkx4MmtyLXp1ODZuS29Rc0lxa2ZDeUJBMXNuTE9NcjNWR1F6WU8wbS1KX3MxSndPYTQxbllLS3hYTVgxdi1RcmFSc3A?oc=5",
+          "published_at": "2026-11-23T11:50:52Z",
+          "language": "ko"
+        },
+        {
+          "name": "재경일보（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE01Q2Z3ems4NDYtdThPRUF0cnA0Z2MtVnY2SkFVTl9wLXNKLTY4aWhfT3hTSHlJdFZzVDJBd3RVNFJMLWVDUDY2SDFOOA?oc=5",
+          "published_at": "2026-11-23T12:02:12Z",
+          "language": "ko"
+        },
+        {
+          "name": "韓國 Inven",
+          "url": "https://www.inven.co.kr/webzine/news/?news=323733",
+          "published_at": "2026-11-23T12:34:56Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_011",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Life 與 Sonstar 加入 Hanwha Life Esports 教練團，Delight 離隊",
+      "summary_zh": "Hanwha Life Esports 宣布 Life 與 Sonstar 加入教練團，同時選手 Delight 宣告離隊。兩人將參與 2027 年賽季的教練工作。",
+      "why_it_matters": "Hanwha Life Esports 調整教練團陣容，將影響該戰隊未來的戰術規劃與賽季表現。",
+      "original_title": "Life (Coach) and Sonstar (Coach) join. Delight leaves.",
+      "published_at": "2026-11-23T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://x.com/HLEofficial/status/2124829068956975256",
+          "published_at": "2026-11-23T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "Sheep Esports（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOd1V6RUZ2dVd4cnMzV1ZFR1B2WlRJQ21ON2hHSDlKTzFZZTFlVXViSGNaNU04QXA0cWNTTGZRTmpUS3N3dUNCT21tUjhqZ1JkYU5LWW9MSl9kMk5oRGxTMk9mdGhNVjJHeVg4aGRzeGdVQWZCZURFMGtFT0hvZ21QTTV2NTE1QkpZSjV0WDdzcVdfUjBkQU1HNVAxT1ZycWlpczdXNENvZWZfRklJc0E?oc=5",
+          "published_at": "2026-11-23T15:10:00Z",
+          "language": "ko"
+        },
+        {
+          "name": "Sheep Esports（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQ3lWRUJibUljQm9MU0dQVGhEVXFTalJVLVM0VDQwSDN1bEIzU0JHYzZOZ2E3bHh2VjlVbnA2T0FfQ3MwQjg4SGwtNzdnUU9vYmVIMVpzQXRTZTZsMmVwMWwyN3VlUVRYT0hxSjA2ZHNsclBOVGxMY2pEclZpd2dlQ3RiOHYyemRobkJKbFVNalNMRWFrWXlKZ0tKSnlGcHgxam40OTA3dXd5QjZTVmc?oc=5",
+          "published_at": "2026-11-23T15:10:00Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_012",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "海鯤號完成第26次海測 專家預測最快12月底交艦",
+      "summary_zh": "潛艦國造原型艦海鯤號今天上午完成第26次海測出海測試。專家指出，由於今年6月已完成操雷試射，預測最快將在12月底或明年1月交艦。",
+      "why_it_matters": "海鯤號完成密集海測並符合交艦門檻，象徵台灣潛艦國造進程邁入重要里程碑。",
+      "original_title": "海鯤號第26次海測 專家預測最快12月底交艦",
+      "published_at": "2026-11-24T03:16:06Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611240063.aspx",
+          "published_at": "2026-11-24T03:16:06Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_013",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "COP31未能達成重大氣候協議 談判暴露出嚴重分歧",
+      "summary_zh": "COP31最終協議草案未能被歐盟、太平洋島國和其他國家接受。談判暴露嚴重分歧的原因在於草案未直接提及化石燃料，且產油國利益、美國杯葛及財務爭議也對談判造成影響。",
+      "why_it_matters": "顯示全球在面對化石燃料與氣候融資等核心議題上仍存在巨大分歧，影響全球氣候治理的進展。",
+      "original_title": "COP31未能達成重大氣候協議，談判暴露出嚴重分歧",
+      "published_at": "2026-11-23T05:15:09Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC 中文",
+          "url": "https://www.bbc.com/zhongwen/articles/cm4gn2l17w5go/trad?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-23T05:15:09Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9UemE0N2RLbTQzU0I4N3JZRmUySjRCQ1QzdTdDVXE0RlplRmRaejY1LVZ1dTNnT3JwQ1R4QzgwMUlqcHRTZlo4Tk13N2hYc3kyVTJ1cEVYeUVveTNjOERReTJaNWs2OUXSAWxBVV95cUxOZGVraUlTaU1tWGdNY2cxaFFHYzBlMlVaaWkxMjVfUmNCTnB1QmhTWWJJQlNEemdJUUdZbG9RaUlrX21raExYLTllNG1mQVl4Z090Vm1yWVJVVHlyZHRxRThIRUNBZ01Pb2pJSm0?oc=5",
+          "published_at": "2026-11-23T05:19:57Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cky970n83rvjo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-23T17:24:25Z",
+          "language": "en"
+        },
+        {
+          "name": "BBC（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE54czhPcXBYZzcyaGFMQUZsY0ttVVVMTERQY1kxcU4wUmNsVGE1T05mTElUcS10QzY5RnIyVVB3eG96QmlTaDVWRTBUVEN3YVp6czkydGpWcEkweVk?oc=5",
+          "published_at": "2026-11-23T17:24:25Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_014",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "十四個國家承認國際法院羅興亞人種族滅絕裁決",
+      "summary_zh": "包含英國和西班牙在內的十四個國家於週一承認國際法院有關緬甸對羅興亞人進行種族滅絕的裁決。同時，英國也對緬甸頂層軍事領導人實施了制裁。",
+      "why_it_matters": "國際社會對緬甸軍政府壓迫羅興亞人的行為採取進一步法律承認與制裁措施，對區域人權與外交施壓具實質意義。",
+      "original_title": "羅興亞人種族滅絕：十四個國家承認國際法院的裁決",
+      "published_at": "2026-11-23T21:03:34Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/c6wy4ng1rznxo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-23T21:03:34Z",
+          "language": "en"
+        },
+        {
+          "name": "法廣 RFI",
+          "url": "https://www.rfi.fr/tw/%E5%9C%8B%E9%9A%9B/20261123-%E7%BE%85%E8%88%88%E4%BA%9E%E4%BA%BA%E7%A8%AE%E6%97%8F%E6%BB%85%E7%B5%95-%E5%8D%81%E5%9B%9B%E5%80%8B%E5%9C%8B%E5%AE%B6%E6%89%BF%E8%AA%8D%E5%9C%8B%E9%9A%9B%E6%B3%95%E9%99%A2%E7%9A%84%E8%A3%81%E6%B1%BA",
+          "published_at": "2026-11-23T23:12:58Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_015",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "北約決定向波蘭部署預警機 以應對俄羅斯威脅",
+      "summary_zh": "北約與波蘭國防部副部長於週一宣布，北約將向波蘭部署一架預警機。在此之前，華沙方面指出有三枚俄羅斯飛彈於上週五落入波蘭東南部。",
+      "why_it_matters": "反映俄烏衝突外溢至北約領土的風險升高，北約藉此強化東歐成員國防衛與嚇阻能力。",
+      "original_title": "北約決定向波蘭部署預警機，以應對俄羅斯的威脅",
+      "published_at": "2026-11-23T23:06:58Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "法廣 RFI",
+          "url": "https://www.rfi.fr/tw/%E5%9C%8B%E9%9A%9B/20261123-%E5%8C%97%E7%B4%84%E6%B1%BA%E5%AE%9A%E5%90%91%E6%B3%A2%E8%98%AD%E9%83%A8%E7%BD%B2%E9%A0%90%E8%AD%A6%E6%A9%9F%EF%BC%8C%E4%BB%A5%E6%87%89%E5%B0%8D%E4%BF%84%E7%BE%85%E6%96%AF%E7%9A%84%E5%A8%81%E8%84%85",
+          "published_at": "2026-11-23T23:06:58Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "NPR",
+          "url": "https://www.npr.org/2026/11/23/nx-s1-6051013/russian-incursions-into-nato-territory-are-increasing",
+          "published_at": "2026-11-23T23:08:51Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_016",
+      "category": "world",
+      "subcategory": "tech",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳回鍋執行長 分析指出輝達仍面臨嚴峻挑戰",
+      "summary_zh": "輝達共同創辦人黃仁勳因婚外情風波辭去執行長職務僅11天後，便戲劇性回鍋復職。專家分析指出，黃仁勳的迴歸並未消除輝達或整個AI生態系統面臨的公司治理與資本支出等嚴峻挑戰。",
+      "why_it_matters": "牽動全球AI晶片龍頭輝達的營運走向、公司治理及相關供應鏈與全球股市的穩定。",
+      "original_title": "黃仁勳回鍋 分析：未消除AI生態系統或輝達嚴峻挑戰",
+      "published_at": "2026-11-23T19:16:45Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC 中文",
+          "url": "https://www.bbc.com/zhongwen/articles/cm3wgp60p952o/trad?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-23T19:16:45Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611240016.aspx",
+          "published_at": "2026-11-23T23:24:22Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_017",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "農심  레드포스, Pyosik 與 Andil 加盟",
+      "summary_zh": "農心 레드포스（農心 RedForce）宣布迎來打野選手 Pyosik（洪창현）與輔助選手 Andil（문관빈）加盟。隨著 Pyosik 的加入，促成了2022年英雄聯盟世界大賽 DRX 奪冠陣容中的三位選手在同一支隊伍中重聚。",
+      "why_it_matters": "重現2022年世界冠軍陣容，對新賽季戰隊的陣容戰力與賽事話題性帶來重大影響。",
+      "original_title": "[오피셜] 농심, '안딜' 문관빈, '표식' 홍창현 영입",
+      "published_at": "2026-11-23T11:44:32Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "韓國 Inven",
+          "url": "https://www.inven.co.kr/webzine/news/?news=323732",
+          "published_at": "2026-11-23T11:44:32Z",
+          "language": "ko"
+        },
+        {
+          "name": "Esports.gg（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUnpqNkJwZUF4S2F6RlBWMjNKMTVwMzl5cTJMcXNIS0VJVFp2MlBxY00zUnNUZ1J6bk5FOFNaSURWNUFJQkhSOEtMZnhwWnVsQm5mNG1oR0JLUHZlRXlWTmNkYjJIdUNMMFNJRnhseWRRUjNJdXVjdGw4d0FqbUlfWjVB?oc=5",
+          "published_at": "2026-11-23T13:26:00Z",
+          "language": "en"
+        },
+        {
+          "name": "esports.gg",
+          "url": "https://esports.gg/news/valorant/nongshim-redforce-pyosik-andil-2027-roster/",
+          "published_at": "2026-11-23T13:26:00Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_018",
+      "category": "esports",
+      "subcategory": "cs2",
+      "importance": 4,
+      "esports_tags": [
+        "tournament",
+        "result"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "CS2 新加坡 Major 2026 第一階段開打：瑞士制早期賽果",
+      "summary_zh": "CS2 新加坡 Major 2026 賽事的第一階段已經正式開打。早期賽事採用瑞士制進行，參賽名單涵蓋了多支知名電競組織與傳奇選手。",
+      "why_it_matters": null,
+      "original_title": "Stage 1 kicks off CS2 Singapore Major 2026: Results from the early Swiss clashes",
+      "published_at": "2026-11-23T14:34:42Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Esports.gg（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNamRjZk5ZR3QzbHlvLTdqT1hGU2ZCWGJLak5xaWZRcnN3YUhFWjdTdVIycFRWeVVsWm5iTDVjbHJPLWlzb1A3RXZpb3BHN0lMX0N2TVM0Z19rS3QtamhoaWxhbEJBM3NKdmV2Tm5MMGZzYlVLajFwM0xRRVJkVGpEYjBCcWljZGFlUERaRkU0MEhvUDFBSXBwcFdiZw?oc=5",
+          "published_at": "2026-11-23T14:34:42Z",
+          "language": "en"
+        },
+        {
+          "name": "esports.gg",
+          "url": "https://esports.gg/news/counter-strike-2/cs2-pgl-singapore-major-2026-stage-1-overview-results/",
+          "published_at": "2026-11-23T14:34:42Z",
+          "language": "en"
+        },
+        {
+          "name": "Pley.gg（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1CQnRVQmg3Q2haSFhGaVFucTFQTDQzd2lYRTAyLXN1TnZETnc1ODZKUVAwSFlsSWNjLWZDWlFaajN1QVJHMllMMmZRMFRjZVdtY3hPZXVMbkZDVW5jTHI3VDJ2dHR6S1lETXlCX1JnTFdwUQ?oc=5",
+          "published_at": "2026-11-24T03:30:00Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_019",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "蔣萬安社死現場與沈伯洋動人金句在脆上引發熱議",
+      "summary_zh": "台北市長蔣萬安的直播片段與民進黨台北市長候選人沈伯洋的發言在社群平台 Threads 上引發網友熱烈討論與瘋傳。",
+      "why_it_matters": null,
+      "original_title": "自由說新聞》蔣萬安「社死現場」這句網笑翻！沈伯洋「動人金句」網瘋傳",
+      "published_at": "2026-11-24T03:24:36Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651412",
+          "published_at": "2026-11-24T03:24:36Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_020",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "蔣萬安直播將開根號說成微積分 笑稱是做效果",
+      "summary_zh": "台北市長蔣萬安在社群直播時展示數學題目，卻將開根號的題目誤認為微積分，經幕僚提醒才翻到真正的微積分題目。蔣萬安受訪時笑稱這是在做效果，一切比較自然輕鬆。",
+      "why_it_matters": null,
+      "original_title": "開根號講成微積分被笑 蔣萬安︰做效果，大家看不出來？",
+      "published_at": "2026-11-23T19:29:48Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E9%96%8B%E6%A0%B9%E8%99%9F%E8%AC%9B%E6%88%90%E5%BE%AE%E7%A9%8D%E5%88%86%E8%A2%AB%E7%AC%91-%E8%94%A3%E8%90%AC%E5%AE%89-%E5%81%9A%E6%95%88%E6%9E%9C-%E5%A4%A7%E5%AE%B6%E7%9C%8B%E4%B8%8D%E5%87%BA%E4%BE%86-032948444.html",
+          "published_at": "2026-11-23T19:29:48Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-24/1073391",
+          "published_at": "2026-11-24T02:37:16Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261124/3277493.htm",
+          "published_at": "2026-11-24T10:50:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651416",
+          "published_at": "2026-11-24T03:29:48Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651363",
+          "published_at": "2026-11-24T03:45:25Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_021",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "黃仁勳回鍋帶動台股 沈伯洋：金融穩定比選舉重要",
+      "summary_zh": "黃仁勳回鍋輝達執行長帶動美股與台股大漲。民進黨台北市長候選人沈伯洋表示，相較於選舉，金融穩定才是最重要的事，行政院也為此討論國安基金等因應措施。",
+      "why_it_matters": null,
+      "original_title": "黃仁勳回鍋股市回彈可帶動選舉？沈伯洋：金融穩定比選舉重要",
+      "published_at": "2026-11-23T19:22:24Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%9B%9E%E9%8D%8B%E8%82%A1%E5%B8%82%E5%9B%9E%E5%BD%88%E5%8F%AF%E5%B8%B6%E5%8B%95%E9%81%B8%E8%88%89-%E6%B2%88%E4%BC%AF%E6%B4%8B-%E9%87%91%E8%9E%8D%E7%A9%A9%E5%AE%9A%E6%AF%94%E9%81%B8%E8%88%89%E9%87%8D%E8%A6%81-032224447.html",
+          "published_at": "2026-11-23T19:22:24Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261124/3277512.htm",
+          "published_at": "2026-11-24T11:16:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651417",
+          "published_at": "2026-11-24T03:22:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_022",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "黃仁勳回歸影響選情？蔣萬安：市府與輝達合作不受影響",
+      "summary_zh": "針對黃仁勳回任輝達執行長是否會對選情帶來幫助，台北市長蔣萬安表示，台北市政府與輝達之間的合作不受影響，雙方具有高度默契。",
+      "why_it_matters": null,
+      "original_title": "黃仁勳回歸！對台北市長選舉影響？蔣萬安：和輝達合作不受影響",
+      "published_at": "2026-11-23T19:34:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E9%BB%83%E4%BB%81%E5%8B%B3%E5%9B%9E%E6%AD%B8-%E5%B0%8D%E5%8F%B0%E5%8C%97%E5%B8%82%E9%95%B7%E9%81%B8%E8%88%89%E5%BD%B1%E9%9F%BF-%E8%94%A3%E8%90%AC%E5%AE%89-%E5%92%8C%E8%BC%9D%E9%81%94%E5%90%88%E4%BD%9C%E4%B8%8D%E5%8F%97%E5%BD%B1%E9%9F%BF-033400196.html",
+          "published_at": "2026-11-23T19:34:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-24/1073397",
+          "published_at": "2026-11-24T02:54:12Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261124/3277509.htm",
+          "published_at": "2026-11-24T11:05:00+08:00",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_023",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "公開挺鍾東錦並嗆開除 杜文卿遭民進黨開鍘",
+      "summary_zh": "民進黨苗栗縣議員候選人杜文卿日前在公開場合表態支持國民黨縣長候選人鍾東錦，並揚言挑釁開除黨籍。民進黨發言人林楚茵表示，中央已請苗栗縣黨部立即處理開除黨籍事宜。",
+      "why_it_matters": null,
+      "original_title": "苗栗議員嗆「夠力就開除我」 民進黨開鍘",
+      "published_at": "2026-11-23T19:17:15Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E8%8B%97%E6%A0%97%E8%AD%B0%E5%93%A1%E5%97%86-%E5%A4%A0%E5%8A%9B%E5%B0%B1%E9%96%8B%E9%99%A4%E6%88%91-%E6%B0%91%E9%80%B2%E9%BB%A8%E9%96%8B%E9%8D%98-031715682.html",
+          "published_at": "2026-11-23T19:17:15Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651369",
+          "published_at": "2026-11-24T02:52:40Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651443",
+          "published_at": "2026-11-24T03:41:43Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_024",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋直播教數學吸睛 蔣萬安直播數學題引發討論",
+      "summary_zh": "選戰倒數4天，民進黨台北市長候選人沈伯洋開直播傳授數學心法，而國民黨台北市長候選人蔣萬安同日晚間開直播時則將開根號與四則運算題目誤稱為微積分，引發外界討論與關注。",
+      "why_it_matters": null,
+      "original_title": "蔣萬安把簡單數學當微積分！林俊憲「也出一題」狂吸2萬人按讚",
+      "published_at": "2026-11-24T02:56:31Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651320",
+          "published_at": "2026-11-24T02:56:31Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651349",
+          "published_at": "2026-11-24T03:00:12Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651275",
+          "published_at": "2026-11-24T03:00:28Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651302",
+          "published_at": "2026-11-24T03:13:45Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5651361",
+          "published_at": "2026-11-24T03:18:45Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_025",
+      "category": "esports",
+      "subcategory": "valorant",
+      "importance": 3,
+      "esports_tags": [
+        "roster",
+        "transfer"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "NRG 公布 VCT Americas 2027 陣容",
+      "summary_zh": "NRG 公布了 VCT Americas 2027 賽季的完整陣容。相關人員配置已全數底定。",
+      "why_it_matters": null,
+      "original_title": "NRG completed roster for VCT Americas 2027",
+      "published_at": "2026-11-24T03:22:04Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Sheep Esports（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPZklkZjBrM29oaWlfWVpDRjBJOVZRU1dWeVN2NExNVGJWaC1MOUtHak16V2VrV2hBVEZXdi1hOUtzSEVoaXJmNXhneVRjQXo0TlBYUHpPcVdubVpkMWd2VEZDZTVjM0s5cXVjNDFpUFhKUW5ZcHZIZ2ZpMmI5LUIzb3ZlUXBJeGtiLW93azByVQ?oc=5",
+          "published_at": "2026-11-24T03:22:04Z",
+          "language": "en"
+        }
+      ]
+    }
+  ],
+  "llm_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "input_tokens": 58457,
+    "output_tokens": 22772,
+    "calls": 16,
+    "degraded": false,
+    "breakdown": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "calls": 16,
+        "input_tokens": 58457,
+        "output_tokens": 22772
+      }
+    ],
+    "errors": []
+  },
+  "source_errors": [
+    {
+      "source_id": "gnews_threads_tw",
+      "error": "HTTPStatusError: Client error '429 Too Many Requests' for url 'https://news.google.com/rss/search?q=(Threads%20OR%20%E8%84%86%E5%8F%8B%20OR%20%E8%84%86%E6%96%87)%20-%E6%98%9F%E5%B3%B6%20when:1d&hl=zh-TW&gl=TW&ceid=TW:zh-Hant'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/H"
+    }
+  ]
+}
