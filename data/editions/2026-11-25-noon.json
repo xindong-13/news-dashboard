@@ -1,0 +1,974 @@
+{
+  "edition_id": "2026-11-25-noon",
+  "edition_type": "noon",
+  "published_at": "2026-11-25T11:50:27.531173+08:00",
+  "window": {
+    "from": "2026-11-24T20:50:27.620920+08:00",
+    "to": "2026-11-25T11:50:27.531173+08:00"
+  },
+  "briefing": [
+    "台股早盤重挫超過2000點，失守4萬點大關與年線，台積電盤中創下史上第2大盤中跌點。",
+    "美國總統川普預告兩年後將對進口晶片課徵200%關稅，藉此逼迫半導體業者赴美設廠。",
+    "美國司法部長稱輝達為良好企業公民，川普則表示必要時願意特赦輝達執行長黃仁勳。",
+    "LCK轉會期進行陣容重組，T1、Hanwha Life Esports與Gen.G等隊伍皆有重要球員加入與轉隊。",
+    "新北國中生割頸案民事二審宣判，認定涉案少年與少女應連帶賠償家屬1782萬餘元。"
+  ],
+  "headlines": [
+    "evt_003",
+    "evt_001",
+    "evt_002",
+    "evt_004",
+    "evt_006"
+  ],
+  "markets": [
+    {
+      "symbol": "taiex",
+      "name": "台股加權指數",
+      "price": 38039.72,
+      "change": -2082.63,
+      "change_pct": -5.19,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T03:53:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "2330",
+      "name": "台積電",
+      "price": 2135.0,
+      "change": -95.0,
+      "change_pct": -4.26,
+      "currency": "TWD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T03:53:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "dji",
+      "name": "道瓊工業指數",
+      "price": 50018.7,
+      "change": 423.39,
+      "change_pct": 0.85,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:10:58Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "spx",
+      "name": "S&P 500",
+      "price": 7201.09,
+      "change": -36.08,
+      "change_pct": -0.5,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:04:53Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "nasdaq",
+      "name": "那斯達克",
+      "price": 23733.535,
+      "change": -356.02,
+      "change_pct": -1.48,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:06:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "sox",
+      "name": "費城半導體",
+      "price": 8832.501,
+      "change": -755.55,
+      "change_pct": -7.88,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:06:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "usdtwd",
+      "name": "美元兌台幣",
+      "price": 33.02,
+      "change": 0.081,
+      "change_pct": 0.246,
+      "currency": null,
+      "unit": null,
+      "decimals": 3,
+      "as_of": "2026-11-25T03:52:53Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "us10y",
+      "name": "美國10年期公債殖利率",
+      "price": 4.9,
+      "change": -0.026227,
+      "change_pct": -0.5324,
+      "currency": null,
+      "unit": "%",
+      "decimals": 3,
+      "as_of": "2026-11-25T03:52:15Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "gold",
+      "name": "黃金（現貨）",
+      "price": 3548.16,
+      "change": -5.5,
+      "change_pct": -0.15,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T03:53:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "wti",
+      "name": "原油（WTI）",
+      "price": 89.53,
+      "change": 0.29,
+      "change_pct": 0.325,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-17T21:00:00Z",
+      "date_only": true,
+      "source": "fred"
+    },
+    {
+      "symbol": "btc",
+      "name": "比特幣",
+      "price": 59344.0,
+      "change": -965.05,
+      "change_pct": -1.6,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 0,
+      "as_of": "2026-11-25T03:52:53Z",
+      "date_only": false,
+      "source": "cnyes"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台積電盤中重挫210元 創史上第2大盤中跌點",
+      "summary_zh": "受美國貿易代表署最快本週公布關稅調查結果的報導影響，費城半導體指數重挫7.88%，連帶使亞股走弱。台積電盤中一度滑落至2020元，下跌210元，創下史上第2大盤中跌點。",
+      "why_it_matters": "台積電為台股權王與半導體產業指標，其盤中巨幅跌點直接牽動台股走勢與整體電子類股信心。",
+      "original_title": "台積電重挫210元 史上第2大盤中跌點",
+      "published_at": "2026-11-25T02:53:54Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611250053.aspx",
+          "published_at": "2026-11-25T02:53:54Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9900514",
+          "published_at": "2026-11-25T03:01:44Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_002",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台股早盤重挫逾2000點 失守4萬點與年線",
+      "summary_zh": "美股受AI前景疑慮與川普政府新關稅雜音影響收跌，台股早盤低點觸及38061.05點，下跌2061.3點，失守4萬點大關並跌破年線。隨後跌勢稍微收斂至約1500點，加權指數來到38600點附近。",
+      "why_it_matters": "台股單日重挫逾千點並失守重要整數關卡與年線，顯示市場對國際政經變數及AI熱潮的疑慮正全面衝擊投資人信心。",
+      "original_title": "台股早盤重挫逾2000點 失守4萬點關卡跌破年線",
+      "published_at": "2026-11-25T01:27:06Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611250031.aspx",
+          "published_at": "2026-11-25T01:27:06Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9900279",
+          "published_at": "2026-11-25T01:36:25Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_003",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 5,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "LCK 轉會期：T1、HLE、Gen.G 三強重組，DK 迎來 Doran 與 Kanavi",
+      "summary_zh": "LCK 轉會期迎來陣容重組，T1、Hanwha Life Esports 與 Gen.G 進行三強重編，DK 則迎來 Doran 與 Kanavi 加入，Deft 轉投農心。",
+      "why_it_matters": "韓國職業電競聯賽（LCK）頂尖隊伍在轉會期的大幅度陣容更動，將直接決定下個賽季各隊的競爭格局與戰力分配。",
+      "original_title": "‘3강’ T1·한화생명·젠지 재편, 도란·카나비 품은 DK…데프트는 농심으로 [LCK 스토브리그]",
+      "published_at": "2026-11-24T13:03:26Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "게임와이（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBxLWprdElUbU91T1ZBWmVLZWVqZm1YbkZJMncycFZZU2tockZGdW1TVHJpejVUcGRYLXNHM2gtQjlQTE5NY19kMFd6WFVfS2hsWlI3aVZGSjE5c1hhaWRhTnFneVRBUdIBakFVX3lxTE1OVU1uVnVJSV9YTmduTU56UFEwaGY5SFc4OEdUWHZtbVZFTGttLXg5d3BXN1puNlJ0azh2YWhSUnlPc3FkaE1OLWJiZjVTX2I2Sm9OWUNHQ0xGNGFTVVAtTlRfZkJGOXZlYWc?oc=5",
+          "published_at": "2026-11-24T13:03:26Z",
+          "language": "ko"
+        },
+        {
+          "name": "국민일보（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5neG5hV1dMWTRfRDFZc1o4ODZJWEhlZ0lxVnJBaGlreVBnWHFzM19GVXVtRnl1eVFrMVJwQmlLVHh2amZsRUM3cW05LUhORmlVN0QydDhXOTE?oc=5",
+          "published_at": "2026-11-24T17:37:00Z",
+          "language": "ko"
+        },
+        {
+          "name": "https://www.diarypoint.com/（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5lRF8xSlZqdC1xc1BTcUxjUnphR2xINnFGd3VZdm55M2lDTHhndjRuYnBrakF5RWxnb2wwMzRpenVxbXNJWW90YUpoM1AtaEJMTE1aaExuSTE3Tmx1M2ZHYjVlZ0ZRd1lscEtv?oc=5",
+          "published_at": "2026-11-24T19:26:00Z",
+          "language": "ko"
+        },
+        {
+          "name": "NOWnews今日新聞（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1LQ2RwY0dGQjM4MGdjRkszeWxQdUROY1BpVTRzMDdwTVl0LVJBblBnT1kzXzRMbnUwSXFaVXRVSmVGOGZFbmxPdTRrdHVTZTc5UkHSAVJBVV95cUxNS0NkcGNHRkIzODBnY0ZLM3lsUHVETmNQaVU0czA3cE1ZdC1SQW5QZ09ZM180TG51MElxWlV0VUplRjhmRW5sT3U0a3R1U2U3OVJB?oc=5",
+          "published_at": "2026-11-25T01:46:35Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "쿠키뉴스（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5PUFBKczljX1Y5NWIzUndDZUVadDVLdW5DWGtpbnNFc3VnaXk3YktkczU3NzI2aVJQc0NPenBLSHNzYUJ2dV9IT2JrTzNaOC1POTRsTWYyZV9pOTdxODhUVzM5bw?oc=5",
+          "published_at": "2026-11-25T02:01:05Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_004",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 5,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "LCK 頂級打野 Canyon 加盟 Hanwha Life Esports",
+      "summary_zh": "LCK 頂級打野選手 Canyon（金健部）正式宣布加入 Hanwha Life Esports。",
+      "why_it_matters": "明星選手 Canyon 的轉隊將大幅提升 Hanwha Life Esports 在下個賽季的中野對抗實力與爭冠本錢。",
+      "original_title": "LCK 정글러 최대어 '캐니언' 김건부, 한화생명 입단",
+      "published_at": "2026-11-24T22:58:53Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "데일리e스포츠（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1vV0doU3JscjZFV0FDYThfR1l2WmFhR1JwazlIdUoxckRCNU1ndFpFZC1MYXloSHVET01qQU9XMkd4UUVXdXRtTUFMekY1WjNVWHc0YWhidXd6RGEyd1JBU1dPajNkSzlMdi1pb0REMEItS0dkd1l2QUFLbm4?oc=5",
+          "published_at": "2026-11-24T22:58:53Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_005",
+      "category": "finance",
+      "subcategory": "macro",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "川普稱台灣拿走晶片產業 預告兩年後課徵200%關稅",
+      "summary_zh": "美國總統川普再度批評台灣拿走美國晶片產業，並點名台積電董事長魏哲家。他預告兩年後將對進口晶片課徵200%關稅，藉此逼迫半導體業者赴美設廠。",
+      "why_it_matters": "美國未來可能實施的高額關稅與政策壓力，將迫使台灣半導體龍頭加速海外佈局並改變成本結構。",
+      "original_title": "川普再批台灣「偷走」美國晶片產業！預告2年後課200%關稅",
+      "published_at": "2026-11-25T03:30:39Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6671603",
+          "published_at": "2026-11-25T03:30:39Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_006",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美司法部長稱輝達為良好企業公民 避談黃仁勳復職爭議",
+      "summary_zh": "美國司法部長布蘭希稱讚輝達公司是良好企業公民，但對於司法部是否介入總統川普推動執行長黃仁勳復職的爭議則避而不談。受國會要求調查影響，輝達股價下跌7%。",
+      "why_it_matters": "美國司法高層對輝達與黃仁勳復職爭議的態度，反映出政治力介入科技巨頭領導層人事已引發華府與市場的高度關注。",
+      "original_title": "美司法部長稱輝達是良好企業公民 避談黃仁勳復職爭議",
+      "published_at": "2026-11-25T01:24:57Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6671242",
+          "published_at": "2026-11-25T01:24:57Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250036.aspx",
+          "published_at": "2026-11-25T01:53:17Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9900333",
+          "published_at": "2026-11-25T02:01:02Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-25T03:44:07Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_007",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "AI伺服器需求旺 戴爾單季營收創高並三度上修財測",
+      "summary_zh": "受企業對人工智慧基礎設施需求飆升帶動，美國電腦大廠戴爾科技上季營收創新高，並第3度上修全年營收與獲利財測。戴爾同時授權250億美元的股票買回計畫。",
+      "why_it_matters": "戴爾財測三度上修與伺服器營收大增，證明硬體大廠仍強勁受惠於全球持續延燒的AI基礎設施建置需求。",
+      "original_title": "AI伺服器需求旺 戴爾單季營收創高3度上修全年財測",
+      "published_at": "2026-11-24T22:07:45Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/24/dell-earnings-report-q3-2027.html",
+          "published_at": "2026-11-24T22:07:45Z",
+          "language": "en"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611250058.aspx",
+          "published_at": "2026-11-25T03:08:05Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/123398/9900589",
+          "published_at": "2026-11-25T03:21:26Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_008",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "AI熱潮疑慮未散 日韓股市早盤重挫",
+      "summary_zh": "由於市場對AI熱潮的疑慮揮之不去，黃仁勳回歸輝達引發的樂觀情緒逐漸消散，日本與韓國股市在早盤同步下挫。",
+      "why_it_matters": "日韓股市同步走弱顯示亞洲資本市場對AI產業前景與科技股估值的疑慮正在擴散。",
+      "original_title": "AI熱潮疑慮未散 日韓股市早盤重挫",
+      "published_at": "2026-11-25T02:30:37Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611250045.aspx",
+          "published_at": "2026-11-25T02:30:37Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9900434",
+          "published_at": "2026-11-25T02:36:41Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_009",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "費半重挫台指期夜盤跌逾1800點 台股面臨反壓",
+      "summary_zh": "美股費城半導體指數重挫7.88%、輝達與台積電ADR走低，加上台指期夜盤下挫1842點，使前一日創下歷史收盤最大漲點的台股面臨強大反壓與10日線約40374點的壓力。",
+      "why_it_matters": "美股科技股的劇烈波動透過夜盤與 ADR 迅速傳導至台股，導致台股在強彈後隨即面臨嚴峻的向下修正壓力。",
+      "original_title": "費半挫7.88%台指期夜盤跌逾1800點 台股強彈後面臨壓力",
+      "published_at": "2026-11-25T00:28:42Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611250020.aspx",
+          "published_at": "2026-11-25T00:28:42Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9900167",
+          "published_at": "2026-11-25T00:36:42Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_010",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "川普稱願在必要時特赦黃仁勳 盼其國會作證說實話",
+      "summary_zh": "美國總統川普受訪時表示，若有必要他願意特赦輝達執行長黃仁勳，但他認為即使沒有特赦也應無大礙，並建議黃仁勳下週赴國會作證時據實以告。",
+      "why_it_matters": "美國總統公開表態願意特赦科技巨頭執行長，突顯行政部門對企業高層國會聽證案的強力幹預與護航意圖。",
+      "original_title": "川普稱必要時願特赦黃仁勳 盼下週國會作證說實話",
+      "published_at": "2026-11-25T02:06:28Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250041.aspx",
+          "published_at": "2026-11-25T02:06:28Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9900375",
+          "published_at": "2026-11-25T02:12:39Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_011",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "學者分析黃仁勳復職與川普角色 可能助長晶片出口管制呼聲",
+      "summary_zh": "在美國總統川普介入下，黃仁勳在辭去輝達執行長不到兩週後戲劇性回鍋。美國學者分析，此舉與川普的角色極具爭議，可能進一步助長美國政府採取更嚴格晶片出口管制的呼聲。",
+      "why_it_matters": "政治力介入科技企業高層人事，可能引發美國國內更激烈的政策反彈，進一步推升針對晶片出口的管制壓力。",
+      "original_title": "川普力促黃仁勳回歸 分析：可能助長加強晶片出口管制呼聲",
+      "published_at": "2026-11-25T01:18:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250028.aspx",
+          "published_at": "2026-11-25T01:18:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9900268",
+          "published_at": "2026-11-25T01:30:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_012",
+      "category": "taiwan",
+      "subcategory": "society",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "新北國中生割頸案 二審判少年與少女連帶賠償1782萬元",
+      "summary_zh": "新北國中生割頸案民事二審宣判，認定涉案的郭姓少年與林姓少女應連帶賠償家屬1782萬餘元。全案刑事部分兩人已分別被判處12年及11年徒刑定讞，民事仍可上訴。",
+      "why_it_matters": "民事二審金額較一審加碼，對少年犯罪的民事賠償責任與司法警惕具有指標意義。",
+      "original_title": "新北國中生割頸案民事二審結果出爐 法官判乾哥、乾妹加重賠償1782萬",
+      "published_at": "2026-11-24T19:26:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E6%96%B0%E5%8C%97%E5%9C%8B%E4%B8%AD%E7%94%9F%E5%89%B2%E9%A0%B8%E6%A1%88%E6%B0%91%E4%BA%8B%E4%BA%8C%E5%AF%A9%E5%AE%A3%E5%88%A4-%E4%B9%BE%E5%93%A5-%E4%B9%BE%E5%A6%B9%E8%A6%81%E8%B3%A01782%E8%90%AC-032600028.html",
+          "published_at": "2026-11-24T19:26:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/society/breakingnews/5652579",
+          "published_at": "2026-11-25T03:33:09Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_013",
+      "category": "world",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美陪審團裁定華為竊取商業機密等罪名成立 組織犯罪獲判無罪",
+      "summary_zh": "經過紐約數個月的審理，美國聯邦陪審團裁定華為竊取美國企業商業機密及欺騙銀行等罪名成立。不過，較嚴重的共謀從事組織犯罪指控則獲判無罪。",
+      "why_it_matters": "華為在美國遭定罪，凸顯美中科技與法律戰持續升溫，對跨國企業的合規營運與資安查核有重大指標意義。",
+      "original_title": "Huawei found guilty of stealing trade secrets but acquitted of racketeering",
+      "published_at": "2026-11-24T22:01:16Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250010.aspx",
+          "published_at": "2026-11-24T22:01:16Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250027.aspx",
+          "published_at": "2026-11-25T01:11:57Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cmy49ngydqzpo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-25T02:59:27Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_014",
+      "category": "taiwan",
+      "subcategory": "cross_strait",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "上海市委書記陳吉寧落馬 國台辦：繼續支持雙城論壇",
+      "summary_zh": "中共中央政治局委員兼上海市委書記陳吉寧傳出被查，引發關注。中國大陸國台辦發言人張晗表示，會繼續支持台北上海城市論壇等兩岸交流合作。",
+      "why_it_matters": "中共高層人事異動引發政壇震撼，但國台辦公開表態支持雙城論壇，顯示地方層級的兩岸交流暫不受影響。",
+      "original_title": "陳吉寧落馬引發震撼 國台辦：繼續支持雙城論壇舉辦",
+      "published_at": "2026-11-25T03:22:25Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/acn/202611250067.aspx",
+          "published_at": "2026-11-25T03:22:25Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_015",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "川普力促黃仁勳復職引發兩黨抨擊 美國國會將擴大調查",
+      "summary_zh": "在美國總統川普強力介入下，輝達共同創辦人黃仁勳在回鍋擔任執行長後引發兩黨議員抨擊。美媒指出，國會將擴大調查川普與黃仁勳。",
+      "why_it_matters": "美國總統直接介入企業高層人事並引發國會擴大調查，對科技巨頭與政府互動關係及出口管制政策帶來變數。",
+      "original_title": "川普力促黃仁勳復職引發兩黨議員抨擊 美國國會將擴大調查",
+      "published_at": "2026-11-24T23:55:31Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611250015.aspx",
+          "published_at": "2026-11-24T23:55:31Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "The Guardian",
+          "url": "https://www.theguardian.com/us-news/live/2026/nov/24/donald-trump-nvidia-jensen-huang-republicans-democrats-china-latest-news-updates",
+          "published_at": "2026-11-25T02:58:18Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_016",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "藍營志工拜票失言 李四川急致歉",
+      "summary_zh": "藍營志工在拜票時高喊不要選月經的女人引發爭議，李四川對此急忙致歉並譴責性別歧視。",
+      "why_it_matters": "選戰期間的性別歧視言論直接衝擊候選人形象，迫使陣營核心人物必須第一時間公開切割與致歉。",
+      "original_title": "2026年還有這種言論？藍營女志工拜票高喊「不要選月經的女人」…李四川急道歉",
+      "published_at": "2026-11-25T01:59:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鏡週刊Mirror Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5FcVRBbVdjajdTLVhoeHNWZ18xalFncGJOM0c4U1N2WlFFVjR4M1BLWnVBbnI3eTQweUtvOE9jMjd5ZlRHVTVyOGFMSmYxV1NVYkc5N2tISG5yUVB4VW1lOXBqeWU?oc=5",
+          "published_at": "2026-11-25T01:59:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_017",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Gen.G 公布 2027 LCK 賽季完整參賽陣容",
+      "summary_zh": "Gen.G 公布了 2027 年 LCK 賽季的完整參賽陣容，完成了上路、打野、中路、下路與輔助的選手佈局。",
+      "why_it_matters": "作為韓國聯賽的核心強隊，Gen.G 的陣容調整將直接牽動 LCK 賽區未來的競爭格局與轉會市場走向。",
+      "original_title": "Gen.G completed roster for LCK 2027",
+      "published_at": "2026-11-24T13:15:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Sheep Esports（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaV95RGRFSld6ZTQxcmhVX3V4R3JtTlVHODBuUVZRa2cxNmtoMm1KUWtQQmFwU0VkcUctdENIdkozdnJNRlV6a1FjZnRqdjY3dXlrbTZvaDFoTXEtSGxzMVBjYVNJSndFMXgzTWlnQWZ3THZkc09kdEJmX3VRSDNYTTN4Sldqdw?oc=5",
+          "published_at": "2026-11-24T13:15:00Z",
+          "language": "ko"
+        },
+        {
+          "name": "Sheep Esports（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNd0tuQ1VobldJZzlXZUU1akxrOElsRi1YYlFlclpYbTRrM2dsOVc4RER5ZUl3bUZsdlZBYkphQ1BfNjBoSDNDS01yblFpaEduQUg3SzNlc21XREZ0VTY1T3NzTFAxaEtKNFlOX0k0c2NESjJDeW83anpVREFyZS1ZV0ZJemNfZw?oc=5",
+          "published_at": "2026-11-24T13:15:00Z",
+          "language": "en"
+        },
+        {
+          "name": "데일리e스포츠（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1hNGZfdVhKcmdYN2g1cFBBVDNpb1VQekNORWlBUm5WcnNsWVdrUGJZTlc4bm51Vjc1U09vQ0xEMkJZX0FtZGl2TnY4TldubVVXY2hXajhLMTRLVmY4aHMwdmtVNDljakNodHloNWt2Tm8tWkNsODdMYkdRS2k?oc=5",
+          "published_at": "2026-11-24T22:13:58Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_018",
+      "category": "taiwan",
+      "subcategory": "cross_strait",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "新華社稱美不挺台獨遭陸委會駁斥 國台辦批自欺欺人",
+      "summary_zh": "新華社報導稱美國總統川普在 APEC 領袖峰會表示美國不支持台獨，陸委會對此嚴正駁斥並指美方隻字未提。中國國台辦則批評陸委會的說法是自欺欺人。",
+      "why_it_matters": "美中台三方對 APEC 會談內容各說各話，凸顯台海議題與美中外交表述的敏感性與角力。",
+      "original_title": "陸委會駁《新華社》美不挺台獨說 國台辦稱「自欺欺人」",
+      "published_at": "2026-11-25T03:43:24Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5652592",
+          "published_at": "2026-11-25T03:43:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_019",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "淘寶網購崩壞照在 Threads 瘋傳 網民笑翻",
+      "summary_zh": "網購淘寶的崩壞照片在 Threads 瘋傳，出現 Chiikawa 像是中輻射或 LinaBell 變成紙紮人的買家秀，笑翻大批網民。",
+      "why_it_matters": null,
+      "original_title": "淘寶中伏｜Threads瘋傳「最伏買家秀」！Chiikawa中輻射？LinaBell變「紙紮」嚇親網民",
+      "published_at": "2026-11-24T16:05:18Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "UHK 港生活（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMigwNBVV95cUxQYkt2bEtydXl1aE1admFoQ1R6eXphZ1gwQi1jRVpSclRCcnQxbnZ4dzZQMDRIT2VjMW9fYnpPbVVkdXA1SEFMZHg4dmIwOVJ3Z3FKSmdfSXhLWXR6RHMyWVlPVkxfMk9ITU5BaEhnc1Z4dG9hOGVfQ1VUaHJYRHA2VFJSWUNQRk1JcldqWEZfZXJyQUFNVUdKS2hSWTU5OXc2cXFyR2FsMVVUdHJvQWM4cnVpMVhRRV9BeDliR3JGRXpJODN6d2pWQXhqYzRFdnRWTTNEV2pvaGtxNV9PRDZXN04zQnFhQzhtQVV4MUZiZ3JTdE5xM09RRzVWN3hfZDdTdjhlUW5lZ2I4VDdnc0pVUmEwQmpQOXFSMFB3X2I0UU9LMEU3aUZmYkdGNzNyanRSWFRNX2NPSDdHVG1LNjQtODQxUmhKRzU3Um5ScTFHRXVzNVM1MzlTZzlybzFMd1pEMjdfT3ZxWE01NlJHYThacHB1TlFHWXROaUJvNDRzY1ZzQ0E?oc=5",
+          "published_at": "2026-11-24T16:05:18Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_020",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "藍營志工喊別選有月經的女人 吳崢批李四川切割",
+      "summary_zh": "國民黨新北市長候選人李四川的妻子掃街時，議員林國春團隊志工喊出不要選月經的女人。李四川與台北市長蔣萬安皆表達歉意與譴責，民進黨發言人吳崢則批評李四川急切割。",
+      "why_it_matters": null,
+      "original_title": "藍志工喊「別選月經的女人」 吳崢開砲：李四川急切割性別歧視",
+      "published_at": "2026-11-24T18:54:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E5%9C%8B%E6%B0%91%E9%BB%A8%E6%8B%9C%E7%A5%A8%E5%BF%97%E5%B7%A5%E5%96%8A-%E5%88%A5%E9%81%B8%E6%9C%89%E6%9C%88%E7%B6%93%E7%9A%84%E5%A5%B3%E4%BA%BA-%E6%B0%91%E9%80%B2%E9%BB%A8-%E9%81%B8%E5%88%B0%E6%AF%AB%E7%84%A1%E6%A0%BC%E8%AA%BF-%E4%BB%A4%E4%BA%BA%E4%B8%8D%E9%BD%92-025400012.html",
+          "published_at": "2026-11-24T18:54:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-25/1073562",
+          "published_at": "2026-11-25T01:01:15Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-25/1073565",
+          "published_at": "2026-11-25T01:22:38Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261125/3278023.htm",
+          "published_at": "2026-11-25T09:25:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261125/3278037.htm",
+          "published_at": "2026-11-25T09:43:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261125/3278084.htm",
+          "published_at": "2026-11-25T10:33:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-25/1073584",
+          "published_at": "2026-11-25T02:41:01Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5652515",
+          "published_at": "2026-11-25T02:58:31Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-25/1073610",
+          "published_at": "2026-11-25T03:22:17Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_021",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "Threads 網友熱議桃園市民卡隱藏優惠",
+      "summary_zh": "桃園市民卡的隱藏優惠在 Threads 引發網友熱議，相關內容長達 253 頁讓網友滑不完。",
+      "why_it_matters": null,
+      "original_title": "Threads網熱議「253頁滑不完」！桃園市民卡隱藏優惠曝光",
+      "published_at": "2026-11-25T03:28:32Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo新聞（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPbmtJS0pkdVZuTW1IQWR3RVg5b0tWa2JmMTBHOTR1VnoyejRCT2cyMlBYZWN5eEFhd1VtUFE4NVJaLUg3RGtObnhSMzY2d1hIY0YyM01RZko0QUdUdEhWS1REYk1hbkxleEthczFSaVhDcDVuYmZ1SUFNUzdfWEZxUlhPTUFIRTR1cy1Bb3hkS2RrMlk3d2RNOGZzR2t4NnNNa0lvNVhxcDhUcWFQSEZENWVwQlpGcHd1OUdXVG1QZ2IyR2xGOXUwb3UzMllJS0Fzbmx3SGJrbXVwbzRVUGljQUlReWYyVXlrNjUxY0tSWWRBcS1CQTJjbThpZC0wd0xQNUpBOEx4U0h5Um51RHdPeEtuZzNkZVRlYjhBczE1aGZ3MFN4MzlsdjJ4SHEzc2dZc2NxaC1USDc3MDA?oc=5",
+          "published_at": "2026-11-25T03:28:32Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_022",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "網友在 Threads 上連續打卡追蹤合法加熱菸審查進度",
+      "summary_zh": "由於合法加熱菸審查卡關超過一年，網友在 Threads 上發起連續打卡來追蹤審查進度。",
+      "why_it_matters": null,
+      "original_title": "合法加熱菸審查卡關逾一年 網友Threads上「連續打卡」追進度 | 唐可欣 | 品味生活",
+      "published_at": "2026-11-25T02:21:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "風傳媒（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE00REF5OWpXUzdWelp4aG5mX2NGWHRqQjdyT3E4U0w4LXQ2cjNxSkdEZnZLZG40c2dBT0QyTmlhbjBRNjBuWXE3UUxtREZIQQ?oc=5",
+          "published_at": "2026-11-25T02:21:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_023",
+      "category": "esports",
+      "subcategory": "valorant",
+      "importance": 3,
+      "esports_tags": [
+        "other"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "LGD 成為 2027 年特戰英豪電競官方合作夥伴",
+      "summary_zh": "LGD 成為 2027 年特戰英豪電競的官方合作夥伴，並將在實況比賽中展示專屬面板。",
+      "why_it_matters": null,
+      "original_title": "LGD Official Partner of 'Valorant Esports 2027'... To Showcase Panels in Live Matches",
+      "published_at": "2026-11-24T22:56:18Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "아시아경제（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5UNUE5NE9qaTljb0FVaVh6aHBER2RqSVU0YlVUZmpKVVI5M3BzUUlKdG9lR1hFUkVkREZCSHZHUGUtYVRNaWNETGZwVG5HbzdCcjkwNDdoYXBia2VUMl9RWEJfSndTcDhpenJSQVFQN3luZVNjNkZocg?oc=5",
+          "published_at": "2026-11-24T22:56:18Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_024",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Threads 瘋傳比奇堡玄學 品牌推聯名招財路人魚商品",
+      "summary_zh": "比奇堡玄學在 Threads 瘋傳，吸引品牌推出聯名招財路人魚商品讓民眾隨身攜帶。",
+      "why_it_matters": null,
+      "original_title": "Threads 瘋傳的「比奇堡玄學」你跟上了嗎？CASETiFY 全新聯名讓招財路人魚隨身帶著走",
+      "published_at": "2026-11-24T14:51:31Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "stylemaster（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1vWmZ5OEpvZTNWaU1IS0lMaUE4SXlNaDNOVGlsR2FHVWhrVDF3b0QyQ2tBNTJkS2ktcVpET1ZGdk9Pa2trcmE0N3BGWW1GS2dacGN5eE84Q0hkcnp00gFiQVVfeXFMTTh3dE96V0ZtclN5SEJWUmZzTE5QakhiLVZBRFRxaTB1QUExUFhkMzBHMHphWmRIV09hWFRuM1ZyZ04tWjc3MWRLMHNsNGJoMVBQaE9oSHdvTHhVQlJaeF93Mnc?oc=5",
+          "published_at": "2026-11-24T14:51:31Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_025",
+      "category": "esports",
+      "subcategory": "cs2",
+      "importance": 2,
+      "esports_tags": [
+        "other"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Mauisnake 談 FalleN 能否成為 CS2 第三偉大 IGL",
+      "summary_zh": "電競評論員 Mauisnake 討論了選手 FalleN 是否有機會成為 CS2 歷史上第三偉大的遊戲內指揮（IGL）。",
+      "why_it_matters": null,
+      "original_title": "Mauisnake: Can FalleN Become CS2’s Third-Greatest IGL?",
+      "published_at": "2026-11-25T00:21:52Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Skin.Club（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQTVVEWWg1ZDl1YnZoZThOR21vY3dXdzM4NThtN1VEdjdCa1ROY1lZbG1qdmpBU0xHbUxPd1JkdDFRaVJwOEJ1Q2lZclJqR25iZHVyRFFMN19MTE00Q0RuNV81cFhMamtDcm0xeWdENTJnSy1HYUZNb0hXV3hSbTZhcG1WdjExRHY5Mm04SjBQRDM?oc=5",
+          "published_at": "2026-11-25T00:21:52Z",
+          "language": "en"
+        }
+      ]
+    }
+  ],
+  "llm_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "input_tokens": 55018,
+    "output_tokens": 22641,
+    "calls": 15,
+    "degraded": false,
+    "breakdown": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "calls": 15,
+        "input_tokens": 55018,
+        "output_tokens": 22641
+      }
+    ],
+    "errors": [
+      "分類第 2 批 / gemini：gemini HTTP 503"
+    ]
+  },
+  "source_errors": []
+}

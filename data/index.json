@@ -1,6 +1,13 @@
 {
   "editions": [
     {
+      "edition_id": "2026-11-25-noon",
+      "edition_type": "noon",
+      "published_at": "2026-11-25T11:50:27.531173+08:00",
+      "event_count": 25,
+      "degraded": false
+    },
+    {
       "edition_id": "2026-11-24-night",
       "edition_type": "night",
       "published_at": "2026-11-24T20:50:27.620920+08:00",
