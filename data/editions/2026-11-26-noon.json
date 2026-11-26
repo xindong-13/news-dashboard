@@ -1,0 +1,943 @@
+{
+  "edition_id": "2026-11-26-noon",
+  "edition_type": "noon",
+  "published_at": "2026-11-26T11:50:26.821881+08:00",
+  "window": {
+    "from": "2026-11-25T20:50:26.349623+08:00",
+    "to": "2026-11-26T11:50:26.821881+08:00"
+  },
+  "briefing": [
+    "美國301調查台灣獲得15%不疊加的建議稅率，利空淡化帶動台股盤中勁揚逾1200點。",
+    "國道1號南下彰化路段清晨發生4車連環追撞事故，造成3死19傷。",
+    "美國批准SpaceX部署100萬顆衛星，激勵低軌衛星供應鏈的台廠表現強勢。",
+    "T1正式宣布與上路選手Zeus簽約至2029年，2027賽季先發陣容已全數到齊。"
+  ],
+  "headlines": [
+    "evt_001",
+    "evt_002",
+    "evt_014",
+    "evt_005",
+    "evt_011"
+  ],
+  "markets": [
+    {
+      "symbol": "taiex",
+      "name": "台股加權指數",
+      "price": 39126.68,
+      "change": 931.25,
+      "change_pct": 2.44,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-26T03:54:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "2330",
+      "name": "台積電",
+      "price": 2155.0,
+      "change": 5.0,
+      "change_pct": 0.23,
+      "currency": "TWD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-26T03:53:59Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "dji",
+      "name": "道瓊工業指數",
+      "price": 50182.95,
+      "change": 164.25,
+      "change_pct": 0.33,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:10:58Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "spx",
+      "name": "S&P 500",
+      "price": 7182.78,
+      "change": -18.31,
+      "change_pct": -0.25,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:03:36Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "nasdaq",
+      "name": "那斯達克",
+      "price": 23585.802,
+      "change": -147.73,
+      "change_pct": -0.62,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:05:59Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "sox",
+      "name": "費城半導體",
+      "price": 8774.862,
+      "change": -57.64,
+      "change_pct": -0.65,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:05:58Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "usdtwd",
+      "name": "美元兌台幣",
+      "price": 32.97,
+      "change": -0.156,
+      "change_pct": -0.471,
+      "currency": null,
+      "unit": null,
+      "decimals": 3,
+      "as_of": "2026-11-26T03:53:57Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "us10y",
+      "name": "美國10年期公債殖利率",
+      "price": 4.864,
+      "change": -0.062227,
+      "change_pct": -1.2632,
+      "currency": null,
+      "unit": "%",
+      "decimals": 3,
+      "as_of": "2026-11-25T22:05:05Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "gold",
+      "name": "黃金（現貨）",
+      "price": 3579.09,
+      "change": -1.91,
+      "change_pct": -0.05,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-26T03:54:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "wti",
+      "name": "原油（WTI）",
+      "price": 82.24,
+      "change": 0.82,
+      "change_pct": 1.0071,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:00:00Z",
+      "date_only": true,
+      "source": "fred"
+    },
+    {
+      "symbol": "btc",
+      "name": "比特幣",
+      "price": 60820.29,
+      "change": 1446.93,
+      "change_pct": 2.437,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 0,
+      "as_of": "2026-11-26T03:53:56Z",
+      "date_only": false,
+      "source": "cnyes"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "301關稅利空淡化 台股盤中勁揚逾1200點",
+      "summary_zh": "由於美國301調查台灣稅率維持15%不疊加的利空淡化，台股今天帶量反彈。盤中最高衝上39396.66點並勁揚逾1200點，電子、非金電與櫃買指數皆有顯著漲幅。",
+      "why_it_matters": "301關稅稅率底定消除市場不確定性，激勵台股全面反彈並吸引內資與低接買盤進場。",
+      "original_title": "美國301關稅利空淡化 台股盤中勁揚逾1200點",
+      "published_at": "2026-11-26T01:03:51Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260029.aspx",
+          "published_at": "2026-11-26T01:03:51Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260033.aspx",
+          "published_at": "2026-11-26T01:20:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260058.aspx",
+          "published_at": "2026-11-26T03:14:55Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9903059",
+          "published_at": "2026-11-26T03:22:30Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_002",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 5,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "T1 簽回上路 Zeus 三年約至 2029 年，2027 陣容到齊",
+      "summary_zh": "T1 正式宣布與上路選手 Zeus 簽下至 2029 年的三年的合約。隨著 Zeus 歸隊，T1 2027 賽季的先發陣容已經全數到齊。",
+      "why_it_matters": "確認核心選手長期留隊，對 T1 未來幾季的戰力穩定與賽事競爭力有決定性影響。",
+      "original_title": "《英雄聯盟》T1 簽回上路 Zeus 三年約至 2029 年 2027 賽季先發五人到齊",
+      "published_at": "2026-11-25T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://x.com/T1LoL/status/2125533615476150694",
+          "published_at": "2026-11-25T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "웨이브진（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiP0FVX3lxTE5qX1FLMkF3MjYyWjRqZnptY3JISDZjQk94Wm9DNnhSNVM5M21DaUp6NWlmU0FpVXh3YWFYS1BEUQ?oc=5",
+          "published_at": "2026-11-25T13:41:06Z",
+          "language": "ko"
+        },
+        {
+          "name": "Ludens Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5EcGxzOVNVTUVpWHZTZEYxUlk5T0k3dHJRbFYwdXRuVGFuWWxhN3dJSFhkaHI4RG0xMDBEQ2NmRlJKWlowU3B5SkhEOGNad3pJa0g3Rm1fdFE1ZXNqenhUNkZFYW1McU0xREI1S0xn?oc=5",
+          "published_at": "2026-11-25T23:35:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_003",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台積電擴大在美投資 鄭麗君：協助爭取關稅豁免與配額",
+      "summary_zh": "傳出台積電正評估投資226億美元在美國德州興建晶片製造設施。行政院副院長鄭麗君表示，政府將協助業者與美國商務部進行豁免清單協商，並爭取232條款零關稅配額與專案簽證支持。",
+      "why_it_matters": "有助於台灣半導體大廠在美擴大投資時降低關稅與政策風險，保障供應鏈利益。",
+      "original_title": "台積電擴大在美投資 鄭麗君：協助爭取豁免及232零關稅配額",
+      "published_at": "2026-11-26T02:49:35Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611260049.aspx",
+          "published_at": "2026-11-26T02:49:35Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9902993",
+          "published_at": "2026-11-26T03:01:01Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_004",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "AI股跌勢擴大後收斂 華爾街重新檢視熱潮財務風險",
+      "summary_zh": "華爾街股市的 AI 概念股在早盤大幅下挫後於午後反彈。投資人一方面擔憂成本與債務結構風險，另一方面也因為股價大跌而進場買進。",
+      "why_it_matters": "反映市場對 AI 熱潮的財務風險存有疑慮，短期內加劇了科技類股的波動。",
+      "original_title": "AI股跌勢擴大後收斂 華爾街重新檢視AI熱潮財務風險",
+      "published_at": "2026-11-26T02:40:29Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260046.aspx",
+          "published_at": "2026-11-26T02:40:29Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/123398/9902970",
+          "published_at": "2026-11-26T02:54:35Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_005",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "SpaceX獲準擴大部署低軌衛星 台廠供應鏈強勢表態",
+      "summary_zh": "美國批准 SpaceX 部署100萬顆衛星星系以打造太空資料中心。受此激勵，低軌衛星供應鏈的台廠如同欣電、穩懋、華通等早盤表現強勢。",
+      "why_it_matters": "SpaceX 的大規模部署計畫直接帶動台灣低軌衛星供應鏈的訂單與股價表現。",
+      "original_title": "SpaceX獲准擴大部署 低軌衛星台廠供應鏈強勢表態",
+      "published_at": "2026-11-26T02:03:18Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260041.aspx",
+          "published_at": "2026-11-26T02:03:18Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9902830",
+          "published_at": "2026-11-26T02:13:05Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/25/spacex-fcc-satellite-approval.html",
+          "published_at": "2026-11-26T02:35:39Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_006",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美媒：五角大廈曾考慮援引國防生產法施壓輝達 讓黃仁勳復職",
+      "summary_zh": "根據華盛頓郵報引述知情人士報導，輝達執行長黃仁勳先前因婚外情醜聞辭職期間，五角大廈高層曾考慮援引冷戰時期的國防生產法施壓輝達讓黃仁勳復職。這項大膽構想最終並未實施。",
+      "why_it_matters": "顯示美國軍方高度關切關鍵半導體巨頭的領導層變動，視其為涉及國防安全的重要議題。",
+      "original_title": "華郵：美軍方曾考慮援引國防生產法 施壓輝達讓黃仁勳復任",
+      "published_at": "2026-11-26T02:03:15Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611260040.aspx",
+          "published_at": "2026-11-26T02:03:15Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9902828",
+          "published_at": "2026-11-26T02:12:47Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_007",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美貿易代表：若未達成貿易協議 對印度關稅將調高至25%",
+      "summary_zh": "美國貿易代表葛裡爾表示，若美印達成貿易協議，美國對印度進口商品的關稅上限將為17%；若未達成協議則擬提高至25%。美方正以此施壓印度進行貿易談判。",
+      "why_it_matters": "美印貿易談判結果將直接影響印度商品的進口成本與雙邊貿易走向。",
+      "original_title": "美貿易代表：美印若未達成貿易協議 對印關稅將升至25%",
+      "published_at": "2026-11-26T01:35:04Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611260035.aspx",
+          "published_at": "2026-11-26T01:35:04Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9902761",
+          "published_at": "2026-11-26T01:45:27Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_008",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "T1 正式官宣新教練 Roach 與教練團陣容",
+      "summary_zh": "T1 於 25 日在首爾 T1 基地舉辦發表會，正式宣布由金剛희擔任新教練，並公布由李지훈與엄성현擔任教練的完整教練團陣容。總經理正회윤表示是看中新教練的溝通能力與潛力而進行延攬。",
+      "why_it_matters": "新教練團的組成為 T1 迎戰 2027 賽季的戰術規劃與隊伍管理奠定基礎。",
+      "original_title": "김강희 신임 감독, \"T1 사령탑이라는 부담감 즐기겠다\"",
+      "published_at": "2026-11-26T02:44:19Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "韓國 Inven",
+          "url": "https://www.inven.co.kr/webzine/news/?news=323882",
+          "published_at": "2026-11-26T02:44:19Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_009",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "T1 二隊續約三位選手並上調三位新秀",
+      "summary_zh": "T1 二隊宣布與三位選手完成續約，並從青訓體繫上調三位新秀加入陣容。球團持續透過青訓與續約鞏固人才梯隊。",
+      "why_it_matters": null,
+      "original_title": "T1A, '가디언ㆍ페인터ㆍ이클립스' 재계약⋯'솔본ㆍ크로우ㆍ에테르' 콜업 [공식]",
+      "published_at": "2026-11-25T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://x.com/T1LoL/status/2125743838782181826",
+          "published_at": "2026-11-25T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "이투데이（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFAwRFgzVmJuVEZna3dPbTNvSVB1V2lFUW9NRUNuajEtRFRLYmlDUDNaanBpcl9KeEdMVWp4eXNSdUotd1V1X094bWx0UkVqY2xRTU1UTA?oc=5",
+          "published_at": "2026-11-26T00:53:00Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_010",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美國宣布對中國與歐盟等多國實施新一輪關稅",
+      "summary_zh": "美國宣布對包括中國、歐盟及其他12個司法管轄區在內的多國實施新一輪關稅。這波由美國總統川普主導的新關稅措施將打擊多個主要貿易夥伴。",
+      "why_it_matters": "新一輪關稅將對全球主要經濟體與國際貿易秩序帶來顯著衝擊。",
+      "original_title": "US announces new tariffs on host of countries including China",
+      "published_at": "2026-11-25T19:38:05Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/videos/c3x29v11ed1xo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-25T19:38:05Z",
+          "language": "en"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-26T03:01:40Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_011",
+      "category": "taiwan",
+      "subcategory": "society",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "國道1號彰化段4車連環撞 釀3死19傷",
+      "summary_zh": "國道1號南下彰化路段在清晨發生由大貨車、聯結車、小貨車與和欣客運等4車連環追撞事故，造成3死19傷。公路局初步調查指出涉事車輛與駕駛皆正常，詳細原因仍待調查。",
+      "why_it_matters": null,
+      "original_title": "國道1號彰化段4車連環撞 19傷3人無呼吸心跳",
+      "published_at": "2026-11-25T19:22:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E5%9C%8B1%E5%BD%B0%E5%8C%964%E8%BB%8A%E8%BF%BD%E6%92%9E%E9%87%803%E6%AD%BB16%E5%82%B7-%E5%92%8C%E6%AC%A3%E5%AE%A2%E9%81%8B%E5%8F%B8%E6%A9%9F-2%E4%B9%98%E5%AE%A2%E4%BA%A1-%E5%85%AC%E8%B7%AF%E5%B1%80%E6%9B%9D%E5%88%9D%E6%AD%A5%E8%AA%BF%E6%9F%A5-032200719.html",
+          "published_at": "2026-11-25T19:22:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/asoc/202611260023.aspx",
+          "published_at": "2026-11-26T00:17:37Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/society/breakingnews/5653744",
+          "published_at": "2026-11-26T02:21:34Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_012",
+      "category": "finance",
+      "subcategory": "macro",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "聯準會褐皮書：美經濟溫和成長 通膨仍居高不下",
+      "summary_zh": "聯準會公布的褐皮書顯示，美國多數地區經濟近期維持溫和成長，通膨持續居高不下，就業水準上升。這項報告在聯準會決定是否升息前兩週公布。",
+      "why_it_matters": "通膨與經濟數據是聯準會評估後續是否升息的重要依據，將牽動整體金融市場走向。",
+      "original_title": "美經濟持續溫和成長 聯準會褐皮書示警通膨居高不下",
+      "published_at": "2026-11-26T00:57:46Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611260027.aspx",
+          "published_at": "2026-11-26T00:57:46Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_013",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳回鍋引分歧 標普將輝達列降級觀察",
+      "summary_zh": "標普全球評級將輝達信用評等列入降級觀察名單，認為執行長黃仁勳離職又復職暴露出公司治理及監督的弱點。相較之下，穆迪則維持輝達評等與穩定展望，肯定黃仁勳回鍋能降低短期執行風險。",
+      "why_it_matters": "標普將輝達列入降級觀察反映市場對其公司治理的疑慮，可能影響其融資成本與投資人信心。",
+      "original_title": "黃仁勳回鍋引分歧 標普列降級觀察、穆迪維持評等",
+      "published_at": "2026-11-26T00:15:35Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611260022.aspx",
+          "published_at": "2026-11-26T00:15:35Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/26/nvidia-market-governance-risk.html",
+          "published_at": "2026-11-26T03:19:44Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_014",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "美301調查結果出爐 政院：台灣建議稅率15%屬最低級別",
+      "summary_zh": "美國貿易代表署公布301條款調查結果，行政院指出台灣獲得15%不疊加的建議稅率，與歐盟、日本等國同屬最低級別。行政院副總理鄭麗君表示，此稅率等同美國FTA締約國，比中國及東南亞更有優勢，最終確認預計在明年初。",
+      "why_it_matters": "台灣獲得最低級別的15%建議稅率且不疊加，確保了台灣在對美貿易上的競爭優勢優於中國及東南亞。",
+      "original_title": "美301調查 政院：台灣建議稅率15%不疊加級別最低",
+      "published_at": "2026-11-25T16:13:42Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611260002.aspx",
+          "published_at": "2026-11-25T16:13:42Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611260005.aspx",
+          "published_at": "2026-11-25T17:18:49Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611260015.aspx",
+          "published_at": "2026-11-25T23:22:19Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611260034.aspx",
+          "published_at": "2026-11-26T01:31:02Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_015",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "人工智慧疑慮加深 美股開盤走低那斯達克跌近4%",
+      "summary_zh": "美國股市開盤走低，三大主要指數在早盤皆下跌，其中以科技股為主的那斯達克指數跌幅將近4%。這顯示出市場對人工智慧的疑慮進一步加深。",
+      "why_it_matters": "科技股為主的那斯達克指數大跌近4%，顯示市場對人工智慧相關疑慮擴大，牽動全球科技股與金融市場神經。",
+      "original_title": "US stocks fall further as fears over AI intensify",
+      "published_at": "2026-11-25T21:43:18Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cq0md8g14zryo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-25T21:43:18Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_016",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美提新關稅方案 歐洲議會批評逼迫夥伴讓步",
+      "summary_zh": "美國公布對主要貿易夥伴加徵關稅的提案，歐洲議會國際貿易委員會主席朗吉批評此舉是透過關稅逼迫貿易夥伴讓步。朗吉表示美方此舉恐再次面臨法律挑戰，並強調歐盟握有反制措施。",
+      "why_it_matters": "美歐之間的關稅摩擦升溫可能引發跨大西洋貿易戰，對全球供應鏈及經貿秩序造成衝擊。",
+      "original_title": "美提新關稅方案 歐洲議會貿委會主席批逼迫夥伴讓步",
+      "published_at": "2026-11-25T23:54:26Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611260018.aspx",
+          "published_at": "2026-11-25T23:54:26Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_017",
+      "category": "world",
+      "subcategory": "tech",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "範斯：未見黃仁勳犯罪證據 輝達晶片對AI領先至關重要",
+      "summary_zh": "美國副總統範斯表示，沒有看到證據顯示輝達創辦人黃仁勳犯罪，因此不需要特赦。他同時指出，輝達晶片對美國在人工智慧競賽中保持領先中國至關重要。",
+      "why_it_matters": "美國高層公開背書輝達晶片對國安與AI領先地位的重要性，顯示地緣政治與科技競爭的高度交織。",
+      "original_title": "范斯：未見黃仁勳犯罪證據 輝達晶片對AI領先至關重要",
+      "published_at": "2026-11-25T23:26:21Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611260016.aspx",
+          "published_at": "2026-11-25T23:26:21Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_018",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Roach 談 LPL 奪冠經驗，激勵 T1 力拼明年冠軍",
+      "summary_zh": "T1新任教練羅致（Roach）談到LPL奪冠經驗時表示受到激勵，並激勵T1全隊力拼明年的冠軍。他同時提到BLG的奪冠表現非常出色。",
+      "why_it_matters": "T1新教練確立以對手LPL奪冠經驗作為動能，影響戰隊未來的陣容備戰與賽季走向。",
+      "original_title": "Roach談LPL奪冠，激勵T1明年要拿下冠軍",
+      "published_at": "2026-11-25T14:26:21Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "手机新浪网（Google 新聞（簡中））",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1TSGdNX3JIME9PT2V3YnhCM0taeFNmVWhSR3hLZ3RuT2UtM0RDRE1taVA0ZkpPZTBxRVBabGFNWXN5RUJ4U0d6bTVUdEl6ZlhmUUtSdnFyakRCa1EzaFQzUlZwbVY0eVgzOGxrem9id2ZVRm8?oc=5",
+          "published_at": "2026-11-25T14:26:21Z",
+          "language": "zh-CN"
+        },
+        {
+          "name": "MHN스포츠（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5VRGdGdUpzTHhoakZoZHJoN2p2MmkyRG9LaHRBcnljajN1dUc3b2hqQkIwWDNBY0ZqcGk0bjlEcFZkbGZ3ZzNiay1lQkJxSzFUX010ak50QzVIWWxqbWhOM29wMA?oc=5",
+          "published_at": "2026-11-26T01:43:27Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_019",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋取消選前之夜 蔣萬安競選團隊遭質疑路權問題",
+      "summary_zh": "民進黨台北市長候選人沈伯洋原訂於仁愛路舉辦選前之夜，考量交通權益緊急宣布取消實體活動並拆除舞台。外界比對路權紀錄後，質疑蔣萬安競選團隊涉及路權問題。",
+      "why_it_matters": "選前之夜場地爭議與路權分配引發外界對選舉資源運用的強烈質疑，影響選前輿論焦點。",
+      "original_title": "從秒殺搶件到喊讓路！ 蔣萬安競選團隊遭網酸「路權黃牛」",
+      "published_at": "2026-11-26T03:41:37Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5653821",
+          "published_at": "2026-11-26T03:41:37Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_020",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋取消選前之夜引發臉書熱議 場地爭議延燒",
+      "summary_zh": "民進黨台北市長候選人沈伯洋因考量交通權益與場地問題，緊急取消選前市民之夜引發臉書熱議。貼文留言突破萬則，網友紛紛討論場地借用與相關爭議。",
+      "why_it_matters": "選前之夜喊卡在社群引發大量討論，突顯選戰最後關頭的場地與造勢爭議已成為選民關注焦點。",
+      "original_title": "臉書留言破萬則！蔣萬安借3場地要幹嘛？網列「3個名字」神回覆瘋傳",
+      "published_at": "2026-11-25T16:29:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鏡週刊Mirror Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9wcm9YYTNVVng2QlBsT3dldVlqeHNkVTA0ck1IMW1QeWo1VjNyenk0N2VsUVFIYzg3V1VXQnIyVEFHeHAyaE1JNE5DZC04SnBJVks0czZhX1duQ2xh?oc=5",
+          "published_at": "2026-11-25T16:29:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "鏡週刊Mirror Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9qTk1MNTVQNENtQktRTTYyWXdBTXF2Uzdfek9GLWM4ZWN4TWJxZ1BMLUd2dmdrb0JiWnRNRkZDdWFtSzZ2eGJ5UFV4Yi04dTZXTTJmWHQ5Z0hZVzlM?oc=5",
+          "published_at": "2026-11-25T16:29:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5653875",
+          "published_at": "2026-11-26T03:23:59Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_021",
+      "category": "world",
+      "subcategory": "disaster",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "埃及開羅環形道路油罐車爆炸 至少31人死亡",
+      "summary_zh": "埃及開羅環形道路發生油罐車事故並引發巨大火災，造成至少31人死亡、21人受傷。現場多輛汽車與機車被燒毀。",
+      "why_it_matters": "重大交通與公安事故造成多人死傷，對當地社會安全與基礎設施管理帶來警訊。",
+      "original_title": "At least 31 killed as fuel tanker crash ignites large fire on Cairo highway",
+      "published_at": "2026-11-25T22:18:06Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cqy7rn30v314o?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-25T22:18:06Z",
+          "language": "en"
+        },
+        {
+          "name": "BBC（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9RTzBSOEg2MjJ0S1dLaEs3RFV2YlVUR1hJeUM1Y2RLcEVLYlZ2NmJkTGVkOGw2bUpwWVFkdlhJNkhfUnNjdHZmdTh0MmZfZGxlcUlhMnhCNzlHc3c?oc=5",
+          "published_at": "2026-11-25T22:18:06Z",
+          "language": "en"
+        },
+        {
+          "name": "The Guardian",
+          "url": "https://www.theguardian.com/world/2026/nov/25/people-killed-fuel-tanker-crash-ignites-large-fire-cairo-highway",
+          "published_at": "2026-11-26T00:39:10Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_022",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋宣布取消選前之夜，避免影響周邊交通",
+      "summary_zh": "民進黨台北市長候選人沈伯洋宣布取消原訂於仁愛路四段舉辦的選前之夜，以避免影響周邊交通。消息傳出後讓許多支持者感到不捨與抱屈。",
+      "why_it_matters": null,
+      "original_title": "沈伯洋被卡取消選前之夜 台中綠營送暖「沒關係，我們繞遠路」",
+      "published_at": "2026-11-26T02:45:26Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5653794",
+          "published_at": "2026-11-26T02:45:26Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_023",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "Threads 爆料林心如私下真實面貌",
+      "summary_zh": "有合作20年的御用彩妝師在Threads上發文爆料林心如私下的真實面貌，引發網友熱烈討論。",
+      "why_it_matters": null,
+      "original_title": "Threads爆料林心如私下兇 合作20年御用彩妝師揭她真面目",
+      "published_at": "2026-11-26T03:34:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "壹蘋新聞網（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQTnV4M3BhWWlIem1rV0dfQ051ZGI5bl9lc1AtQlZoRTJmR09HQlNNY0xEWk1tR0pfY0tTaHZMV0pRZ05sN0Nmd0FfZm9HY2RzUFdrQkdWczBPbXRmUTU2MlBvRkxzcHUydnJVSTFDQkpjU0w0Uk5HcVJwRm9QU1VuZkpNTkwxLWlFbGc?oc=5",
+          "published_at": "2026-11-26T03:34:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_024",
+      "category": "esports",
+      "subcategory": "valorant",
+      "importance": 3,
+      "esports_tags": [
+        "roster",
+        "transfer"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Gentle Mates 圍繞 Boaster 與 Alfajer 組建全新陣容",
+      "summary_zh": "Gentle Mates 宣布圍繞選手 Boaster 與 Alfajer 組建全新陣容。",
+      "why_it_matters": null,
+      "original_title": "Gentle Mates Build Shock Roster Around Boaster & Alfajer",
+      "published_at": "2026-11-26T00:00:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Hotspawn（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1Ua0FLbExrbHh6cFFXWW5LM3g4QVRVVDd0ZG1zR1VNcjZ5U0JyYzJFZUlRTGZwYmc1MjAtcDlPNWRsXzdodVJRNGxPWGIxcW5nSnpUR3l1bFJITEx6d3RIZ2d3ZmNlQ0VZTURwOFRfbnNkX2pXdnZHeTV3cnM?oc=5",
+          "published_at": "2026-11-26T00:00:00Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_025",
+      "category": "esports",
+      "subcategory": "cs2",
+      "importance": 3,
+      "esports_tags": [
+        "tournament",
+        "result"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "PGL 新加坡 Major 2026 第二日賽果：S1mple 遭到淘汰",
+      "summary_zh": "在 PGL 新加坡 Major 2026 第二日的賽事中，S1mple 遭到淘汰。相關賽果已由媒體報導。",
+      "why_it_matters": null,
+      "original_title": "PGL Major Singapore 2026 Day 2 Results: S1mple Sent Packing",
+      "published_at": "2026-11-25T16:04:06Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Hotspawn（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQTFM5MjVZaU9pMDBjRzY5NWxKd2x0b002ZmE4V1VHdnN1MjdOV3RFXzJCR1FTeVpWY01RcXdJRTlWN1pEOTllVHlkUFdWdUNzQTc2SjFoNkNNSkg5eVdzdzhMalJ2WGxzQ1AwaG90eXJyNkFwZ2lJTTJUMzlwbmF2Z05wZUdOeVlNdjN3?oc=5",
+          "published_at": "2026-11-25T16:04:06Z",
+          "language": "en"
+        }
+      ]
+    }
+  ],
+  "llm_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "input_tokens": 54959,
+    "output_tokens": 22836,
+    "calls": 15,
+    "degraded": false,
+    "breakdown": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "calls": 15,
+        "input_tokens": 54959,
+        "output_tokens": 22836
+      }
+    ],
+    "errors": [
+      "分類第 1 批 / gemini：gemini HTTP 503"
+    ]
+  },
+  "source_errors": []
+}
