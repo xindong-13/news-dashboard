@@ -1,0 +1,967 @@
+{
+  "edition_id": "2026-11-27-night",
+  "edition_type": "night",
+  "published_at": "2026-11-27T20:50:26.030787+08:00",
+  "window": {
+    "from": "2026-11-27T11:50:24.447644+08:00",
+    "to": "2026-11-27T20:50:26.030787+08:00"
+  },
+  "briefing": [
+    "主計總處大幅上修今年經濟成長率至13.28%，並預估明年經濟成長率為6.51%。",
+    "國民黨新北市長候選人李四川在板橋舉辦選前之夜，邀請多位黨內大咖助講。",
+    "美國公布301條款調查結果，提議對馬來西亞輸美產品徵收最高18%的關稅。",
+    "英雄聯盟JDG戰隊正式宣布，台灣選手HongQ與JunJia離隊。"
+  ],
+  "headlines": [
+    "evt_001",
+    "evt_002",
+    "evt_004",
+    "evt_013",
+    "evt_022"
+  ],
+  "markets": [
+    {
+      "symbol": "taiex",
+      "name": "台股加權指數",
+      "price": 39308.08,
+      "change": 156.27,
+      "change_pct": 0.4,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T05:33:15Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "2330",
+      "name": "台積電",
+      "price": 2180.0,
+      "change": 35.0,
+      "change_pct": 1.63,
+      "currency": "TWD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T05:30:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "dji",
+      "name": "道瓊工業指數",
+      "price": 50182.95,
+      "change": 164.25,
+      "change_pct": 0.33,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:10:58Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "spx",
+      "name": "S&P 500",
+      "price": 7182.78,
+      "change": -18.31,
+      "change_pct": -0.25,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:03:36Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "nasdaq",
+      "name": "那斯達克",
+      "price": 23585.802,
+      "change": -147.73,
+      "change_pct": -0.62,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:05:59Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "sox",
+      "name": "費城半導體",
+      "price": 8774.862,
+      "change": -57.64,
+      "change_pct": -0.65,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-25T21:05:58Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "usdtwd",
+      "name": "美元兌台幣",
+      "price": 32.935,
+      "change": -0.012,
+      "change_pct": -0.036,
+      "currency": null,
+      "unit": null,
+      "decimals": 3,
+      "as_of": "2026-11-27T08:00:39Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "us10y",
+      "name": "美國10年期公債殖利率",
+      "price": 4.894,
+      "change": 0.03201,
+      "change_pct": 0.6584,
+      "currency": null,
+      "unit": "%",
+      "decimals": 3,
+      "as_of": "2026-11-27T12:51:30Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "gold",
+      "name": "黃金（現貨）",
+      "price": 3665.43,
+      "change": 99.29,
+      "change_pct": 2.78,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T12:52:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "wti",
+      "name": "原油（WTI）",
+      "price": 82.24,
+      "change": 0.82,
+      "change_pct": 1.0071,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:00:00Z",
+      "date_only": true,
+      "source": "fred"
+    },
+    {
+      "symbol": "btc",
+      "name": "比特幣",
+      "price": 61463.19,
+      "change": 552.3,
+      "change_pct": 0.907,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 0,
+      "as_of": "2026-11-27T12:52:13Z",
+      "date_only": false,
+      "source": "cnyes"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "category": "finance",
+      "subcategory": "macro",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "主計總處上修明年經濟成長率至6.51% 看好AI發展持續",
+      "summary_zh": "主計總處公布最新經濟預測，大幅上修2026年經濟成長率至13.28%，並預估明年經濟成長率為6.51%。主計長陳淑姿指出國內經濟強勁成長，綜合統計處處長蔡鈺泰也表示AI發展腳步不會停下。",
+      "why_it_matters": "顯示台灣在AI發展帶動下，經濟成長率與預測數據維持強勁表現，反映整體產業動能。",
+      "original_title": "主計總處：明年經濟成長估6.51% AI發展腳步不會停",
+      "published_at": "2026-11-27T11:34:19Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611270234.aspx",
+          "published_at": "2026-11-27T11:34:19Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9906457",
+          "published_at": "2026-11-27T11:45:27Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_002",
+      "category": "finance",
+      "subcategory": "tw_stock",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台股本週大漲3274點 市值回升至128.8兆元",
+      "summary_zh": "台股本週止跌回升，週五集中市場指數收在39308.08點，單週大漲3274.79點或9.09%。上市公司總市值回升至新台幣128兆8022億元，較上週增加約10.7兆元。",
+      "why_it_matters": "台股單週大幅反彈與市值回升，反映國內資本市場近期止跌回穩的強勁動能。",
+      "original_title": "台股本週漲3274點 市值回升10.7兆至128.8兆元",
+      "published_at": "2026-11-27T09:54:10Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611270202.aspx",
+          "published_at": "2026-11-27T09:54:10Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5607/9906309",
+          "published_at": "2026-11-27T10:00:56Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_003",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋Threads貼文破千萬瀏覽 引發熱議",
+      "summary_zh": "政治人物沈伯洋在投票前夕於Threads發布的一篇貼文吸引大批網友朝聖，累積達1200萬次瀏覽並引發熱烈討論與感動。",
+      "why_it_matters": null,
+      "original_title": "投票前夕！沈伯洋Threads這篇貼文被朝聖 1200萬次瀏覽感動網",
+      "published_at": "2026-11-27T09:47:24Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9LYXZqM0hQUTRsVlpqQm5oRDhSVkFVeTBXSWNGMi13dGFWVW1HT001TjlrU2NPaWtfSE9zbEJaSXdyVFJTZTY4WmpPUFhSV1hUOGJGMU1zTXJBMmx2a0xKQUZrSEdkMndvQ2fSAW9BVV95cUxOSWZUNlR6UnJhcE01cmVmVm1URjZnWkZScmJlN25tNkhFektmQU8xODQyaW1vQ185cnQ2LVJXVk5Ud1BsU0VDU19may1HN01Ib0lzUDFyMld6TzlCWHlLS2RiVWdfN3c2WUNCdTdwRmM?oc=5",
+          "published_at": "2026-11-27T09:47:24Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "LINE TODAY（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVUl3UFpvb0dfNHdUcUdxaDNIUlFfcXlFQ2NlLXFVVXpRYUZYT0ZFdGZGLVM4TE1rQTNNbmdvNU4xUUphdE02NmVoQkdUR1VQWi00Z3BHaG9TWXVZay1MVVBZT3BjbXktalQ5U1lEMkktbjdXYjhnN3FHcDQxZEpzVnpKNnY?oc=5",
+          "published_at": "2026-11-27T10:19:54Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_004",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 5,
+      "esports_tags": [
+        "tournament"
+      ],
+      "league": "international",
+      "region_tags": [],
+      "title_zh": "挑戰世界賽首冠的 Gen.G，對手是擊敗 T1 的 LPL 強敵 BLG",
+      "summary_zh": "挑戰世界賽首冠的 Gen.G，接下來的對手是擊敗 T1 的 LPL 強敵 BLG。",
+      "why_it_matters": "決定世界賽冠軍誰屬，對電競賽事與戰隊排名有直接影響。",
+      "original_title": "월즈 첫 우승 노리는 젠지, 상대는 T1 꺾은 ‘LPL 최강’ BLG [롤드컵]",
+      "published_at": "2026-11-27T10:06:49Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "쿠키뉴스（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFB0WDVBSEhYVWU1WGpCdWJfVmZOUlRaM3p4Q0tpYmY4RUUtdXhIaFAtUDJFd3loQ2VsWVZBZUhLb1hqM25pWDl0U2sxTGhYQ1pkRFRMeG5vREUzZUl1dHZxYUR3VQ?oc=5",
+          "published_at": "2026-11-27T10:06:49Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_005",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "黃仁勳回鍋掌舵輝達 AI惡搞影片掀熱潮",
+      "summary_zh": "陷入醜聞的輝達執行長黃仁勳回鍋掌舵，引發新一波AI生成惡搞影片熱潮。這顯示桃色與間諜風波已成為深偽技術的熱門題材。",
+      "why_it_matters": "高層動態與AI技術結合引發網路熱潮，可能影響投資人對AI市場永續性的信心與科技股表現。",
+      "original_title": "醜聞纏身黃仁勳回鍋掌舵 AI惡搞影片掀熱潮",
+      "published_at": "2026-11-27T10:44:51Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270221.aspx",
+          "published_at": "2026-11-27T10:44:51Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906393",
+          "published_at": "2026-11-27T10:55:17Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/27/tech-download-jensen-huang-ai-market.html",
+          "published_at": "2026-11-27T12:00:22Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_006",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "傳德國軟體大廠思愛普為AI轉型 擬裁員至少1萬人",
+      "summary_zh": "根據知情人士透露，德國商業軟體公司思愛普為進行AI轉型，準備大幅裁員至少1萬人。不過其中一名知情人士指出，思愛普員工代表委員會尚未獲知這項計畫。",
+      "why_it_matters": "反映傳統軟體大廠為轉型投入AI而進行的大規模組織調整，可能牽動全球科技就業市場。",
+      "original_title": "德國軟體大廠思愛普傳為AI轉型 擬裁員至少1萬人",
+      "published_at": "2026-11-27T09:47:03Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270199.aspx",
+          "published_at": "2026-11-27T09:47:03Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906302",
+          "published_at": "2026-11-27T09:55:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/27/sap-job-cuts-ai-restructuring.html",
+          "published_at": "2026-11-27T11:49:18Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_007",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美國擬對馬來西亞徵收關稅 安華籲考量美企投資",
+      "summary_zh": "美國公布301條款調查結果，提議對馬來西亞輸美產品徵收最高18%的關稅。大馬首相安華表示，美方研議關稅措施時，應考量美國企業在馬來西亞的投資。",
+      "why_it_matters": "牽動美馬之間的貿易關係及當地美企的投資佈局與成本考量。",
+      "original_title": "美國擬徵18%關稅 安華籲考量美企在馬來西亞投資",
+      "published_at": "2026-11-27T09:04:20Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270179.aspx",
+          "published_at": "2026-11-27T09:04:20Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906212",
+          "published_at": "2026-11-27T09:12:40Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_008",
+      "category": "finance",
+      "subcategory": "macro",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "國泰金看好台灣受惠AI 預期台美年底前有升息空間",
+      "summary_zh": "國泰金總經理李長庚表示，台灣供應鏈與整體經濟有望持續受惠AI發展，展望明年經濟成長可能因高基期放緩，但資本市場表現仍可樂觀期待。國泰金同時評估，台美今年底前都還有升息空間。",
+      "why_it_matters": "大型金控對總體經濟與升息動向的預判，有助於外界評估台灣受惠AI的供應鏈表現及利率走向。",
+      "original_title": "國泰金看好台灣持續受惠AI 預期台美年底前有升息機會",
+      "published_at": "2026-11-27T10:44:49Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/afe/202611270220.aspx",
+          "published_at": "2026-11-27T10:44:49Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9906392",
+          "published_at": "2026-11-27T10:54:57Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_009",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "沙烏地阿拉伯空襲葉門西部 青年運動稱造成11死",
+      "summary_zh": "葉門叛軍青年運動旗下媒體表示，沙烏地阿拉伯空襲葉門西部造成11人死亡。在此之前，青年運動才剛攻擊一座沙烏地煉油廠。",
+      "why_it_matters": "區域衝突加劇可能進一步影響中東能源設施安全與地緣政治穩定。",
+      "original_title": "沙烏地空襲葉門西部 青年運動：釀11死",
+      "published_at": "2026-11-27T11:12:04Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270227.aspx",
+          "published_at": "2026-11-27T11:12:04Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906421",
+          "published_at": "2026-11-27T11:21:20Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_010",
+      "category": "world",
+      "subcategory": "disaster",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "戰火與聖嬰現象夾擊 聯合國示警全球16處糧食危機加劇",
+      "summary_zh": "聯合國糧食機構警告，未來6個月內全球16個主要位於非洲地區的飢荒問題將進一步惡化。持續不斷的衝突使蘇丹、葉門等國的糧食困境雪上加霜。",
+      "why_it_matters": "突顯戰火與氣候夾擊下，全球多處地區面臨嚴峻的人道與糧食危機。",
+      "original_title": "戰火與聖嬰現象夾擊 聯合國示警全球16處糧食危機加劇",
+      "published_at": "2026-11-27T10:18:29Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270211.aspx",
+          "published_at": "2026-11-27T10:18:29Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906354",
+          "published_at": "2026-11-27T10:30:28Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_011",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Zeus 重回 T1，選手談及轉會與賽區實力",
+      "summary_zh": "選手Zeus重回T1，相關轉會與選手談及轉會及賽區實力的話題引發關注與討論。",
+      "why_it_matters": "頂尖選手的轉會動向將直接影響各戰隊實力分佈與新賽季的競爭格局。",
+      "original_title": "Zeus重回T1，Xun感慨T1有點強Bin稱跟我沒關係",
+      "published_at": "2026-11-27T05:48:46Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "게임뷰（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CX1hMZ05aODBFWGFIbU5IZlhPN1FZbV83YngtQTB3MFpSQjB3N19PMzRoU1JJV2NWUlRiRHYzMURSUXZZVDJMUWRLNHU3MzhqNUlKYzRFbllwM0lxTmRUTzVWQXU3OWR1VUE?oc=5",
+          "published_at": "2026-11-27T05:48:46Z",
+          "language": "ko"
+        },
+        {
+          "name": "手机新浪网（Google 新聞（簡中））",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB4WERoTnlpYWNKbjhkM2hiSldkSEs2OXZlUHRrUWt4RVdVaTBvX1lCVUZFYzhUdkdTM2JETlhhdWZRS1ZhOHlTRkp5cHladThnTHVTMkU0VVVnOUtHODBvVFFNTF9Vc3ZkOXd2RnFFenFrZw?oc=5",
+          "published_at": "2026-11-27T10:17:47Z",
+          "language": "zh-CN"
+        }
+      ]
+    },
+    {
+      "id": "evt_012",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "盤點歷代級 LCK 轉會期的大型陣容異動與故事線",
+      "summary_zh": "近期LCK賽區的轉會期出現歷代級的大型陣容異動與故事線，引發社群與相關媒體的盤點與討論。",
+      "why_it_matters": "大規模的陣容洗牌將重塑賽區競爭態勢，牽動未來賽季的觀賽熱潮與戰局。",
+      "original_title": "역대급 LCK 스토브리그... 대형 서사 총정리",
+      "published_at": "2026-11-27T07:34:33Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "게임플（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBJUkhCOVg1R19HU1FlQzQyWWQzV2xZT0k3Uk1JSUVVal84Y2drZkd3Z2wtRUVtdTItV29BZXVidkJWaDdsVEZrNkFxM2VmSDdMT3FZWDFsa21pZ3F0ZnJMVEJXODEwdFptS0hfTA?oc=5",
+          "published_at": "2026-11-27T07:34:33Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_013",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "李四川板橋舉辦選前之夜，藍營大咖齊聚助講",
+      "summary_zh": "國民黨新北市長候選人李四川在板橋第一運動場舉辦選前之夜，現場湧入4萬人。活動邀請蔣萬安、朱立倫、韓國瑜與侯友宜等人輪番助講。",
+      "why_it_matters": "反映九合一選舉前夕藍營在大台北地區的造勢動員能力與整合態勢。",
+      "original_title": "李四川選前之夜破4萬！蔣萬安、韓國瑜齊聚獨缺鄭麗文 神秘嘉賓曝",
+      "published_at": "2026-11-27T04:31:40Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E6%9D%8E%E5%9B%9B%E5%B7%9D%E9%81%B8%E5%89%8D%E4%B9%8B%E5%A4%9C%E7%A0%B44%E8%90%AC-%E8%94%A3%E8%90%AC%E5%AE%89-%E9%9F%93%E5%9C%8B%E7%91%9C%E9%BD%8A%E8%81%9A%E7%8D%A8%E7%BC%BA%E9%84%AD%E9%BA%97%E6%96%87-%E7%A5%9E%E7%A7%98%E5%98%89%E8%B3%93%E6%9B%9D-123140102.html",
+          "published_at": "2026-11-27T04:31:40Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261127/3279639.htm",
+          "published_at": "2026-11-27T19:28:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-27/1074159",
+          "published_at": "2026-11-27T12:22:09Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5655784",
+          "published_at": "2026-11-27T12:31:40Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_014",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "蔣萬安凱道選前之夜登場，現場宣布人潮突破10萬人",
+      "summary_zh": "台北市長蔣萬安在凱達格蘭大道舉辦選前之夜，現場主持人於晚間8點過後宣布人潮突破10萬人。活動由侯友宜、李四川等人陸續致詞，台中市長盧秀燕也率立委上台支持。",
+      "why_it_matters": "顯示選前之夜首都選區的動員規模與藍營跨縣市聯合造勢的氣勢。",
+      "original_title": "蔣萬安凱道選前之夜1小時 喊出人潮破10萬",
+      "published_at": "2026-11-27T04:25:52Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E8%94%A3%E8%90%AC%E5%AE%89%E5%87%B1%E9%81%93%E9%81%B8%E5%89%8D%E4%B9%8B%E5%A4%9C1%E5%B0%8F%E6%99%82-%E5%96%8A%E5%87%BA%E4%BA%BA%E6%BD%AE%E7%A0%B410%E8%90%AC-122552766.html",
+          "published_at": "2026-11-27T04:25:52Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5655777",
+          "published_at": "2026-11-27T12:25:52Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_015",
+      "category": "taiwan",
+      "subcategory": "cross_strait",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "路透：解放軍大埕灣演習 測試民船支援對台登陸",
+      "summary_zh": "根據衛星影像及研究報告指出，中國正在福建省大埕灣舉行兩棲登陸演習。演習主要測試將民用船舶連結成臨時浮橋，藉此將部隊及裝備運送上岸的新方法。",
+      "why_it_matters": "突顯中國持續針對台海進行具針對性的登陸與民船支援軍事測試。",
+      "original_title": "路透：解放軍福建大埕灣演習 測試利用民船支援對台登陸",
+      "published_at": "2026-11-27T07:14:43Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611270135.aspx",
+          "published_at": "2026-11-27T07:14:43Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_016",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "澤倫斯基接受BBC專訪 批評川普與普丁交情奇怪",
+      "summary_zh": "烏克蘭總統澤倫斯基接受BBC專訪時表示，美國總統川普稱俄羅斯總統普丁為朋友的情況非常奇怪，並形容這就像二戰時有人稱希特勒為朋友一樣。他同時批評美國在和平談談判中對俄羅斯施壓不夠。",
+      "why_it_matters": "反映烏克蘭對美國現行外交表態的不滿，牽動未來國際調停與美烏關係走向。",
+      "original_title": "Zelensky criticises 'strange' Trump-Putin friendship in BBC interview",
+      "published_at": "2026-11-27T09:06:23Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611270180.aspx",
+          "published_at": "2026-11-27T09:06:23Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/c820q9wgrpyyo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-27T09:07:48Z",
+          "language": "en"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9906213",
+          "published_at": "2026-11-27T09:13:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_017",
+      "category": "taiwan",
+      "subcategory": "cross_strait",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台灣九合一選舉前夕 國防部偵測30架次解放軍機活動",
+      "summary_zh": "在台灣九合一選舉前夕，國防部通報偵測到30架次解放軍軍機在台海周邊活動，其中26架次越過台灣海峽中線及其延伸線。共軍同時配合共艦進行聯合戰備警巡與遠海長航。",
+      "why_it_matters": "在台灣地方選舉前夕展現中共對台軍事施壓與動態幹預。",
+      "original_title": "台灣地方選舉前夕 解放軍30架次軍機在台海周邊活動",
+      "published_at": "2026-11-27T06:05:46Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611270109.aspx",
+          "published_at": "2026-11-27T06:05:46Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "德國之聲",
+          "url": "https://www.dw.com/zh/台湾地方选举前夕-解放军30架次军机在台海周边活动/a-80072713?maca=chi-rss-chi-all-1127-xml-mrss",
+          "published_at": "2026-11-27T11:08:00Z",
+          "language": "zh-CN"
+        },
+        {
+          "name": "法廣 RFI",
+          "url": "https://www.rfi.fr/tw/%E6%B8%AF%E6%BE%B3%E5%8F%B0/20261127-%E5%8F%B0%E7%81%A3-%E4%B9%9D%E5%90%88%E4%B8%80%E9%81%B8%E8%88%89%E6%9C%80%E5%BE%8C%E4%B8%80%E5%A4%A9%E8%A1%9D%E5%88%BA-%E5%9C%8B%E9%98%B2%E9%83%A8%E7%A8%B1%E5%81%B5%E6%B8%AC%E5%88%B0%E4%B8%AD%E5%9C%8B%E6%B4%BE%E5%87%BA%E7%9A%84%E6%88%B0%E6%A9%9F",
+          "published_at": "2026-11-27T12:43:11Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_018",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "民進黨台北市長候選人沈伯洋取消選前之夜 改線上活動",
+      "summary_zh": "民進黨台北市長候選人沈伯洋宣布取消選前之夜，改以線上活動進行。這是台北市自1994年恢復市長直選以來，首次有民進黨參選人不舉辦實體選前之夜。",
+      "why_it_matters": "創下首都選戰罕見紀錄，可能影響綠營傳統選前造勢氣勢與動員策略。",
+      "original_title": "近20年來首次民進黨台北市長候選人取消選前之夜 沈伯洋宣布改線上活動",
+      "published_at": "2026-11-27T09:50:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鏡週刊Mirror Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5KQm9pODFtMmhvczV4Y0xXNFp5QmpSdElyQ182aG54bW9fa0ZxUG1tdlNQVHM0RDdCMkNuRGR3S3M4eTBEUGlGVXVQVERiWTZ2bng3MV95a0FhX0ot?oc=5",
+          "published_at": "2026-11-27T09:50:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "法廣 RFI",
+          "url": "https://www.rfi.fr/tw/%E6%B8%AF%E6%BE%B3%E5%8F%B0/20261127-%E8%BF%9120%E5%B9%B4%E4%BE%86%E9%A6%96%E6%AC%A1%E6%B0%91%E9%80%B2%E9%BB%A8%E5%8F%B0%E5%8C%97%E5%B8%82%E9%95%B7%E5%80%99%E9%81%B8%E4%BA%BA%E5%8F%96%E6%B6%88%E9%81%B8%E5%89%8D%E4%B9%8B%E5%A4%9C-%E6%B2%88%E4%BC%AF%E6%B4%8B%E5%AE%A3%E5%B8%83%E6%94%B9%E7%B7%9A%E4%B8%8A%E6%B4%BB%E5%8B%95",
+          "published_at": "2026-11-27T12:04:28Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_019",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "GU透膚上衣在Threads爆紅 掀起穿搭熱潮",
+      "summary_zh": "GU的透膚上衣與保暖衣在Threads上引發熱烈討論與爆紅，掀起一股平價穿搭熱潮。網民紛紛分享微辣性感的穿搭方式與入手心得。",
+      "why_it_matters": null,
+      "original_title": "GU 透膚上衣 Threads 爆紅！290 元神級內搭掀穿搭熱潮！",
+      "published_at": "2026-11-27T05:20:46Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "UHK 港生活（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMi0ANBVV95cUxPYS1fZWM1bWY1SmFVQldjNU5UbF8zNldpMGZORnNGQzlPTnlkOXBqOWw5M080SV9zc08tUWJ4VExyU1F5ay0yaDhDRHNjSzVLZkhiNFBacjByTTdjWkV5OWJiZnhCRkVxLVc0R2FOWm92cXhCcWtsWU5TYTAtcGZpTkNfRHBpNlNPRDgydmVqTjRfUTZNcHB5MDVXZWlUS0xhdElRdnB6RzFCWEctU01SbTFveGZjOXBiS1N6aTlmOTF4T3Bpb25ZU3FIUUM1TWxVZGNPYnoxUi1uanphbWx4YUlsWUhHRlRmWjZBYVZEcDBuLUJMa2NVMlI0VTlINkphbzZjeHZKVWVrVGZfRVZhdGRBbTkxeF9PQXMtWEZRMGhYSmphXzFhV2VEM1d4ZXU0algxbG55UFpFRXB3Snp2aFZpU0NueDkzNjYybi1EN3FaemZ6ME9UaWpENlJ0LTk3U3U2NTFhRFY2REQ0ZzNQb0lSU2lud2hBZnJLMEl4VUV4WGh1bkJKZ3pJZzRULTBtczdtTDlnY3laVHRqM3RtVUU4cUQxaFBuTmtoTXpUbTlvcW4xaWNoWVJVaXpjSTJtWHNNWE1wZTJDdzBPYkp3aA?oc=5",
+          "published_at": "2026-11-27T05:20:46Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "JUKSY 街星（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9nT1gyQnc4SmdyTjJQUTRVQjBhenY3OVUyYUM3V290Qm0yQkRjdDE5LXdXb0o3YWVsbVpSaDZBV0hMRVlkOFpzMGdRMVQ?oc=5",
+          "published_at": "2026-11-27T10:26:23Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_020",
+      "category": "world",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "華郵：Threads已被中國鎖定 試圖影響台灣大選",
+      "summary_zh": "根據《華盛頓郵報》報導，社群平台Threads已被中國鎖定並試圖進行影響力作戰，藉此影響台灣大選。相關內容被形容為台灣人的大型群組受到關注。",
+      "why_it_matters": "揭露境外勢力利用新興社群平台進行認知作戰的風險與資安挑戰。",
+      "original_title": "試圖影響台灣大選！《華郵》：Threads已被中國鎖定",
+      "published_at": "2026-11-27T09:04:04Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5feDBNazZ1VE9zV2JVdlpZc210S0Q4R0YyTXlWRWNEOUtSaTZYWFZFTHlRNzljc2hPTTJ4TlhjWXdHM1N2a0NYWG9VTWVZRFY5M2hObUM3anNSSmdPYXRkSWd1QUdpMEFkTVHSAW9BVV95cUxOOWdqVDgyVTM2QjBDRFFBNzhGcHZLaWFFdnluUllsOURleGo5dUNOLWpuQXlueWR0ZG1ITHcyLXJyOUloZXFiNkZYY2lSUWgwNEE1ODcyVUV1MTNvYmhZS25RRDM4LWpqamtvUDRuaEE?oc=5",
+          "published_at": "2026-11-27T09:04:04Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday新聞雲（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBfZXBJZkNFZ3F5VlB4TUpxODJvUC1NQ0Vmb0tqYjltY1FDRmNFaWlSOVBMQ0tDYm9wMDdnTzIwam1WemVJMXlkWVQ5YmFFY09QNDFRSDFQZ19MdHNtUUHSAUtBVV95cUxNSjVIWXAwa3RUS1FCa2NRT09CNm9GR1NqckFpdGk1aUVvNF9icHV5X3pmZF80T3RJNm04dWFzYm5rck5tRjdDalVJNTQ?oc=5",
+          "published_at": "2026-11-27T10:21:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_021",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台式飯糰與豆花攤洗版 Threads網頁小遊戲爆紅",
+      "summary_zh": "台式飯糰與老樣子豆花攤等主題在Threads上遭到洗版討論。同時，相關的網頁小遊戲也在平台上再度爆紅引發網友關注。",
+      "why_it_matters": null,
+      "original_title": "台式飯糰、老樣子豆花攤洗版！Threads網頁小遊戲再爆紅 2大遊戲網站介紹｜熱門話題",
+      "published_at": "2026-11-27T08:00:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "網路溫度計 DailyView（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE8zVWxaTHhTbUtNS0V3dlllUWdtWWdzS0t4d1JmNDFxUzQ3c19wSFc1QjFfcjJINTdHcnJtWWNpWGNwWVA4UjBLbWNOeWdRS01BWVhN?oc=5",
+          "published_at": "2026-11-27T08:00:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_022",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "roster",
+        "transfer"
+      ],
+      "league": "lpl",
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "JDG宣布台灣選手HongQ與JunJia正式離隊",
+      "summary_zh": "英雄聯盟JDG戰隊正式宣布，台灣中路選手HongQ與打野選手JunJia離隊。兩人為期一年的旅外賽季正式告一段落。",
+      "why_it_matters": "牽動台灣電競選手海外發展動向與LPL戰隊陣容調整。",
+      "original_title": "台灣中野雙雄旅外一年告終！《英雄聯盟》JDG宣布HongQ、JunJia正式離隊 下一站動向引關注",
+      "published_at": "2026-11-27T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://weibo.com/6174976862/Rtli7f1pt",
+          "published_at": "2026-11-27T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "GNN 新聞網（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5BcjA1bEZBX0pKWVVMVkxZTjhtOXlvQ3JXM1ZrWTVUdXVzSFc1Si1mUmNqQUljM0k5LVhDcnJSUktXWV9fdUdnVFIyM1lVZWVVdXFPRnpLMHA?oc=5",
+          "published_at": "2026-11-27T11:26:53Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "CMoney（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBtaXFTU3BFY3V0Q0FsRU93eDJ4YU8zQ1lLVDJPQUdubFR0cS1kOWVpZWs5UlJSYlJDaHA2UVRuNVB4cE5WNENGQTJjbmtNSF9TSTZIUkp0Wkg?oc=5",
+          "published_at": "2026-11-27T11:32:28Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "上報Up Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBXeEppUGcyNlVKS2M1MmVmOHNQOS15WG1GSERWZnFMaFZuXzBWQTk5WXVwOGRtM2hIX3YzNk15Z3dBbGx1WlVSSVpEclhmMjVPbU1CWUZMYw?oc=5",
+          "published_at": "2026-11-27T12:05:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_023",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "Threads瘋傳低成本保養法 孫淑媚分享凍齡秘訣",
+      "summary_zh": "Threads上瘋傳低成本保養法，藝人孫淑媚也分享了相關的凍齡秘訣。網友們熱烈討論各種省錢且實用的日常保養方式。",
+      "why_it_matters": null,
+      "original_title": "Threads瘋傳低成本保養法！保養品再貴也不如這5件事，孫淑媚也認證「最便宜凍齡秘訣」",
+      "published_at": "2026-11-27T09:35:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "TVBS 女人我最大（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5MWFprdXVuYnNBcUMzd3Bodk16eE9KQ0lpRG9HY1lpMzg3bHZadFRCOHdVemtPMUp3N3V5MkMybDl3R1FHT2JHT2VUTUNjelU?oc=5",
+          "published_at": "2026-11-27T09:35:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_024",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "網友探討AI時代文組是否更吃香與致勝關鍵",
+      "summary_zh": "網友在社群平台探討在AI時代下文組是否更吃香的議題，並點出相關的致勝關鍵與難以被取代的兩大能力。相關討論在網路上引發熱烈迴響。",
+      "why_it_matters": null,
+      "original_title": "文組在AI時代更吃香？他點「1致勝關鍵」：2能力超難取代",
+      "published_at": "2026-11-27T08:21:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鏡週刊Mirror Media（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1GQmZKaVVYT19jeUdMVlFLZmoxdld2aUFmM2JqVFI2VDFRV3EzOERoYS0xVEZlVXRqV3NYVHlBcF9QYmlxV01KZDNNN2ZXVTdDOFBVWWtBUUhPOTllQ2R3WGlld1dqUQ?oc=5",
+          "published_at": "2026-11-27T08:21:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_025",
+      "category": "esports",
+      "subcategory": "valorant",
+      "importance": 3,
+      "esports_tags": [
+        "roster"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Fnatic將指揮權交給美國選手valyn",
+      "summary_zh": "Fnatic將原本由Boaster負責的指揮權交給美國選手valyn。這項人事變動引發社群關注。",
+      "why_it_matters": null,
+      "original_title": "Fnatic hand Boaster’s calls to American IGL valyn",
+      "published_at": "2026-11-27T11:19:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Pley.gg（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9XN1M2R3VZWFJlQlpaMV9fdXBRVFRIQ2tjaktJR0JwM0QxUEp1bHRwcXp5ekhiekpycFdqTlRnc19mQ1VMc3FIQmJrazJOaXNHNk9tdUY1SHpNMWlDT1dIMFg1S0M5dnhldWZrdW82UkJVR3hDeW4xNWRIcDZ2Nms?oc=5",
+          "published_at": "2026-11-27T11:19:00Z",
+          "language": "en"
+        }
+      ]
+    }
+  ],
+  "llm_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "input_tokens": 56180,
+    "output_tokens": 22900,
+    "calls": 15,
+    "degraded": false,
+    "breakdown": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "calls": 15,
+        "input_tokens": 56180,
+        "output_tokens": 22900
+      }
+    ],
+    "errors": []
+  },
+  "source_errors": [
+    {
+      "source_id": "gnews_business_tw",
+      "error": "HTTPStatusError: Client error '429 Too Many Requests' for url 'https://news.google.com/rss/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JYcG9MVlJYR2dKVVZ5Z0FQAQ?hl=zh-TW&gl=TW&ceid=TW:zh-Hant'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+    }
+  ]
+}
