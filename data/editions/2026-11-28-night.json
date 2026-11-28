@@ -1,0 +1,956 @@
+{
+  "edition_id": "2026-11-28-night",
+  "edition_type": "night",
+  "published_at": "2026-11-28T20:50:27.687049+08:00",
+  "window": {
+    "from": "2026-11-28T11:50:25.180412+08:00",
+    "to": "2026-11-28T20:50:27.687049+08:00"
+  },
+  "briefing": [
+    "台灣九合一選舉與核能政策公投投票結束，全台各地投開票所隨即展開開票工作。",
+    "民進黨台北市長候選人沈伯洋自行宣布敗選，並致電恭喜國民黨籍的蔣萬安連任台北市長。",
+    "全國性公民投票第22案「廢除非核家園」有效同意票數突破676萬票，跨過通過門檻。",
+    "無國界醫生組織表示以色列發動攻擊，導致該組織2名工作人員在加薩走廊一處醫療診所外頭喪命。",
+    "Hanwha Life Esports 宣布網羅選手 Career，完成 2027 LCK 賽季的陣容名單。"
+  ],
+  "headlines": [
+    "evt_001",
+    "evt_002",
+    "evt_008",
+    "evt_010",
+    "evt_011"
+  ],
+  "markets": [
+    {
+      "symbol": "taiex",
+      "name": "台股加權指數",
+      "price": 39308.08,
+      "change": 156.27,
+      "change_pct": 0.4,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T05:33:15Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "2330",
+      "name": "台積電",
+      "price": 2180.0,
+      "change": 35.0,
+      "change_pct": 1.63,
+      "currency": "TWD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T05:30:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "dji",
+      "name": "道瓊工業指數",
+      "price": 50774.94,
+      "change": 591.99,
+      "change_pct": 1.18,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T18:38:45Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "spx",
+      "name": "S&P 500",
+      "price": 7297.49,
+      "change": 114.71,
+      "change_pct": 1.6,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T18:38:39Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "nasdaq",
+      "name": "那斯達克",
+      "price": 24129.5,
+      "change": 543.7,
+      "change_pct": 2.31,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T19:15:59Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "sox",
+      "name": "費城半導體",
+      "price": 9186.706,
+      "change": 411.844,
+      "change_pct": 4.693,
+      "currency": null,
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T19:15:59Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "usdtwd",
+      "name": "美元兌台幣",
+      "price": 32.935,
+      "change": -0.012,
+      "change_pct": -0.036,
+      "currency": null,
+      "unit": null,
+      "decimals": 3,
+      "as_of": "2026-11-27T08:00:39Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "us10y",
+      "name": "美國10年期公債殖利率",
+      "price": 4.936,
+      "change": 0.07401,
+      "change_pct": 1.5222,
+      "currency": null,
+      "unit": "%",
+      "decimals": 3,
+      "as_of": "2026-11-27T22:05:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "gold",
+      "name": "黃金（現貨）",
+      "price": 3651.01,
+      "change": 84.87,
+      "change_pct": 2.38,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-27T20:37:00Z",
+      "date_only": false,
+      "source": "cnyes"
+    },
+    {
+      "symbol": "wti",
+      "name": "原油（WTI）",
+      "price": 82.24,
+      "change": 0.82,
+      "change_pct": 1.0071,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 2,
+      "as_of": "2026-11-24T21:00:00Z",
+      "date_only": true,
+      "source": "fred"
+    },
+    {
+      "symbol": "btc",
+      "name": "比特幣",
+      "price": 59218.39,
+      "change": -2250.71,
+      "change_pct": -3.662,
+      "currency": "USD",
+      "unit": null,
+      "decimals": 0,
+      "as_of": "2026-11-28T12:52:24Z",
+      "date_only": false,
+      "source": "cnyes"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_001",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台灣九合一選舉與核電公投開票結果即時更新",
+      "summary_zh": "台灣九合一選舉與核能政策公投投票結束，全台1.8萬餘處投票所隨即展開開票工作。BBC中文在投票結束後進行視像直播，並在投票站和競選總部進行現場報道。",
+      "why_it_matters": "九合一選舉與核電公投結果將改變台灣政治版圖並牽動未來政局，備受各界關注。",
+      "original_title": "台灣「九合一」選舉與核電公投：開票結果實時更新",
+      "published_at": "2026-11-28T08:14:56Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE84MGF4QjJwWk43d3dnUDI0c09yWDBfdG1hbmpDNTRaNlVTQjJsNXJNYVZOT0ZqRHVObGNPa1RBSDFlUU1FMHotTHpSQWg2c2daREpuaDVMOS12cGh5ZEJSS0I1allCY1HSAWxBVV95cUxNMk1fTTd4TkdBX0doUm9ac3g5M2sxeFFicDZCcU9aTTNZLXNISHBVTHoxbGdOS1kwZUszS1dPajY4OE43QW9neks4YmtPTE9ic3VFLWs1bVRJVzNubng4QjhTTk54VmNaZUdkbWM?oc=5",
+          "published_at": "2026-11-28T08:14:56Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC 中文",
+          "url": "https://www.bbc.com/zhongwen/articles/ck0jxz70e4z5o/trad?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-28T08:31:23Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "BBC 中文",
+          "url": "https://www.bbc.com/zhongwen/articles/cwkgry00vk48o/trad?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-28T09:20:11Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_002",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "沈伯洋自行宣布敗選台北市長 恭喜蔣萬安連任",
+      "summary_zh": "台灣舉行九合一選舉，民進黨台北市長候選人沈伯洋於晚間近8點自行宣布敗選。沈伯洋致電恭喜國民黨籍的蔣萬安連任台北市長，並表示敗選責任由自己一肩扛起。",
+      "why_it_matters": "台北市長選舉結果牽動台灣政壇版圖與未來總統大選佈局。",
+      "original_title": "「台灣民主仍是贏家」：沈伯洋自行宣布敗選台北市長選舉",
+      "published_at": "2026-11-28T12:17:41Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "法廣 RFI",
+          "url": "https://www.rfi.fr/tw/%E6%94%BF%E6%B2%BB/20261128-%E5%8F%B0%E7%81%A3%E5%9C%B0%E6%96%B9%E9%81%B8%E8%88%89-%E6%B2%88%E4%BC%AF%E6%B4%8B%E6%89%BF%E8%AA%8D%E5%9C%A8%E5%8F%B0%E5%8C%97%E5%B8%82%E9%95%B7%E9%81%B8%E8%88%89%E4%B8%AD%E6%95%97%E9%81%B8",
+          "published_at": "2026-11-28T12:17:41Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "德國之聲",
+          "url": "https://www.dw.com/zh/「台灣民主仍是贏家」：沈伯洋自行宣布敗選台北市長選舉/live-80083720?maca=chi-rss-chi-all-1127-xml-mrss",
+          "published_at": "2026-11-28T12:25:00Z",
+          "language": "zh-CN"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5656646",
+          "published_at": "2026-11-28T12:34:36Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_003",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "2026九合一大選投開票 全國縣市長當選名單不斷更新",
+      "summary_zh": "2026九合一大選於28日投票，投票已於下午4點截止，各地投開票所隨即進行開票。各媒體陸續整理全國22縣市地方百里侯的當選人與開票結果。",
+      "why_it_matters": "全國縣市長選舉結果決定各地方政府未來數年的執政權與地方政治走向。",
+      "original_title": "各地「百里侯」誰來當家？ 18縣市結果出爐！（不斷更新）",
+      "published_at": "2026-11-28T12:40:20Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5656490",
+          "published_at": "2026-11-28T12:40:20Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_004",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 5,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "廢除非核家園公投同意票突破676萬跨越門檻",
+      "summary_zh": "全國性公民投票第22案「廢除非核家園」公投開票進度已達81.77％。有效同意票數已突破676萬票，跨過通過門檻。",
+      "why_it_matters": "公投結果將直接決定台灣未來的國家能源政策方向。",
+      "original_title": "「廢除非核家園」公投同意達676萬 已跨過門檻 （不斷更新）",
+      "published_at": "2026-11-28T12:36:01Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5656391",
+          "published_at": "2026-11-28T12:36:01Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_005",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "基隆市長選舉：謝國樑自行宣布當選",
+      "summary_zh": "基隆市長選舉投票結束並進行開票，國民黨籍現任市長謝國樑於晚間在臉書自行宣布當選連任。根據競選總部計票，謝國樑獲得9萬2千多票，小贏民進黨籍對手童子瑋約5千票。",
+      "why_it_matters": "基隆市長選舉結果確認了國民黨在當地的連任執政。",
+      "original_title": "基隆市長選舉 謝國樑自行宣布當選",
+      "published_at": "2026-11-28T10:21:48Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611280110.aspx",
+          "published_at": "2026-11-28T10:21:48Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-28/1074282",
+          "published_at": "2026-11-28T10:28:28Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611280123.aspx",
+          "published_at": "2026-11-28T11:26:16Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "Rti 中央廣播電臺（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBWNWVpYVFlYUdMbWU5R2NMM2FFbF9aMFAxNDZ0R0JzUGNrNjNqcjlvb1NTMEdiZVNWQnFCT2JQbGxUSVpKRTVfZkJrYTVzSUkxR2hnUzVJcDc?oc=5",
+          "published_at": "2026-11-28T11:56:33Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5656643",
+          "published_at": "2026-11-28T12:09:02Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_006",
+      "category": "taiwan",
+      "subcategory": "politics",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "陳亭妃自行宣布當選 成台南首位女市長",
+      "summary_zh": "民進黨台南市長候選人陳亭妃在開票過程中持續領先，以46萬6044票自行宣布擊敗國民黨候選人謝龍介。她成為台南400年來首位女性市長，並延續民進黨在台南的執政版圖。",
+      "why_it_matters": "此勝選確立了台南首位女市長的誕生，並延續了民進黨在台南長達30多年的執政記錄。",
+      "original_title": "陳亭妃宣布當選 成為台南400年首位女市長",
+      "published_at": "2026-11-28T04:14:02Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Yahoo 新聞",
+          "url": "https://tw.news.yahoo.com/%E6%89%8E%E6%A0%B9%E5%9F%BA%E5%B1%A428%E5%B9%B4-%E9%99%B3%E4%BA%AD%E5%A6%83%E6%88%90%E5%BA%9C%E5%9F%8E400%E5%B9%B4%E9%A6%96%E4%BD%8D%E5%A5%B3%E5%B8%82%E9%95%B7-121402513.html",
+          "published_at": "2026-11-28T04:14:02Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611280088.aspx",
+          "published_at": "2026-11-28T09:02:58Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aipl/202611280111.aspx",
+          "published_at": "2026-11-28T10:23:50Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "ETtoday",
+          "url": "https://www.ettoday.net/news/20261128/3279919.htm",
+          "published_at": "2026-11-28T19:44:00+08:00",
+          "language": "zh-TW"
+        },
+        {
+          "name": "新頭殼",
+          "url": "https://newtalk.tw/news/view/2026-11-28/1074301",
+          "published_at": "2026-11-28T12:03:05Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "自由時報",
+          "url": "https://news.ltn.com.tw/news/politics/breakingnews/5656666",
+          "published_at": "2026-11-28T12:28:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_007",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "沙烏地阿拉伯攔截巡弋飛彈 與葉門青年運動互相攻擊",
+      "summary_zh": "沙烏地阿拉伯表示，已擊落一枚以首都利雅德為目標的巡弋飛彈。在此之前，葉門青年運動旗下媒體報導，沙國對青年運動掌控的葉門首都沙那發動空襲。",
+      "why_it_matters": "中東戰事持續升溫，沙烏地阿拉伯與葉門叛軍互相攻擊加劇區域緊張。",
+      "original_title": "中東戰火不止 沙烏地阿拉伯與葉門叛軍互攻首都",
+      "published_at": "2026-11-28T11:50:38Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611280133.aspx",
+          "published_at": "2026-11-28T11:50:38Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9907989",
+          "published_at": "2026-11-28T12:00:50Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_008",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "以色列攻擊加薩診所外頭 釀無國界醫生2員工喪命",
+      "summary_zh": "無國界醫生組織表示，以色列深夜發動攻擊，導致該組織2名工作人員在加薩走廊一處醫療診所外頭喪命。無國界醫生組織對此要求追究相關責任。",
+      "why_it_matters": "醫療人員在衝突中傷亡引發國際組織強烈譴責與對當地人道危機的關注。",
+      "original_title": "無國界醫生怒控 以色列襲加薩造成組織2名人員喪生",
+      "published_at": "2026-11-28T10:34:58Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cm5y10yydln3o?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-28T10:34:58Z",
+          "language": "en"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611280126.aspx",
+          "published_at": "2026-11-28T11:40:23Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9907975",
+          "published_at": "2026-11-28T11:54:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_009",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "俄羅斯稱夜間擊落上千架無人機 巴士遇襲釀9傷",
+      "summary_zh": "俄羅斯國防部表示，俄國防空部隊夜間擊落1246架烏克蘭無人機。布揚斯克州官員則指出，州內有一輛巴士遭無人機攻擊，造成9人受傷。",
+      "why_it_matters": "雙方大規模無人機攻防持續造成平民設施受損與人員傷亡。",
+      "original_title": "俄羅斯稱一夜擊落1246架烏克蘭無人機 巴士遇襲釀9傷",
+      "published_at": "2026-11-28T08:19:42Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611280082.aspx",
+          "published_at": "2026-11-28T08:19:42Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9907706",
+          "published_at": "2026-11-28T08:30:21Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_010",
+      "category": "world",
+      "subcategory": "tech",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "美空軍雲端傳遭駭 五角大廈稱軍事網路安全",
+      "summary_zh": "媒體報導美國空軍雲端系統遭駭客入侵後，美軍否認電腦安全存在任何問題。不過相關消息指出系統升級時部分運作受幹擾，涉戰術與彈藥庫存資料面臨風險。",
+      "why_it_matters": "若軍事雲端系統遭駭屬實，將對美國國防數位基礎設施與機敏軍事資料安全構成威脅。",
+      "original_title": "美空軍雲端傳遭駭 五角大廈稱軍事網路系統安全",
+      "published_at": "2026-11-28T05:10:02Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6674384",
+          "published_at": "2026-11-28T05:10:02Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611280074.aspx",
+          "published_at": "2026-11-28T07:01:24Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9907636",
+          "published_at": "2026-11-28T07:12:30Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_011",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Hanwha Life Esports 網羅 Career 完成 2027 LCK陣容",
+      "summary_zh": "Hanwha Life Esports 宣布網羅選手 Career（오형석），藉此完成 2027 LCK 賽季的陣容名單。",
+      "why_it_matters": null,
+      "original_title": "한화생명, '커리어' 오형석 영입… 2027 LCK 라인업 완성",
+      "published_at": "2026-11-28T00:00:00+08:00",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Leaguepedia",
+          "url": "https://x.com/HLEofficial/status/2126588934419583250",
+          "published_at": "2026-11-28T00:00:00+08:00",
+          "language": "en"
+        },
+        {
+          "name": "데일리e스포츠（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBmc3JHNnRGWEpuTFF0WGRpb2N4a3pBeWxRTGhleU9vVXpQUnFCWHFvaU10RWVINWgwOVV5NmpGbDRDbWJXdjdaQ2J6Qi00RDlaTURuV2lvX1dVZzQybXhmdFp6R0ZmY1pBOU9zQ1dROHEtXzY4djh1aGx4S0E?oc=5",
+          "published_at": "2026-11-28T11:03:31Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_012",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 4,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": "lck",
+      "region_tags": [],
+      "title_zh": "Dplus KIA 網羅輔助 Delight 完成賽季陣容",
+      "summary_zh": "Dplus KIA 宣布網羅輔助選手 Delight（유환중），正式完成新賽季的戰隊陣容名單。",
+      "why_it_matters": null,
+      "original_title": "[LCK] 디플러스 기아, 서포터 '딜라이트' 유환중 영입… 시즌 로스터 완성",
+      "published_at": "2026-11-28T10:51:30Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "https://www.asportstv.kr/（Google 뉴스）",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBXNmdpbmRaVl9leGZEV1VqdFk2bkUySDJHMnd0a2xrOEtYakI3MHc5NGhaOUxwUGtDQVNHMjhIS2ZBVE1jQ1Q4VDZ2d0Fwcms0YkRmYmdyNnRxbk8xQmFjU2loT1Jkb1hN?oc=5",
+          "published_at": "2026-11-28T10:51:30Z",
+          "language": "ko"
+        }
+      ]
+    },
+    {
+      "id": "evt_013",
+      "category": "world",
+      "subcategory": "tech",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "OpenAI反控蘋果透過前員工竊取商業機密",
+      "summary_zh": "開發 ChatGPT 的 OpenAI 對蘋果提出反訴，指控蘋果透過前員工竊取商業機密。",
+      "why_it_matters": "反映兩大科技巨頭在人工智慧與智慧財產權領域的法律戰升溫。",
+      "original_title": "OpenAI counter-sues Apple over alleged theft of trade secrets",
+      "published_at": "2026-11-28T11:35:34Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cm15ekqvlezeo?at_medium=RSS&at_campaign=rss",
+          "published_at": "2026-11-28T11:35:34Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_014",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "陳致中與父母看開票照片引發網友熱議",
+      "summary_zh": "陳致中與父母一同看開票的照片引發網友熱議，照片中陳水扁專注滑手機的畫面更讓網友笑稱又在玩脆。",
+      "why_it_matters": null,
+      "original_title": "陳致中跟爸媽一起看開票！照片放大阿扁狂滑手機 眾笑：又在玩脆",
+      "published_at": "2026-11-28T10:11:24Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "NOWnews今日新聞（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5ROEZzVjV4bHJyWDdPNHpDQ1BHektWaTNWRWtFb2VxYk9wU2Z5c1FLSjI2S1lGR2pPODkxT3IwSmwxV09QeUp1RFE3X0ROVERDV3fSAVJBVV95cUxOUThGc1Y1eGxyclg3TzR6Q0NQR3pLVmkzVkVrRW9lcWJPcFNmeXNRS0oyNktZRkdqTzg5MU9yMEpsMVdPUHlKdURRN19ETlREQ1d3?oc=5",
+          "published_at": "2026-11-28T10:11:24Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_015",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "傳黃仁勳恐缺席輝達GTC大會 華府聽證會與出口管制成焦點",
+      "summary_zh": "輝達執行長黃仁勳深陷調查風暴，恐將缺席在華盛頓特區舉辦的 GTC 大會，主題演講改由副總裁巴克代打。黃仁勳預計在 12 月 1 日與 3 日分別接受眾議院閉門問詢與參議院聽證。",
+      "why_it_matters": "牽動美國國安與出口管制政策，並影響市場對輝達新一代算力需求與收入的信心。",
+      "original_title": "黃仁勳深陷調查風暴恐缺席輝達GTC！大會首次落地華盛頓、算力商機與美國戰略成焦點",
+      "published_at": "2026-11-28T12:10:05Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6674394",
+          "published_at": "2026-11-28T12:10:05Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_016",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "台積電第3季發出419億元員工分紅 年輕工程師年薪備受關注",
+      "summary_zh": "台積電第3季員工分紅總額超過419億元。有網友分享不到30歲的工程師分紅達5.4個月，年薪上看400萬元。",
+      "why_it_matters": "高額分紅凸顯半導體龍頭獲利表現強勁，並持續吸引高薪科技人才。",
+      "original_title": "台積電第3季大手筆發出419億元員工分紅 年輕工程師年薪上看400萬元",
+      "published_at": "2026-11-28T09:23:54Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5612/9907786",
+          "published_at": "2026-11-28T09:23:54Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_017",
+      "category": "finance",
+      "subcategory": "us_stock",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "晶片股強彈費半大漲，台積電ADR帶動美股收高",
+      "summary_zh": "美國晶片股強勁反彈，費城半導體指數上漲 4.7%，台積電 ADR 也上漲 3.2%，帶動美股四大指數收高。",
+      "why_it_matters": "顯示市場對 AI 疑慮暫時緩和，推升整體科技股與美股表現。",
+      "original_title": "AI 疑慮暫歇 晶片股強彈 下周開盤前 五件值得留意的國際大事",
+      "published_at": "2026-11-28T07:32:49Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/123398/9907650",
+          "published_at": "2026-11-28T07:32:49Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/123398/9907695",
+          "published_at": "2026-11-28T08:22:10Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_018",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "黃偉哲Threads發文送透卡獲高讚數 投票民眾現場索取",
+      "summary_zh": "台南市長黃偉哲在 Threads 發文送透卡吸引超過 6 萬個讚，吸引許多民眾到投票所現場索取。",
+      "why_it_matters": null,
+      "original_title": "黃偉哲送「透卡」脆文吸逾6萬讚 現身投票所民眾搶索取",
+      "published_at": "2026-11-28T04:15:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "UDN（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9oMGNqQXYtRTFKdk9PQmR6eHJCZ0NMM29GN1hERENBRmEtNi1KcG12MGNCaEdqcVliR2lHQXV3algxTHRHLXh4QmNPbS1EcXp3aEg0R1dUem8?oc=5",
+          "published_at": "2026-11-28T04:15:00Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "UDN（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9VMm9xWXJQdUtYcDA5U2JZeDhyRFlMYk5Hdlc2aGY5bldWcWFxZllHZWhTc0FrdURDLVg2cHR4QnJuRFR2U3ZySFplV19YWmRpcHdfODN5VGvSAVhBVV95cUxPVTJvcVlyUHVLWHAwOVNiWXg4ckRZTGJOR3ZXNmhmOW5XVnFhcWZZR2VoU3NBa3VEQy1YNnB0eEJybkRUdlN2ckhaZVdfWFpkaXB3XzgzeVRr?oc=5",
+          "published_at": "2026-11-28T04:15:30Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_019",
+      "category": "world",
+      "subcategory": "conflict",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "英國啟動冷戰後最大戰時動員準備，召集預備役加速備戰",
+      "summary_zh": "英國國防部向約 10 萬名戰略預備役寄信更新聯絡與專業技能資料，並計畫推動法案將召回年齡上限由 55 歲提高至 65 歲。英國官方稱此為例行整頓，未正式啟動戰時動員。",
+      "why_it_matters": "顯示歐洲國家正加強國防備戰與軍事後備能量以因應地緣政治風險。",
+      "original_title": "英國啟動冷戰後最大戰時動員準備！10萬預備役收通知、歐洲多國加速備戰",
+      "published_at": "2026-11-28T06:10:04Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6674392",
+          "published_at": "2026-11-28T06:10:04Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "鉅亨網（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoRnYtcVFfVDhyZHJyYW8xUVllQjN4RmV1X3Q5akMwclgzb3pIOVlhZHJ3QU1yanJUY2tUZXpCaW9WSzBtNXdEWlR5SURfYm8?oc=5",
+          "published_at": "2026-11-28T06:10:04Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_020",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 4,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "OpenAI反控蘋果施壓供應商與限制跳槽，阻撓進軍AI硬體",
+      "summary_zh": "OpenAI 反訴蘋果，指控蘋果施壓供應商不得合作並限制員工跳槽以阻撓其進軍 AI 硬體市場，同時指控前員工帶走超過 100 份機密文件。蘋果則否認指控，反指 OpenAI 轉移員工竊密焦點。",
+      "why_it_matters": "突顯科技巨頭在人工智慧硬體與人才競爭上的激烈對立與法律訴訟。",
+      "original_title": "OpenAI反擊蘋果！控施壓供應商、限制員工跳槽 阻撓進軍AI硬體市場",
+      "published_at": "2026-11-28T04:10:05Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "鉅亨網",
+          "url": "https://news.cnyes.com/news/id/6674380",
+          "published_at": "2026-11-28T04:10:05Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_021",
+      "category": "finance",
+      "subcategory": "industry",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "馬來西亞通知駐馬代表處 將召開台馬經合會議",
+      "summary_zh": "馬來西亞投資、貿易及工業部副部長沈志勤宣布，馬來西亞將在投資工作小組會議結束後召開第11屆台馬經濟合作委員會會議。",
+      "why_it_matters": null,
+      "original_title": "馬來西亞通知駐馬代表處 將召開台馬經合會議",
+      "published_at": "2026-11-28T11:09:01Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "中央社",
+          "url": "https://www.cna.com.tw/news/aopl/202611280116.aspx",
+          "published_at": "2026-11-28T11:09:01Z",
+          "language": "zh-TW"
+        },
+        {
+          "name": "經濟日報",
+          "url": "https://money.udn.com/money/story/5599/9907935",
+          "published_at": "2026-11-28T11:21:30Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_022",
+      "category": "esports",
+      "subcategory": "lol",
+      "importance": 3,
+      "esports_tags": [
+        "result",
+        "tournament"
+      ],
+      "league": "lpl",
+      "region_tags": [],
+      "title_zh": "BLG 奪冠為中國電競寫下新頁",
+      "summary_zh": "BLG 在《英雄聯盟》賽事中擊敗韓國隊伍奪冠，為中國電競寫下新頁。",
+      "why_it_matters": null,
+      "original_title": "扳倒韓國稱霸《英雄聯盟》 BLG為中國電競續命- 洛周刊- 新聞",
+      "published_at": "2026-11-28T07:03:23Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "華人今日網（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9ZaGsxd2VjbENBN0JZRUYwbXRYcFhuWnZVeDEzdTFpNE45aTRjSmJzeGhabGQzMk1IQzdBaWlEWG1tVWh6Q0h5QnpVUDhvNm82N290Ri1GY25URUdLVzgxOUV6VFpVQQ?oc=5",
+          "published_at": "2026-11-28T07:03:23Z",
+          "language": "zh-TW"
+        }
+      ]
+    },
+    {
+      "id": "evt_023",
+      "category": "esports",
+      "subcategory": "valorant",
+      "importance": 3,
+      "esports_tags": [
+        "transfer",
+        "roster"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Fnatic 簽下 Minny 完成 2027 特戰英豪陣容",
+      "summary_zh": "Fnatic 宣布簽下 Minny，正式完成其 2027 年的《特戰英豪》戰隊陣容。",
+      "why_it_matters": null,
+      "original_title": "FNATIC Sign Minny to Complete 2027 Valorant Roster",
+      "published_at": "2026-11-28T10:49:17Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "EsportsBets.com（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1kR3Y5cEY1OVB1WktwMk1SWmpicXhJUFhZY3B0VTdkcWpqY2dmTkQyeFN4SFlfYmU4a3o4dTZraTdGdGlDV0JJalhiLTVlOTBNSmhwQnJxMk9mZ1lHUTg5WWxHbFp1S3BBVUZtYUdSV3d5V2lKclZsV2xua3c?oc=5",
+          "published_at": "2026-11-28T10:49:17Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_024",
+      "category": "esports",
+      "subcategory": "cs2",
+      "importance": 3,
+      "esports_tags": [
+        "result",
+        "tournament"
+      ],
+      "league": null,
+      "region_tags": [],
+      "title_zh": "Nemiga 在 Major 擊敗 Lynn Vision",
+      "summary_zh": "Nemiga 的 Major 初登場選手在 Ancient 地圖上以 13 比 1 擊敗 Lynn Vision。",
+      "why_it_matters": null,
+      "original_title": "Nemiga’s Major debutants crush Lynn Vision 13-1 on Ancient",
+      "published_at": "2026-11-28T10:08:10Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "Pley.gg（Google News）",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPMXg1Vl91YThnZWRUaWE5VExpeXg4T0NSR1JURUlRaVl1WHlzUW9LSktPZGw0WUtXWUYxc3hOQ2k0TzdZemhNVTQ2ZVFjWnE4eFVOSFlQVWJhSDZ0WDN0NHl3TXR5VEdMWXNFY185Tm9lcXNRek5ubUs0NHFabnZWQW9fY3I?oc=5",
+          "published_at": "2026-11-28T10:08:10Z",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "evt_025",
+      "category": "threads",
+      "subcategory": "other",
+      "importance": 3,
+      "esports_tags": [],
+      "league": null,
+      "region_tags": [
+        "taiwan"
+      ],
+      "title_zh": "求職族Threads瘋傳羅伯派汀森桌布 網友稱連獲面試",
+      "summary_zh": "社群平台Threads上瘋傳將桌布換成羅伯派汀森的求職都市傳說，許多網友分享更換後連續接到面試通知。這項話題引發熱烈討論並吸引求職族群跟風效仿。",
+      "why_it_matters": null,
+      "original_title": "求職快換上！Threads瘋傳「羅伯派汀森桌布」 網：連收3面試",
+      "published_at": "2026-11-28T03:52:00Z",
+      "ai_processed": true,
+      "sources": [
+        {
+          "name": "TVBS新聞（Google 新聞）",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9QSXlGVmVaUzlrTDJKZmFYX1VpM0x4Q2lIdWNndU41ZHdxQ3Nzbzc4Y0xRQ1NFZmtUMzdTcXlacHRxRldySWxLR1RDTWd2Zw?oc=5",
+          "published_at": "2026-11-28T03:52:00Z",
+          "language": "zh-TW"
+        }
+      ]
+    }
+  ],
+  "llm_usage": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "input_tokens": 54798,
+    "output_tokens": 22847,
+    "calls": 15,
+    "degraded": false,
+    "breakdown": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "calls": 15,
+        "input_tokens": 54798,
+        "output_tokens": 22847
+      }
+    ],
+    "errors": []
+  },
+  "source_errors": [
+    {
+      "source_id": "gnews_business_tw",
+      "error": "HTTPStatusError: Client error '429 Too Many Requests' for url 'https://news.google.com/rss/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JYcG9MVlJYR2dKVVZ5Z0FQAQ?hl=zh-TW&gl=TW&ceid=TW:zh-Hant'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+    },
+    {
+      "source_id": "gnews_lol_en",
+      "error": "HTTPStatusError: Client error '429 Too Many Requests' for url 'https://news.google.com/rss/search?q=(LCK%20OR%20LPL)%20when:2d&hl=en-US&gl=US&ceid=US:en'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+    }
+  ]
+}
